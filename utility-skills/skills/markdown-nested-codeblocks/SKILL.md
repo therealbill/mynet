@@ -1,9 +1,15 @@
 ---
 name: Markdown Nested Code Blocks
-description: Fix broken markdown rendering when code blocks contain code blocks
-when_to_use: when writing markdown that contains code examples, documenting code syntax, creating tutorials with code snippets, or fixing broken code block rendering in markdown files
+description: >-
+  This skill should be used when writing markdown that contains code blocks
+  inside other code blocks (nested fences), when showing markdown source that
+  includes triple-backtick examples, when creating tutorials or documentation
+  with embedded code snippets, when fixing broken code block rendering, or when
+  the user asks about backtick escaping, fenced code block nesting, the k+1
+  rule, or how to show markdown code blocks inside markdown. Also applies
+  proactively when writing READMEs, documentation, or blog posts that will
+  contain code examples inside markdown fences.
 version: 1.1.0
-languages: markdown
 ---
 
 # Markdown Nested Code Blocks

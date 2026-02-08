@@ -1,10 +1,13 @@
 ---
 name: Recursive Make for Multi-Directory Projects
-description: Structure multi-directory builds using phony target pattern for parallelism and correct error handling, not shell loops
-when_to_use: when building projects with subdirectories that each have Makefiles, handling recursive make, or when user shows shell loop pattern in root Makefile
+description: >-
+  This skill should be used when the user asks about multi-directory Makefile
+  builds, recursive make, building subdirectories, using make -C, structuring a
+  project with multiple Makefiles, fixing make -j parallelism issues, replacing
+  shell loops with phony targets, exporting variables to sub-makes, or using the
+  $(MAKE) variable. Also applies when the user shows a for-loop pattern in a
+  root Makefile for building subdirectories.
 version: 1.0.0
-languages: make
-dependencies: GNU Make 3.81+, makefile-fundamentals
 ---
 
 # Recursive Make for Multi-Directory Projects

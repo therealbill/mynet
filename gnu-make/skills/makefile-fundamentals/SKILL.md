@@ -1,10 +1,14 @@
 ---
 name: Makefile Fundamentals
-description: Create professional, self-documenting Makefiles with the ## help pattern and essential best practices
-when_to_use: when creating Makefiles, fixing broken Makefiles, adding build targets, or handling "missing separator" errors
+description: >-
+  This skill should be used when the user asks to create a Makefile, write a
+  Makefile, generate a Makefile template, fix a broken Makefile, resolve a
+  "missing separator" error, add build targets, set up a help target, or
+  implement self-documenting Makefiles with the ## comment pattern. Also applies
+  when reviewing Makefiles for best practices like .PHONY declarations, tab
+  characters, and .DELETE_ON_ERROR. For pattern rules and automatic variables in
+  depth, see the makefile-advanced-features skill.
 version: 1.0.0
-languages: make
-dependencies: GNU Make 3.81+
 ---
 
 # Makefile Fundamentals

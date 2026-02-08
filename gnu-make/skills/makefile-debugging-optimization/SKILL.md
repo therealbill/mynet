@@ -1,10 +1,13 @@
 ---
 name: Makefile Debugging and Optimization
-description: Teach systematic debugging methodology using Make's built-in flags before suggesting specific fixes
-when_to_use: when debugging Makefile issues, performance problems, or when user reports unexpected build behavior
+description: >-
+  This skill should be used when the user asks to debug a Makefile, diagnose
+  slow builds, fix unexpected rebuild behavior, understand why make rebuilds
+  everything, figure out why a target does not rebuild, check Makefile variable
+  values, use make -n/-d/-p/--trace flags, optimize build performance, or
+  troubleshoot any Makefile issue. Also applies when the user reports "build is
+  slow", "everything rebuilds", or "target never rebuilds".
 version: 1.0.0
-languages: make
-dependencies: GNU Make 3.81+, makefile-fundamentals
 ---
 
 # Makefile Debugging and Optimization

@@ -1,13 +1,18 @@
 ---
-name: Advanced Makefile Features - Pattern Rules and Automatic Variables
-description: Use pattern rules and automatic variables by default for DRY, maintainable Makefiles, not repetitive explicit rules
-when_to_use: when creating Makefiles with compilation rules, multiple similar targets, or when user shows repetitive explicit rules
+name: Advanced Makefile Features
+description: >-
+  This skill should be used when the user asks about Makefile pattern rules,
+  automatic variables ($@, $<, $^, $?, $*), wildcard functions, patsubst,
+  reducing Makefile duplication, compiling multiple C files with one rule, static
+  pattern rules, conditional compilation with ifeq, or target-specific
+  variables. Also applies when the user shows repetitive explicit rules that
+  could be replaced with pattern rules, or asks about DRY Makefile practices.
+  For basic Makefile creation and the ## help pattern, see
+  makefile-fundamentals.
 version: 1.0.0
-languages: make
-dependencies: GNU Make 3.81+, makefile-fundamentals
 ---
 
-# Advanced Makefile Features - Pattern Rules and Automatic Variables
+# Advanced Makefile Features
 
 ## Overview
 

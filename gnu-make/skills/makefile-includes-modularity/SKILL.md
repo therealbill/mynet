@@ -1,10 +1,14 @@
 ---
 name: Makefile Includes and Modularity
-description: Use include directive to organize large Makefiles into focused modules, not monolithic single files
-when_to_use: when creating Makefiles over 150 lines, handling multiple environments/configs, or when user shows large single-file Makefile
+description: >-
+  This skill should be used when the user asks about splitting a Makefile into
+  multiple files, using the include or -include directive, organizing a large
+  Makefile into modules, creating environment-specific configurations
+  (dev/prod/staging), sharing Makefile configuration across projects, or when a
+  Makefile exceeds 150 lines. Also applies when the user mentions config.mk,
+  rules.mk, modular Makefile structure, or asks how to reduce Makefile size and
+  improve maintainability.
 version: 1.0.0
-languages: make
-dependencies: GNU Make 3.81+, makefile-fundamentals, makefile-advanced-features
 ---
 
 # Makefile Includes and Modularity
