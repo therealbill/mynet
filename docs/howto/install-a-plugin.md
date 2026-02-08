@@ -12,61 +12,51 @@ Install a Mynet plugin so its agents, skills, and commands are available in your
 
 - Claude Code installed and configured
 - A Claude Code project initialized (a working directory with code)
-- The Mynet marketplace repository cloned locally
+- The Mynet marketplace added to Claude Code (run `/plugin marketplace add therealbill/mynet` if not already registered)
 
 ## Steps
 
 ### 1. Browse Available Plugins
 
-Open the marketplace manifest to see all available plugins:
+Open the plugin manager and browse available plugins:
 
-```bash
-cat .claude-plugin/marketplace.json
+```
+/plugin
 ```
 
-Each entry lists a plugin's name, description, and keywords. Identify the plugin you want to install. For example, `code-quality` provides code review and testing agents.
+Navigate to the **Discover** tab to see all plugins from registered marketplaces. Each entry lists a plugin's name, description, and keywords. Identify the plugin you want to install. For example, `code-quality` provides code review and testing agents.
 
 ### 2. Install from the Marketplace
 
-Add the plugin to your project's Claude Code configuration. In your project's `.claude/settings.json`, add the plugin source path:
+Install a plugin directly using the `/plugin` command:
 
-```json
-{
-  "plugins": [
-    {
-      "name": "code-quality",
-      "source": "/path/to/claude-plugins/code-quality"
-    }
-  ]
-}
+```
+/plugin install code-quality@mynet --scope project
 ```
 
-Replace `/path/to/claude-plugins/` with the absolute path to your local Mynet repository clone.
+The `--scope project` flag makes the plugin available to anyone who works in this project directory. Omit it to install for your user only.
+
+The plugin loads immediately -- no restart is needed.
 
 ### 3. Install from a Local Directory
 
-If you have a plugin directory outside the marketplace, point directly to it:
+If you have a plugin directory outside the marketplace, install it by path:
 
-```json
-{
-  "plugins": [
-    {
-      "name": "my-custom-plugin",
-      "source": "/absolute/path/to/my-custom-plugin"
-    }
-  ]
-}
+```
+claude plugin install /absolute/path/to/my-custom-plugin
 ```
 
 The directory must contain a `.claude-plugin/plugin.json` manifest at minimum.
 
-### 4. Restart Your Claude Code Session
+### 4. List Installed Plugins
 
-Close and reopen Claude Code, or start a new session in your project directory. Plugins load at session startup.
+Confirm the plugin loaded by checking the Installed tab:
 
-### 5. List Installed Plugins
+```
+/plugin
+```
 
-Confirm the plugin loaded by checking which agents, skills, and commands are available. Invoke an agent from the installed plugin to verify:
+Navigate to the **Installed** tab to see all active plugins. You can also invoke an agent from the installed plugin to verify:
 
 ```
 @code-reviewer Review the current file for issues.
@@ -74,17 +64,15 @@ Confirm the plugin loaded by checking which agents, skills, and commands are ava
 
 If the agent responds, the plugin is installed correctly.
 
-### 6. Remove a Plugin
+### 5. Remove a Plugin
 
-Delete the plugin entry from your project's `.claude/settings.json`:
+Uninstall a plugin using the `/plugin` command:
 
-```json
-{
-  "plugins": []
-}
+```
+/plugin uninstall code-quality@mynet
 ```
 
-Restart your Claude Code session. The plugin's agents, skills, and commands will no longer be available.
+The plugin's agents, skills, and commands will no longer be available.
 
 ## Verify It Works
 
@@ -98,9 +86,9 @@ After installation, run a quick check:
 
 **Agent not found after installation:**
 
-- Confirm the `source` path in your settings is an absolute path, not relative
+- Verify the plugin appears in the `/plugin` Installed tab
 - Verify the plugin directory contains `.claude-plugin/plugin.json`
-- Restart your Claude Code session -- plugins load only at startup
+- Try reinstalling with `/plugin install plugin-name@mynet`
 
 **Plugin loads but skills do not trigger:**
 

@@ -10,43 +10,24 @@ Identify which Mynet plugin provides the agents, skills, or commands you need fo
 
 ## Prerequisites
 
-- The Mynet marketplace repository cloned locally
+- The Mynet marketplace added to Claude Code (run `/plugin marketplace add therealbill/mynet` if not already registered)
 - Familiarity with the plugin component types (agents, skills, commands) -- see the [Marketplace Explanation](../../explanation/) for background
 
 ## Steps
 
 ### 1. Browse the Plugin Catalog
 
-Open the marketplace manifest to see all registered plugins:
+Open the plugin manager and navigate to the Discover tab:
 
-```bash
-cat .claude-plugin/marketplace.json | jq '.plugins[] | {name, description, keywords}'
+```
+/plugin
 ```
 
-Expected output (abbreviated):
-
-```json
-{
-  "name": "code-quality",
-  "description": "Code review, testing, accessibility, and architectural quality agents",
-  "keywords": ["code-review", "testing", "accessibility", "architecture", "quality"]
-}
-{
-  "name": "devops-and-infra",
-  "description": "DevOps automation, CI/CD, monitoring, and infrastructure agents",
-  "keywords": ["devops", "ci-cd", "github-actions", "prometheus", "monitoring"]
-}
-```
+The **Discover** tab lists all registered plugins with their name, description, and keywords. Scroll through the list or use the search/filter functionality to narrow results.
 
 ### 2. Search by Keyword
 
-Filter plugins using a keyword that matches your task:
-
-```bash
-cat .claude-plugin/marketplace.json | jq '.plugins[] | select(.keywords[] | test("review")) | .name'
-```
-
-This returns every plugin whose keywords match "review". Common search terms:
+Use the Discover tab's search to filter plugins by keyword. Common search terms and what they match:
 
 | Search term | Matches |
 |---|---|
@@ -77,14 +58,13 @@ Use this mapping to go from task type to the recommended plugin:
 
 ### 4. Inspect Plugin Components
 
-Before installing, check what a plugin actually contains:
+Before installing, check what a plugin contains. You can inspect components from the `/plugin` UI by selecting a plugin in the Discover tab to see its agents, skills, and commands.
+
+You can also browse the marketplace repository directly for detailed component definitions:
 
 ```bash
-# List agents
+# List agents in a plugin
 ls code-quality/agents/
-
-# List skills
-ls code-quality/skills/
 
 # Read a specific agent definition
 cat code-quality/agents/code-reviewer.md
@@ -94,7 +74,7 @@ The agent's YAML frontmatter shows its name, description, required tools, and mo
 
 ### 5. Check Plugin Version and Metadata
 
-Read the plugin manifest for version and compatibility information:
+Plugin metadata (version, keywords, description) is visible in the Discover tab when you select a plugin. For detailed inspection, read the plugin manifest:
 
 ```bash
 cat code-quality/.claude-plugin/plugin.json
@@ -133,11 +113,6 @@ After identifying the right plugin:
 
 - Check the `skills/` directory -- the capability may be a skill rather than an agent
 - Check the `commands/` directory for slash commands
-
-**jq command not found:**
-
-- Install jq: `brew install jq` (macOS) or `apt install jq` (Linux)
-- Alternatively, open the JSON file directly in your editor
 
 ## Next Steps
 

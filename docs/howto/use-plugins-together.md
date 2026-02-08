@@ -17,36 +17,17 @@ Combine agents from multiple Mynet plugins in a single session to handle workflo
 
 ### 1. Install Multiple Plugins
 
-Add all required plugins to your project's `.claude/settings.json`:
+Install each plugin using the `/plugin` command:
 
-```json
-{
-  "plugins": [
-    {
-      "name": "research",
-      "source": "/path/to/claude-plugins/research"
-    },
-    {
-      "name": "code-quality",
-      "source": "/path/to/claude-plugins/code-quality"
-    },
-    {
-      "name": "programming-languages",
-      "source": "/path/to/claude-plugins/programming-languages"
-    },
-    {
-      "name": "diataxis-docs",
-      "source": "/path/to/claude-plugins/diataxis-docs"
-    },
-    {
-      "name": "developer-tools",
-      "source": "/path/to/claude-plugins/developer-tools"
-    }
-  ]
-}
+```
+/plugin install research@mynet --scope project
+/plugin install code-quality@mynet --scope project
+/plugin install programming-languages@mynet --scope project
+/plugin install diataxis-docs@mynet --scope project
+/plugin install developer-tools@mynet --scope project
 ```
 
-Restart your Claude Code session to load all plugins.
+Each plugin loads immediately after installation -- no restart is needed.
 
 ### 2. Workflow: Research into Reports
 
@@ -151,7 +132,7 @@ After running a multi-plugin workflow:
 
 **Agent from one plugin cannot see output from another:**
 
-- Confirm both plugins are listed in `.claude/settings.json`
+- Confirm both plugins appear in the `/plugin` Installed tab
 - Run both agents in the same session -- agents share conversation context within a session but not across sessions
 
 **Agent produces generic output, ignoring earlier context:**
@@ -167,7 +148,7 @@ After running a multi-plugin workflow:
 **Too many plugins slow down session startup:**
 
 - Install only the plugins needed for your current task
-- Remove unused plugins from `.claude/settings.json` when switching projects
+- Remove unused plugins with `/plugin uninstall plugin-name@mynet` when switching projects
 
 **Agents repeat work already done by a previous agent:**
 

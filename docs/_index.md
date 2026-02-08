@@ -16,10 +16,13 @@ Mynet organizes specialized Claude agents, skills, commands, and templates into 
 ### Installation
 
 ```bash
-# Install a single plugin
-claude plugin install code-quality
+# Add the Mynet marketplace (one-time setup)
+/plugin marketplace add therealbill/mynet
 
-# Or install from local directory
+# Install a plugin from the marketplace
+/plugin install code-quality@mynet --scope project
+
+# Or install from a local directory
 claude plugin install ./code-quality
 ```
 

@@ -12,7 +12,7 @@ Install a plugin from the Mynet marketplace, trigger an agent on real code, and 
 
 By the end of this tutorial, you will have:
 
-- Cloned the Mynet plugin marketplace
+- Added the Mynet marketplace and installed a plugin using Claude Code's plugin manager
 - Installed the **code-quality** plugin into a project
 - Made a deliberate code change with a bug
 - Triggered the **code-reviewer** agent to catch the bug
@@ -23,97 +23,55 @@ This takes about 15 minutes.
 ## Prerequisites
 
 - Claude Code CLI installed and authenticated (run `claude --version` to verify)
-- Git installed
 - A project directory with at least one source file (any language)
 
-## Step 1: Clone the Mynet Marketplace
+## Step 1: Add the Mynet Marketplace
 
-Open your terminal and clone the Mynet repository:
-
-```bash
-git clone https://github.com/your-org/claude-plugins.git ~/mynet
-```
-
-This downloads the full marketplace. Each top-level directory is an independent plugin.
-
-Run this command to see the available plugins:
-
-```bash
-ls -d ~/mynet/*/
-```
-
-You should see directories like `code-quality/`, `web-development/`, `backend-development/`, `devops-and-infra/`, and others. Each one is a self-contained plugin you can install into any project.
-
-## Step 2: Explore the Marketplace Manifest
-
-Open the marketplace manifest to see what plugins are available:
-
-```bash
-cat ~/mynet/.claude-plugin/marketplace.json
-```
-
-You should see a JSON file listing every plugin with its name, description, version, and keywords. Look for the `code-quality` entry:
-
-```json
-{
-  "name": "code-quality",
-  "source": "./code-quality",
-  "description": "Code review, testing, accessibility, and architectural quality agents",
-  "version": "1.0.0",
-  "keywords": ["code-review", "testing", "accessibility", "architecture", "quality"]
-}
-```
-
-This tells you the plugin provides agents for code review, testing, accessibility checking, and architecture review.
-
-## Step 3: Examine the Plugin Structure
-
-Look inside the code-quality plugin:
-
-```bash
-ls ~/mynet/code-quality/agents/
-```
-
-You should see:
+Inside a Claude Code session, register the Mynet marketplace so its plugins appear in the Discover tab:
 
 ```
-architect-review.md
-code-reviewer.md
-playwright-expert.md
-test-writer-fixer.md
-web-accessibility-checker.md
+/plugin marketplace add therealbill/mynet
 ```
 
-Each `.md` file defines one agent. The **code-reviewer** agent is the one you will use in this tutorial. It reviews recent code changes for correctness, security, and maintainability.
+This is a one-time setup step. Once added, the marketplace persists across sessions -- you do not need to add it again.
 
 ### Checkpoint
 
-At this point you should have:
+Run this command to confirm the marketplace was registered:
 
-- The Mynet repository cloned to `~/mynet`
-- Confirmed that the `code-quality` plugin exists with five agents
-- Identified the `code-reviewer.md` agent file
-
-If `ls ~/mynet/code-quality/agents/` does not show five `.md` files, re-run the clone command from Step 1.
-
-## Step 4: Install the Plugin in Your Project
-
-Navigate to your project directory (any project with source code will work). Create or edit your project's `.claude/settings.json` to add the plugin path:
-
-```bash
-mkdir -p .claude
-cat > .claude/settings.json << 'EOF'
-{
-  "plugins": [
-    "~/mynet/code-quality"
-  ]
-}
-EOF
+```
+/plugin marketplace list
 ```
 
-This tells Claude Code to load the code-quality plugin whenever you work in this project. The agents defined in the plugin become available in your Claude Code sessions.
+You should see `mynet` in the output. If it does not appear, re-run the add command from above.
 
-## Step 5: Create a File with a Bug
+## Step 2: Browse and Install the code-quality Plugin
+
+You can install the plugin interactively or with a direct command.
+
+**Option A: Interactive** -- Run `/plugin`, navigate to the Discover tab, find `code-quality`, and install it.
+
+**Option B: Direct command:**
+
+```
+/plugin install code-quality@mynet --scope project
+```
+
+The `--scope project` flag makes the plugin available to anyone who works in this project directory. Without it, the plugin installs for your user only.
+
+### Checkpoint
+
+Run `/plugin` and check the Installed tab. You should see **code-quality** listed with its agents:
+
+- architect-review
+- code-reviewer
+- playwright-expert
+- test-writer-fixer
+- web-accessibility-checker
+
+If the plugin does not appear, verify the marketplace was added in Step 1 and try installing again.
+
+## Step 3: Create a File with a Bug
 
 Create a small source file with a deliberate bug. This gives the code-reviewer agent something to find.
 
@@ -136,7 +94,7 @@ This file has two problems that a code reviewer should catch:
 - `calculate_average` will crash with a `ZeroDivisionError` if given an empty list
 - `process_user_input` has a SQL injection vulnerability
 
-## Step 6: Stage the Change
+## Step 4: Stage the Change
 
 Add the file to git so it appears in `git diff`:
 
@@ -150,19 +108,13 @@ The code-reviewer agent works by examining `git diff` output. Staging the file m
 
 At this point you should have:
 
-- A `.claude/settings.json` file pointing to the code-quality plugin
+- The code-quality plugin installed and visible in the `/plugin` Installed tab
 - An `example.py` file staged in git with two known issues
 - Run `git diff --cached` to verify the staged file appears in the diff
 
-## Step 7: Launch Claude Code and Trigger the Agent
+## Step 5: Trigger the Code-Reviewer Agent
 
-Start Claude Code in your project directory:
-
-```bash
-claude
-```
-
-Once Claude Code starts, type this prompt:
+In your Claude Code session, type this prompt:
 
 ```
 Review the changes I just made
@@ -170,7 +122,7 @@ Review the changes I just made
 
 Claude Code recognizes that you are asking for a code review and routes your request to the **code-reviewer** agent from the code-quality plugin.
 
-## Step 8: Read the Agent's Output
+## Step 6: Read the Agent's Output
 
 The code-reviewer agent runs through a structured review process:
 
@@ -212,9 +164,9 @@ At this point you should have:
 - Seen at least two Critical findings (the division-by-zero and SQL injection)
 - Understood the severity categories in the output
 
-If Claude Code did not route to the code-reviewer agent, verify that `.claude/settings.json` contains the correct plugin path and restart Claude Code.
+If Claude Code did not route to the code-reviewer agent, verify that the plugin is enabled in the `/plugin` Installed tab.
 
-## Step 9: Fix the Issues and Re-review
+## Step 7: Fix the Issues and Re-review
 
 Update `example.py` to fix both problems:
 
@@ -250,8 +202,8 @@ You should see a clean report with no Critical findings. The agent confirms the 
 
 In this tutorial, you:
 
-- **Cloned the Mynet marketplace** and explored its structure -- a collection of independent plugins, each with its own agents, skills, and commands
-- **Installed a plugin** by adding its path to your project's `.claude/settings.json`
+- **Added the Mynet marketplace** to Claude Code -- a one-time registration that makes all marketplace plugins discoverable
+- **Installed a plugin** using the `/plugin` command with project scope
 - **Triggered an agent** by asking Claude Code a natural language question that matched the agent's description
 - **Interpreted structured output** from the code-reviewer agent, understanding its severity categories and fix recommendations
 - **Iterated on feedback** by fixing issues and re-running the review
@@ -267,13 +219,13 @@ Now that you have a working plugin installation, explore further:
 
 ## Troubleshooting
 
-**Claude Code does not recognize the plugin**
+**Plugin not showing in Discover tab**
 
-Verify the path in `.claude/settings.json` is correct and points to the plugin directory (the one containing `.claude-plugin/plugin.json`). Restart Claude Code after changing settings.
+Verify the marketplace was added with `/plugin marketplace list`. If it is not listed, re-run `/plugin marketplace add therealbill/mynet`.
 
-**The code-reviewer agent does not trigger**
+**Agent not triggering after install**
 
-The agent activates on prompts related to code review. Use phrases like "review the changes I just made," "check my code before I push," or "does this look right to you?" If `git diff` shows no changes, the agent has nothing to review -- make sure your file is staged.
+Verify the plugin is enabled in the `/plugin` Installed tab. The agent activates on prompts related to code review. Use phrases like "review the changes I just made," "check my code before I push," or "does this look right to you?"
 
 **git diff shows no output**
 
