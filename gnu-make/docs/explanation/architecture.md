@@ -66,3 +66,9 @@ Each skill focuses on its domain without duplicating material from others. Funda
 The gnu-make plugin focuses specifically on GNU Make best practices. For broader build workflow concerns -- CI/CD integration, multi-tool build pipelines, containerized builds -- the developer-tools plugin provides complementary coverage. The gnu-make plugin does not attempt to cover these areas. Its scope is the Makefile itself: writing it correctly, organizing it well, and debugging it systematically.
 
 This narrow scope is intentional. A skill that tries to cover everything dilutes its expertise. By staying focused on Make, each skill can provide deep, opinionated guidance rather than surface-level advice.
+
+## See Also
+
+- [Skill Reference]({{< ref "reference/skills" >}}) -- technical specifications for all five skills
+- [Skill Progression]({{< ref "explanation/skill-progression" >}}) -- the learning path through fundamentals to debugging
+- [Getting Started]({{< ref "tutorials/getting-started" >}}) -- hands-on introduction to the skills

@@ -198,3 +198,9 @@ The gnu-make plugin contains five skills. Each skill provides knowledge injectio
 - Using recursive expansion (`=`) for expensive `$(wildcard)` or `$(shell)` calls
 - Parsing `.d` dependency files during `make clean`
 - Missing parallelism due to undeclared dependencies or shell loops
+
+## See Also
+
+- [Getting Started]({{< ref "tutorials/getting-started" >}}) -- tutorial walkthrough of the five skills
+- [Architecture]({{< ref "explanation/architecture" >}}) -- why skills are organized this way
+- [Skill Progression]({{< ref "explanation/skill-progression" >}}) -- the learning path through the skills

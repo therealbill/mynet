@@ -90,3 +90,9 @@ Each level in this progression assumes knowledge from the previous levels:
 - **Debugging** assumes you have a build system complex enough to need diagnosis, and that you understand the constructs (pattern rules, variables, includes) that the diagnostic output reveals.
 
 This progression means a user working through the skills in order builds a complete, layered understanding of GNU Make. But the skills also work independently. A user who only needs to debug a slow build can use the debugging skill without having studied modularity. The progression describes the ideal learning path, not a prerequisite chain.
+
+## See Also
+
+- [Skill Reference]({{< ref "reference/skills" >}}) -- technical specifications for all five skills
+- [Architecture]({{< ref "explanation/architecture" >}}) -- how the plugin is structured
+- [Debug a Slow Makefile]({{< ref "howto/debug-slow-makefile" >}}) -- practical application of the debugging skill

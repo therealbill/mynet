@@ -98,3 +98,9 @@ Preview the markdown in your target renderer (GitHub, VS Code preview, Hugo, or 
 - **Same-length fences:** Using 3 backticks for both inner and outer fences is the most frequent mistake. The parser closes the outer block at the first matching fence it encounters.
 - **Mismatched closing fence:** Opening with 4 backticks but closing with 3. Always match the exact character and length.
 - **Escaping inner backticks:** Backslash-escaping backticks inside code fences does not work. Use a longer outer fence instead.
+
+## See Also
+
+- [Getting Started]({{< ref "tutorials/getting-started" >}}) -- tutorial walkthrough of the skill in action
+- [Skill Reference]({{< ref "reference/skills" >}}) -- trigger patterns and compatibility details
+- [Architecture]({{< ref "explanation/architecture" >}}) -- why nested fences break and how the k+1 rule works

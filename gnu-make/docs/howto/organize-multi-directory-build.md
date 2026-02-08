@@ -192,3 +192,9 @@ make -j4 all 2>&1 | grep "Entering directory"
 ```
 
 The "Entering directory" messages should show `lib` before `app` and `tests`, with `app` and `tests` interleaved (indicating parallel execution).
+
+## See Also
+
+- [Skill Reference]({{< ref "reference/skills" >}}) -- makefile-recursive-multi-directory skill specification
+- [Split a Large Makefile]({{< ref "howto/split-large-makefile" >}}) -- organize individual Makefiles with includes
+- [Debug a Slow Makefile]({{< ref "howto/debug-slow-makefile" >}}) -- diagnose parallelism and rebuild issues

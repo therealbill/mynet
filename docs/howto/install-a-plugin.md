@@ -114,6 +114,7 @@ After installation, run a quick check:
 
 ## Next Steps
 
-- [How to Find the Right Plugin for Your Task](../find-right-plugin/) -- search and match plugins to your workflow
-- [How to Use Plugins Together](../use-plugins-together/) -- combine agents from multiple plugins
-- [Marketplace Reference](../../reference/) -- full plugin manifest schema and configuration options
+- [How to Find the Right Plugin for Your Task]({{< ref "howto/find-right-plugin" >}}) -- search and match plugins to your workflow
+- [How to Use Plugins Together]({{< ref "howto/use-plugins-together" >}}) -- combine agents from multiple plugins
+- [Plugin JSON Reference]({{< ref "reference/plugin-json" >}}) -- full plugin manifest schema
+- [Component Conventions]({{< ref "reference/component-conventions" >}}) -- agent, skill, command, and template formats

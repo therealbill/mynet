@@ -168,3 +168,9 @@ Compare against your baseline numbers. If the improvement is not significant, re
 | Single file change rebuilds too much | `make -d all 2>&1 \| grep 'is newer'` | Unexpected "newer" files |
 | Variable has wrong value | `make -p \| grep "^VAR"` | Check `=` vs `:=` |
 | Unknown execution order | `make --trace all` | Rule firing sequence |
+
+## See Also
+
+- [Skill Reference]({{< ref "reference/skills" >}}) -- makefile-debugging-optimization skill specification
+- [Organize a Multi-Directory Build]({{< ref "howto/organize-multi-directory-build" >}}) -- fix parallelism issues in multi-directory builds
+- [Skill Progression]({{< ref "explanation/skill-progression" >}}) -- how debugging fits the learning path

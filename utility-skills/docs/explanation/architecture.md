@@ -37,3 +37,9 @@ The markdown-nested-codeblocks component is a skill because it encapsulates a si
 The skill does not wait for the user to ask about nesting. It activates whenever Claude writes markdown that will contain code examples inside fences. This is a deliberate design choice: the most common failure mode is not that users cannot find the rule, but that the rule is not applied in the moment when documentation is being written. Proactive activation prevents broken rendering before it occurs, rather than fixing it after the fact.
 
 This is the key advantage of encoding the k+1 rule as a skill with broad trigger conditions. A narrowly triggered skill that only responds to explicit questions about "backtick nesting" would miss the majority of cases where the rule is needed -- cases where the user is focused on writing content, not on markdown syntax.
+
+## See Also
+
+- [Getting Started]({{< ref "tutorials/getting-started" >}}) -- see the skill in action
+- [Nest Code Blocks Correctly]({{< ref "howto/nest-code-blocks-correctly" >}}) -- apply the k+1 rule step by step
+- [Skill Reference]({{< ref "reference/skills" >}}) -- trigger patterns and technical specification

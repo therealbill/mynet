@@ -261,8 +261,9 @@ In this tutorial, you:
 Now that you have a working plugin installation, explore further:
 
 - **Try other agents in code-quality** -- the `test-writer-fixer` agent generates tests for your code, and the `architect-review` agent evaluates your project's architecture
-- **Browse the marketplace** -- look at `web-development`, `backend-development`, `devops-and-infra`, and other plugins for agents that match your workflow
-- **Install multiple plugins** -- add more entries to the `plugins` array in `.claude/settings.json` to combine capabilities from different plugins
+- **Browse the marketplace** -- the [Plugin Catalog]({{< ref "reference/plugin-catalog" >}}) lists all available plugins with their component counts
+- **Install multiple plugins** -- see [How to Use Plugins Together]({{< ref "howto/use-plugins-together" >}}) for combining agents across plugins
+- **Find the right plugin** -- use [How to Find the Right Plugin]({{< ref "howto/find-right-plugin" >}}) to match plugins to your workflow
 
 ## Troubleshooting
 

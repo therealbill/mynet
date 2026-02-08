@@ -208,3 +208,9 @@ myproject/
 ```
 
 Each file has a single responsibility and fits on a screen. Team members can work on different modules with minimal merge conflicts.
+
+## See Also
+
+- [Skill Reference]({{< ref "reference/skills" >}}) -- makefile-includes-modularity skill specification
+- [Organize a Multi-Directory Build]({{< ref "howto/organize-multi-directory-build" >}}) -- structure across multiple directories
+- [Architecture]({{< ref "explanation/architecture" >}}) -- how the skills relate to each other

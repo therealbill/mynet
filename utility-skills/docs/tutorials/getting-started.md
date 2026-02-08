@@ -114,3 +114,9 @@ The **markdown-nested-codeblocks** skill teaches one essential rule:
 - **Any depth:** The rule scales to arbitrary nesting levels.
 
 The skill activates proactively whenever Claude writes documentation containing code examples, preventing broken rendering before it occurs.
+
+## See Also
+
+- [Nest Code Blocks Correctly]({{< ref "howto/nest-code-blocks-correctly" >}}) -- step-by-step guide for applying the k+1 rule
+- [Skill Reference]({{< ref "reference/skills" >}}) -- technical specification for markdown-nested-codeblocks
+- [Architecture]({{< ref "explanation/architecture" >}}) -- why this is a skill rather than an agent

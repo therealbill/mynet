@@ -1,6 +1,7 @@
 ---
 title: "Mynet Plugin Marketplace"
 description: "Documentation for the Mynet Claude Code plugin marketplace"
+weight: 1
 type: docs
 ---
 
