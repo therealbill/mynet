@@ -9,119 +9,232 @@
       "source": "./code-quality",
       "description": "Code review, testing, accessibility, and architectural quality agents",
       "version": "1.0.0",
-      "keywords": ["code-review", "testing", "accessibility", "architecture", "quality"]
+      "keywords": [
+        "code-review",
+        "testing",
+        "accessibility",
+        "architecture",
+        "quality"
+      ]
     },
     {
       "name": "web-development",
       "source": "./web-development",
       "description": "Frontend frameworks, UI/UX design, and fullstack web development agents",
       "version": "1.0.0",
-      "keywords": ["frontend", "react", "nextjs", "vue", "ui", "ux", "fullstack", "web"]
+      "keywords": [
+        "frontend",
+        "react",
+        "nextjs",
+        "vue",
+        "ui",
+        "ux",
+        "fullstack",
+        "web"
+      ]
     },
     {
       "name": "backend-development",
       "source": "./backend-development",
       "description": "Backend architecture, Go services, and SQL agents",
       "version": "1.0.0",
-      "keywords": ["backend", "api", "go", "goa", "sql", "architecture"]
+      "keywords": [
+        "backend",
+        "api",
+        "go",
+        "goa",
+        "sql",
+        "architecture"
+      ]
     },
     {
       "name": "mcp-development",
       "source": "./mcp-development",
       "description": "MCP server integration, orchestration, and registry navigation agents",
       "version": "1.0.0",
-      "keywords": ["mcp", "model-context-protocol", "integration", "registry"]
+      "keywords": [
+        "mcp",
+        "model-context-protocol",
+        "integration",
+        "registry"
+      ]
     },
     {
       "name": "programming-languages",
       "source": "./programming-languages",
       "description": "Language-specific expert agents for C++, C#, JavaScript, TypeScript, Rust, shell, zsh, and Go",
       "version": "1.0.0",
-      "keywords": ["cpp", "csharp", "javascript", "typescript", "rust", "shell", "zsh", "go", "languages"]
+      "keywords": [
+        "cpp",
+        "csharp",
+        "javascript",
+        "typescript",
+        "rust",
+        "shell",
+        "zsh",
+        "go",
+        "languages"
+      ]
     },
     {
       "name": "mobile-development",
       "source": "./mobile-development",
       "description": "iOS, Swift, and cross-platform mobile development agents",
       "version": "1.0.0",
-      "keywords": ["ios", "swift", "mobile", "react-native", "flutter", "android"]
+      "keywords": [
+        "ios",
+        "swift",
+        "mobile",
+        "react-native",
+        "flutter",
+        "android"
+      ]
     },
     {
       "name": "game-development",
       "source": "./game-development",
       "description": "Game engines, game design, and 3D art agents for Unity and Unreal Engine",
       "version": "1.0.0",
-      "keywords": ["game", "unity", "unreal", "3d", "game-design"]
+      "keywords": [
+        "game",
+        "unity",
+        "unreal",
+        "3d",
+        "game-design"
+      ]
     },
     {
       "name": "ai-development",
       "source": "./ai-development",
       "description": "AI/ML engineering agents and agent development tools including modernization auditing",
       "version": "1.0.0",
-      "keywords": ["ai", "ml", "machine-learning", "agent", "modernization"]
+      "keywords": [
+        "ai",
+        "ml",
+        "machine-learning",
+        "agent",
+        "modernization"
+      ]
     },
     {
       "name": "desktop-development",
       "source": "./desktop-development",
       "description": "Desktop application development agents for Electron, Go, and native platforms",
       "version": "1.0.0",
-      "keywords": ["desktop", "electron", "go", "macos", "native"]
+      "keywords": [
+        "desktop",
+        "electron",
+        "go",
+        "macos",
+        "native"
+      ]
     },
     {
       "name": "cli-development",
       "source": "./cli-development",
       "description": "CLI tools, TUI frameworks, and terminal UI development agents",
       "version": "1.0.0",
-      "keywords": ["cli", "tui", "terminal", "command-line", "bubble-tea"]
+      "keywords": [
+        "cli",
+        "tui",
+        "terminal",
+        "command-line",
+        "bubble-tea"
+      ]
     },
     {
       "name": "devops-and-infra",
       "source": "./devops-and-infra",
       "description": "DevOps automation, CI/CD, monitoring, and infrastructure agents",
       "version": "1.0.0",
-      "keywords": ["devops", "ci-cd", "github-actions", "prometheus", "monitoring", "infrastructure"]
+      "keywords": [
+        "devops",
+        "ci-cd",
+        "github-actions",
+        "prometheus",
+        "monitoring",
+        "infrastructure"
+      ]
     },
     {
       "name": "developer-tools",
       "source": "./developer-tools",
       "description": "Git workflows, documentation engineering, and rapid prototyping agents",
       "version": "1.0.0",
-      "keywords": ["git", "documentation", "prototyping", "workflow"]
+      "keywords": [
+        "git",
+        "documentation",
+        "prototyping",
+        "workflow"
+      ]
     },
     {
       "name": "diataxis-docs",
       "source": "./diataxis-docs",
       "description": "Diataxis documentation framework agents for tutorials, how-to guides, reference, and explanation",
       "version": "1.0.0",
-      "keywords": ["diataxis", "documentation", "tutorial", "howto", "reference", "explanation"]
+      "keywords": [
+        "diataxis",
+        "documentation",
+        "tutorial",
+        "howto",
+        "reference",
+        "explanation"
+      ]
     },
     {
       "name": "utility-agents",
       "source": "./utility-agents",
       "description": "Workflow orchestration and URL analysis utility agents",
       "version": "1.0.0",
-      "keywords": ["utility", "orchestration", "url", "validation", "extraction"]
+      "keywords": [
+        "utility",
+        "orchestration",
+        "url",
+        "validation",
+        "extraction"
+      ]
     },
     {
       "name": "research",
       "source": "./research",
       "description": "Deep research agents for academic literature, technical analysis, multi-source investigation, synthesis, and report generation",
       "version": "1.0.0",
-      "keywords": ["research", "academic", "technical", "synthesis", "report", "literature-review"]
+      "keywords": [
+        "research",
+        "academic",
+        "technical",
+        "synthesis",
+        "report",
+        "literature-review"
+      ]
     },
     {
       "name": "utility-skills",
       "source": "./utility-skills",
       "description": "General-purpose skills for markdown formatting, writing, and cross-domain best practices",
       "version": "1.0.0",
-      "keywords": ["utility", "markdown", "formatting", "writing", "documentation"]
+      "keywords": [
+        "utility",
+        "markdown",
+        "formatting",
+        "writing",
+        "documentation"
+      ]
     },
     {
       "name": "gnu-make",
       "source": "./gnu-make",
       "description": "GNU Make best practices skills covering fundamentals, pattern rules, multi-directory builds, modular includes, and systematic debugging",
       "version": "1.0.0",
-      "keywords": ["make", "makefile", "gnu-make", "build", "pattern-rules", "debugging"]
+      "keywords": [
+        "make",
+        "makefile",
+        "gnu-make",
+        "build",
+        "pattern-rules",
+        "debugging"
+      ]
     },
     {
       "name": "timelord",
@@ -131,7 +244,27 @@
       "author": {
         "name": "Bill"
       },
-      "keywords": ["temporal", "temporal.io", "workflow", "orchestration", "nexus"]
+      "keywords": [
+        "temporal",
+        "temporal.io",
+        "workflow",
+        "orchestration",
+        "nexus"
+      ]
+    },
+    {
+      "name": "hugo-repo",
+      "source": "./hugo-repo",
+      "description": "Hugo site management for GitHub repositories — multi-directory content aggregation, theme customization, data-driven content, and deployment to GitHub Pages or AWS S3",
+      "version": "1.0.0",
+      "keywords": [
+        "hugo",
+        "static-site",
+        "github-pages",
+        "s3",
+        "documentation",
+        "module-mounts"
+      ]
     }
   ]
 }

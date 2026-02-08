@@ -1,0 +1,21 @@
+{
+  "name": "hugo-repo",
+  "version": "1.0.0",
+  "description": "Hugo site management for GitHub repositories — multi-directory content aggregation, theme customization, data-driven content, and deployment to GitHub Pages or AWS S3",
+  "author": {
+    "name": "Bill",
+    "url": "https://github.com/therealbill"
+  },
+  "repository": "https://github.com/therealbill/mynet",
+  "license": "SEE LICENSE IN ../LICENSE",
+  "keywords": [
+    "hugo",
+    "static-site",
+    "github-pages",
+    "s3",
+    "documentation",
+    "module-mounts",
+    "shortcodes",
+    "themes"
+  ]
+}
