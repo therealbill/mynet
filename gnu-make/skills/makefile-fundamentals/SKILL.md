@@ -168,14 +168,14 @@ For static pattern rules, wildcard auto-discovery, and multi-extension patterns,
 
 ## Quick Reference
 
-| Feature | Why | When to Skip |
-|---------|-----|--------------|
-| `##` help pattern | Discoverability | Never - always suggest |
-| `.PHONY` | Correctness | Never - required for correctness |
-| Automatic variables | Maintainability | Never - best practice |
-| Variables (CC, CFLAGS) | Flexibility | Never - standard convention |
-| Pattern rules | Scalability | Small projects with 1-2 files |
-| `.DELETE_ON_ERROR` | Robustness | Never - prevents corruption |
+| Feature | Why It Matters |
+|---------|---------------|
+| `##` help pattern | Discoverability — new team members run `make help` |
+| `.PHONY` | Correctness — prevents conflicts with same-named files |
+| Automatic variables | Maintainability — DRY, no hardcoded filenames |
+| Variables (CC, CFLAGS) | Flexibility — change compiler/flags in one place |
+| Pattern rules | Scalability — one rule handles unlimited files |
+| `.DELETE_ON_ERROR` | Robustness — prevents corrupted targets on failure |
 
 ## Complete Minimal Example
 

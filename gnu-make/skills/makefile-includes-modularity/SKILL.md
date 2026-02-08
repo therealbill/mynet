@@ -355,36 +355,6 @@ When reviewing any Makefile:
 ✅ Easier to maintain
 ✅ Simpler to understand (smaller chunks)
 
-## Real-World Example
-
-### Before: 485-Line Monolith
-
-```makefile
-# Makefile (485 lines)
-# Lines 1-100: Variables
-# Lines 101-250: Core library rules
-# Lines 251-400: API server rules
-# Lines 401-485: CLI, install, clean
-
-# Finding "where are core library flags defined?
-# → Scroll, search, scroll, found at line 47
-```
-
-### After: Modular Structure (4 files)
-
-```
-Makefile (50 lines)      - Orchestration
-config.mk (100 lines)    - All variables (core flags at line 15)
-rules.mk (150 lines)     - Pattern rules
-targets.mk (185 lines)   - Specific targets
-```
-
-**Finding core library flags:**
-1. Open config.mk (obvious choice)
-2. Line 15 (in focused 100-line file)
-
-**Result:** Faster, clearer, more maintainable.
-
 ## Quick Reference
 
 ### When to Use `include`

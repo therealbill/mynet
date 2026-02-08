@@ -251,27 +251,27 @@ parser.o: CFLAGS += -Wno-unused-function
 ## Proactive Guidance - Always Apply
 
 **When creating Makefiles:**
-- ✅ Default to pattern rules
-- ✅ Use automatic variables ($@, $<, $^)
-- ✅ Use wildcard for automatic discovery when appropriate
-- ✅ Show explicit rules as comparison only
+- Default to pattern rules
+- Use automatic variables ($@, $<, $^)
+- Use wildcard for automatic discovery when appropriate
+- Show explicit rules as comparison only
 
 **When reviewing Makefiles:**
-- 🔍 Look for repetitive explicit rules
-- 💡 Suggest pattern rule refactoring
-- 📊 Show before/after line counts
-- 🎯 Explain scalability benefits
+- Look for repetitive explicit rules
+- Suggest pattern rule refactoring
+- Show before/after line counts
+- Explain scalability benefits
 
 **When user shows explicit rules:**
-- 🤔 Acknowledge their approach
-- ⚠️ Explain maintainability concerns
-- ✅ Show pattern rule alternative
-- 📈 Provide concrete scaling example
+- Acknowledge their approach
+- Explain maintainability concerns
+- Show pattern rule alternative
+- Provide concrete scaling example
 
 **When facing time pressure:**
-- ⚡ Pattern rules are FASTER to write (3 lines vs 30)
-- 🎯 Don't let "quick" become "verbose"
-- ✅ Pattern rules are the shortcut, not the explicit rules
+- Pattern rules are FASTER to write (3 lines vs 30)
+- Don't let "quick" become "verbose"
+- Pattern rules are the shortcut, not the explicit rules
 
 ## Red Flags - Review for Anti-Patterns
 
@@ -284,47 +284,6 @@ When reviewing any Makefile:
 - [ ] User preference for explicit rules not challenged?
 
 **If any red flags present:** Explain pattern rule benefits, even if user didn't ask for it.
-
-## Real-World Impact
-
-### Example: Medium-Size C Project (50 files)
-
-**Explicit rules approach:**
-```makefile
-# 150 lines (50 files × 3 lines each)
-main.o: main.c
-	gcc -Wall -c main.c
-
-utils.o: utils.c
-	gcc -Wall -c utils.c
-
-# ... 48 more rules
-```
-
-**Pattern rules approach:**
-```makefile
-# 3 lines (regardless of file count)
-%.o: %.c
-	$(CC) $(CFLAGS) -c -o $@ $<
-```
-
-**Comparison:**
-- Lines of code: 150 → 3 (50x reduction)
-- Places to edit for flag changes: 50 → 1 (50x easier maintenance)
-- New file overhead: +3 lines → +0 lines (automatic)
-- Potential copy-paste errors: 50 opportunities → 0 opportunities
-
-### Concrete Scenario: Adding Debug Flags
-
-**With explicit rules:**
-- Must edit 50 compilation lines
-- Risk of missing some or making typos
-- 5-10 minutes of careful editing
-
-**With pattern rules:**
-- Change $(CFLAGS) definition once
-- Impossible to make inconsistent
-- 10 seconds
 
 ## The Bottom Line
 
@@ -372,10 +331,9 @@ $*  # Pattern stem
 
 ### When to Use Pattern Rules
 
-✅ Always - for any repetitive pattern
-✅ Compilation rules (.c → .o, .cpp → .o)
-✅ Simple build rules (.c → executable)
-✅ Any N-to-N transformation
-✅ As default recommendation
-
-❌ Never avoid them due to "complexity" - they're simpler!
+- Always - for any repetitive pattern
+- Compilation rules (.c → .o, .cpp → .o)
+- Simple build rules (.c → executable)
+- Any N-to-N transformation
+- As default recommendation
+- Never avoid them due to "complexity" - they're simpler!
