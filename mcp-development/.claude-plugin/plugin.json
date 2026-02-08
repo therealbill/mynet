@@ -1,0 +1,11 @@
+{
+  "name": "mcp-development",
+  "version": "1.0.0",
+  "description": "MCP server integration, orchestration, and registry navigation agents",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "integration",
+    "registry"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "devops-and-infra",
+  "version": "1.0.0",
+  "description": "DevOps automation, CI/CD, monitoring, and infrastructure agents",
+  "keywords": [
+    "devops",
+    "ci-cd",
+    "github-actions",
+    "prometheus",
+    "monitoring",
+    "infrastructure"
+  ]
+}

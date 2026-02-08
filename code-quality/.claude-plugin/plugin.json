@@ -1,0 +1,6 @@
+{
+  "name": "code-quality",
+  "version": "1.0.0",
+  "description": "Code review, testing, accessibility, and architectural quality agents",
+  "keywords": ["code-review", "testing", "accessibility", "architecture", "quality"]
+}

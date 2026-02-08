@@ -1,0 +1,13 @@
+{
+  "name": "mobile-development",
+  "version": "1.0.0",
+  "description": "iOS, Swift, and cross-platform mobile development agents",
+  "keywords": [
+    "ios",
+    "swift",
+    "mobile",
+    "react-native",
+    "flutter",
+    "android"
+  ]
+}

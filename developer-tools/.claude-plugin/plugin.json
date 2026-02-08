@@ -1,0 +1,11 @@
+{
+  "name": "developer-tools",
+  "version": "1.0.0",
+  "description": "Git workflows, documentation engineering, and rapid prototyping agents",
+  "keywords": [
+    "git",
+    "documentation",
+    "prototyping",
+    "workflow"
+  ]
+}

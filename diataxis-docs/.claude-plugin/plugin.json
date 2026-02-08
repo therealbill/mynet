@@ -1,0 +1,13 @@
+{
+  "name": "diataxis-docs",
+  "version": "1.0.0",
+  "description": "Diataxis documentation framework agents for tutorials, how-to guides, reference, and explanation",
+  "keywords": [
+    "diataxis",
+    "documentation",
+    "tutorial",
+    "howto",
+    "reference",
+    "explanation"
+  ]
+}

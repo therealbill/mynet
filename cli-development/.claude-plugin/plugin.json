@@ -1,0 +1,12 @@
+{
+  "name": "cli-development",
+  "version": "1.0.0",
+  "description": "CLI tools, TUI frameworks, and terminal UI development agents",
+  "keywords": [
+    "cli",
+    "tui",
+    "terminal",
+    "command-line",
+    "bubble-tea"
+  ]
+}

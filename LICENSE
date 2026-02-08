@@ -1,0 +1,54 @@
+Mynet Marketplace License
+
+Copyright (c) 2024-present Bill
+Original repository: https://github.com/therealbill/mynet
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to use,
+copy, modify, merge, and create derivative works of the Software, subject to
+the following conditions:
+
+1. AGGREGATION AND COLLECTION PROHIBITED. The Software may not be copied,
+   bundled, embedded, or otherwise included in any collection, aggregation,
+   marketplace distribution, or multi-plugin repository, whether or not such
+   collection modifies the Software. This includes, without limitation,
+   repositories, archives, packages, or distributions that gather plugins,
+   agents, skills, or similar components from multiple sources.
+
+2. MARKETPLACE REFERENCE PERMITTED. Notwithstanding Section 1, the Software
+   may be listed in plugin marketplace catalogs, indexes, or registries
+   provided that the listing references this original repository
+   (https://github.com/therealbill/mynet) as the source and the marketplace
+   fetches the Software from this original repository at install time. No
+   source code, binaries, documentation, or other files from the Software
+   may be stored in or distributed through the marketplace itself.
+
+3. INDIVIDUAL REDISTRIBUTION. Redistribution of the Software on its own
+   (not as part of a collection or aggregation) in source or binary form is
+   permitted provided that:
+
+   (a) This license notice and the copyright notice above are included in
+       all copies or substantial portions of the Software;
+
+   (b) The original repository URL (https://github.com/therealbill/mynet) is
+       prominently displayed in any README, documentation, or other
+       user-facing description accompanying the redistribution; and
+
+   (c) Any modifications are clearly marked as such, distinguishing them
+       from the original work.
+
+4. ATTRIBUTION. All permitted uses and redistributions must include:
+
+   (a) The copyright notice above;
+   (b) This permission notice in its entirety;
+   (c) A prominent link to the original repository
+       (https://github.com/therealbill/mynet); and
+   (d) Clear identification of the original author.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

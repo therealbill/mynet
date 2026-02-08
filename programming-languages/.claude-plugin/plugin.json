@@ -1,0 +1,16 @@
+{
+  "name": "programming-languages",
+  "version": "1.0.0",
+  "description": "Language-specific expert agents for C++, C#, JavaScript, TypeScript, Rust, shell, zsh, and Go",
+  "keywords": [
+    "cpp",
+    "csharp",
+    "javascript",
+    "typescript",
+    "rust",
+    "shell",
+    "zsh",
+    "go",
+    "languages"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "utility-agents",
+  "version": "1.0.0",
+  "description": "Workflow orchestration and URL analysis utility agents",
+  "keywords": [
+    "utility",
+    "orchestration",
+    "url",
+    "validation",
+    "extraction"
+  ]
+}

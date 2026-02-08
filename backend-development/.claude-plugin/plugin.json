@@ -1,0 +1,6 @@
+{
+  "name": "backend-development",
+  "version": "1.0.0",
+  "description": "Backend architecture, Go services, and SQL agents",
+  "keywords": ["backend", "api", "go", "goa", "sql", "architecture"]
+}

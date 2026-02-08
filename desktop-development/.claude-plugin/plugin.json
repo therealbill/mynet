@@ -1,0 +1,12 @@
+{
+  "name": "desktop-development",
+  "version": "1.0.0",
+  "description": "Desktop application development agents for Electron, Go, and native platforms",
+  "keywords": [
+    "desktop",
+    "electron",
+    "go",
+    "macos",
+    "native"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "web-development",
+  "version": "1.0.0",
+  "description": "Frontend frameworks, UI/UX design, and fullstack web development agents",
+  "keywords": [
+    "frontend",
+    "react",
+    "nextjs",
+    "vue",
+    "ui",
+    "ux",
+    "fullstack",
+    "web"
+  ]
+}

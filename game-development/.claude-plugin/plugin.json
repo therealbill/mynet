@@ -1,0 +1,12 @@
+{
+  "name": "game-development",
+  "version": "1.0.0",
+  "description": "Game engines, game design, and 3D art agents for Unity and Unreal Engine",
+  "keywords": [
+    "game",
+    "unity",
+    "unreal",
+    "3d",
+    "game-design"
+  ]
+}

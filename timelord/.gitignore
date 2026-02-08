@@ -1,0 +1,13 @@
+# Compiled binaries
+tools/timelord-cli/timelord
+tools/timelord-cli/bin/
+
+# Vim swap files
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
