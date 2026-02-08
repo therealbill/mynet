@@ -293,49 +293,7 @@ touch dev.mk && make  # if dev.mk exists, it's included
 
 ## Shared Configuration Across Projects
 
-### Common Configuration File
-
-**Project Structure:**
-```
-common/
-  └── common.mk       # Shared across all projects
-project1/
-  ├── Makefile
-  └── src/
-project2/
-  ├── Makefile
-  └── src/
-```
-
-```makefile
-# common/common.mk - Shared configuration
-CC := gcc
-CFLAGS := -Wall -Wextra -std=c11
-PREFIX := /usr/local
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c -o $@ $<
-```
-
-```makefile
-# project1/Makefile
-include ../common/common.mk
-
-TARGET := app1
-SOURCES := main.c utils.c
-OBJECTS := $(SOURCES:.c=.o)
-
-# Project-specific additions
-CFLAGS += -DAPP_NAME=\"app1\"
-
-$(TARGET): $(OBJECTS)
-	$(CC) -o $@ $^ $(LDFLAGS)
-```
-
-**Benefits:**
-- Change compiler flags once, affects all projects
-- Consistent build process across projects
-- DRY principle at project suite level
+For patterns on sharing configuration across multiple projects using `include ../common/common.mk`, see `references/shared-configuration.md`.
 
 ## When User Insists on "One File"
 
@@ -403,58 +361,7 @@ Then create BOTH versions, make modular the default, explain benefits.
 
 ## Common Module Patterns
 
-### Pattern 1: Three-File Foundation
-
-```makefile
-# Makefile (main)
-include config.mk
-include rules.mk
-
-all: $(TARGET)
-	@echo "Build complete"
-```
-
-**Use when:** 150-300 line monolith, clear config vs rules split.
-
-### Pattern 2: Component-Based
-
-```makefile
-# Makefile
-include config.mk
-include core.mk
-include api.mk
-include cli.mk
-
-all: core api cli
-```
-
-**Use when:** Multiple components, each with own rules.
-
-### Pattern 3: Environment + Component
-
-```makefile
-# Makefile
-ENV ?= dev
-include config/$(ENV).mk
-include core.mk
-include api.mk
-
-all: $(TARGETS)
-```
-
-**Use when:** Multiple components AND multiple environments.
-
-### Pattern 4: Shared Common
-
-```makefile
-# Makefile
-include ../common/common.mk  # Shared across projects
-include project-specific.mk
-
-all: $(TARGET)
-```
-
-**Use when:** Multiple projects sharing configuration.
+Four patterns (Three-File Foundation, Component-Based, Environment + Component, Shared Common) are documented in `references/module-patterns.md`. Choose based on project complexity.
 
 ## Red Flags - Review for Modularity
 
