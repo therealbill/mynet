@@ -1,0 +1,495 @@
+---
+name: Advanced Makefile Features - Pattern Rules and Automatic Variables
+description: Use pattern rules and automatic variables by default for DRY, maintainable Makefiles, not repetitive explicit rules
+when_to_use: when creating Makefiles with compilation rules, multiple similar targets, or when user shows repetitive explicit rules
+version: 1.0.0
+languages: make
+dependencies: GNU Make 3.81+, makefile-fundamentals
+---
+
+# Advanced Makefile Features - Pattern Rules and Automatic Variables
+
+## Overview
+
+**Default to pattern rules and automatic variables**, not explicit repetitive rules. Pattern rules eliminate duplication, reduce errors, and scale to any project size. Even if user doesn't request them, suggest pattern rules proactively.
+
+## Core Anti-Pattern to Avoid
+
+### ❌ Repetitive Explicit Rules (Common but Unmaintainable)
+
+```makefile
+# DON'T DO THIS - even if user prefers it
+main.o: main.c
+	gcc -c main.c
+
+utils.o: utils.c
+	gcc -c utils.c
+
+parser.o: parser.c
+	gcc -c parser.c
+```
+
+**Problems:**
+- **Violates DRY**: Same recipe repeated for every file
+- **Doesn't scale**: 100 files = 100 rules to write and maintain
+- **Error-prone**: Changing compile flags requires editing N places
+- **More code**: Verbosity increases linearly with files
+- **Harder to read**: Must scan N rules to understand pattern
+
+**When user shows this pattern:** Don't just implement it. Explain limitations and suggest pattern rule alternative.
+
+## Correct Pattern: Pattern Rules with Automatic Variables
+
+### ✅ The DRY Way
+
+```makefile
+# Use this pattern by default
+%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+```
+
+**Benefits:**
+- **DRY principle**: One rule handles infinite files
+- **Scales perfectly**: Works for 1 file or 1000 files
+- **Maintainable**: Change compile command in ONE place
+- **Less code**: 3 lines instead of 3N lines
+- **Clearer intent**: Shows the pattern, not repetitive noise
+
+### Pattern Rule Syntax
+
+```makefile
+%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+```
+
+**Components:**
+- `%`: Matches any nonempty substring (the "stem")
+- `%.o`: Target pattern (any file ending in .o)
+- `%.c`: Prerequisite pattern (corresponding .c file)
+- `$@`: Automatic variable = target name
+- `$<`: Automatic variable = first prerequisite name
+
+### Complete Example with Pattern Rules
+
+```makefile
+# Compiler and flags
+CC := gcc
+CFLAGS := -Wall -Wextra -std=c99
+
+# Source files
+SRCS := main.c utils.c parser.c
+OBJS := $(SRCS:.c=.o)
+
+# Target executable
+TARGET := myapp
+
+# Default target
+all: $(TARGET)
+
+# Link
+$(TARGET): $(OBJS)
+	$(CC) -o $@ $^
+
+# Pattern rule for all .c → .o compilations
+%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+clean:
+	rm -f $(OBJS) $(TARGET)
+
+.PHONY: all clean
+```
+
+**Result:** Works for 3 files or 300 files with zero changes to pattern rule.
+
+## Automatic Variables - Essential Knowledge
+
+### Core Automatic Variables
+
+Always use these in recipes for DRY code:
+
+```makefile
+$@  # Target name
+$<  # First prerequisite
+$^  # All prerequisites (space-separated)
+$?  # Prerequisites newer than target
+$*  # Stem (matched by % in pattern rule)
+```
+
+### Usage Examples
+
+```makefile
+# Compilation: target = .o, first prereq = .c
+%.o: %.c headers.h
+	$(CC) $(CFLAGS) -c -o $@ $<
+	# $@ = foo.o, $< = foo.c
+
+# Linking: target = exe, all prereqs = .o files
+myapp: $(OBJS)
+	$(CC) -o $@ $^
+	# $@ = myapp, $^ = main.o utils.o parser.o
+
+# Archive: only changed files
+lib.a: $(OBJS)
+	ar r $@ $?
+	# $? = only objects newer than lib.a
+```
+
+### Why Automatic Variables Matter
+
+**Without automatic variables:**
+```makefile
+%.o: %.c
+	gcc -c -o %.o %.c  # WRONG - % doesn't work here!
+```
+
+**With automatic variables:**
+```makefile
+%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<  # CORRECT
+```
+
+Automatic variables provide the actual matched names at execution time.
+
+## Functions for Flexibility
+
+### wildcard - Automatic File Discovery
+
+```makefile
+# Find all .c files in current directory
+SRCS := $(wildcard *.c)
+
+# Find all .c files recursively
+SRCS := $(wildcard *.c src/*.c lib/*.c)
+```
+
+**Use when:** You want Makefile to adapt to new/removed files automatically.
+
+### patsubst - Pattern Substitution
+
+```makefile
+# Convert .c list to .o list
+OBJS := $(patsubst %.c,%.o,$(SRCS))
+
+# Or shorter syntax:
+OBJS := $(SRCS:.c=.o)
+```
+
+### foreach - Iteration
+
+```makefile
+# Generate multiple targets
+APPS := app1 app2 app3
+
+all: $(APPS)
+
+$(foreach app,$(APPS),$(eval $(app): $(app).c))
+```
+
+## When User Prefers Explicit Rules
+
+**If user says:** "I prefer explicit rules for each file - they're clearer"
+
+**Respond with:**
+
+"I understand explicit rules seem straightforward, but they have significant limitations:
+
+1. **Scalability**: Right now with 5 files, explicit rules are 15 lines. With 50 files, that's 150 lines of identical patterns. Pattern rules stay at 3 lines regardless of project size.
+
+2. **Maintenance burden**: If you need to add `-g` flag for debugging, you'd need to edit 50 rules. With pattern rules, it's one change.
+
+3. **Error potential**: Copy-paste errors are common. Pattern rules eliminate this risk entirely.
+
+4. **Clarity at scale**: Explicit rules are 'clearer' for 3 files, but with 50 files, scanning through 150 lines to understand 'compile .c to .o' is harder than reading one pattern rule.
+
+The pattern rule `%.o: %.c` clearly states: 'any .o file depends on the corresponding .c file and is compiled with this command.' That's actually MORE clear than 50 explicit examples.
+
+I'll implement pattern rules, but if you prefer explicit rules for learning purposes, I can show both approaches side-by-side."
+
+Then show the pattern rule version with explanation.
+
+## "Keep It Simple" Requests
+
+**Pattern rules ARE simpler** - less code, easier to understand at scale.
+
+**Comparison:**
+
+```makefile
+# "Simple" explicit version: 24 lines for 8 targets
+app1: app1.c
+	gcc -o app1 app1.c
+
+app2: app2.c
+	gcc -o app2 app2.c
+
+# ... 6 more identical rules
+
+# Actually simple pattern version: 3 lines for ANY number of targets
+%: %.c
+	$(CC) $(CFLAGS) -o $@ $<
+```
+
+**Counter the misconception:** "Pattern rules add complexity" is backwards thinking. More lines = more complexity. Pattern rules reduce code by 8x while making intent clearer.
+
+## Common Pattern Rule Scenarios
+
+### Scenario 1: Compile C to Object Files
+
+```makefile
+%.o: %.c
+	$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
+```
+
+Handles unlimited .c files automatically.
+
+### Scenario 2: Compile C Directly to Executables
+
+```makefile
+# From baseline test: 8 repetitive rules → 1 pattern rule
+APPS := app1 app2 app3 app4 app5 app6 app7 app8
+
+all: $(APPS)
+
+%: %.c
+	$(CC) $(CFLAGS) -o $@ $<
+
+clean:
+	rm -f $(APPS)
+
+.PHONY: all clean
+```
+
+### Scenario 3: Multiple Extensions
+
+```makefile
+# C files
+%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+# C++ files
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+
+# Assembly files
+%.o: %.s
+	$(AS) $(ASFLAGS) -o $@ $<
+```
+
+### Scenario 4: Auto-Discovery with Wildcard
+
+```makefile
+# Automatically find all .c files
+SRCS := $(wildcard *.c)
+OBJS := $(SRCS:.c=.o)
+DEPS := $(SRCS:.c=.d)
+
+TARGET := myapp
+
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	$(CC) -o $@ $^
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+# Auto-generate dependencies
+%.d: %.c
+	$(CC) -MM $(CFLAGS) $< > $@
+
+-include $(DEPS)
+
+clean:
+	rm -f $(OBJS) $(DEPS) $(TARGET)
+
+.PHONY: all clean
+```
+
+**Benefit:** Add new .c file → no Makefile changes needed.
+
+### Scenario 5: Static Pattern Rules (When Subset Needs Pattern)
+
+```makefile
+OBJS := main.o utils.o parser.o
+
+# Apply pattern rule only to these objects
+$(OBJS): %.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+```
+
+**Use when:** Pattern applies to specific list, not all files.
+
+## Conditional Compilation
+
+### Mode-Based Flags
+
+```makefile
+DEBUG ?= 0
+
+ifeq ($(DEBUG),1)
+    CFLAGS += -g -O0 -DDEBUG
+else
+    CFLAGS += -O2 -DNDEBUG
+endif
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+```
+
+**Usage:**
+```bash
+make              # Release mode
+make DEBUG=1      # Debug mode
+```
+
+### Target-Specific Variables
+
+```makefile
+%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+# Special flags for specific files
+parser.o: CFLAGS += -Wno-unused-function
+```
+
+## Common Mistakes
+
+| Mistake | Fix | Why |
+|---------|-----|-----|
+| Explicit rules for similar targets | Use pattern rule | DRY, scales better |
+| Hardcoded filenames in recipes | Use automatic variables ($@, $<) | Reusable, error-free |
+| Not using wildcard for file lists | Use $(wildcard *.c) | Adapts to new files |
+| Repeating substitution patterns | Use patsubst or $(VAR:.c=.o) | Cleaner, maintainable |
+| Writing make instead of $(MAKE) | Always use $(MAKE) | Flags pass through |
+
+## Proactive Guidance - Always Apply
+
+**When creating Makefiles:**
+- ✅ Default to pattern rules
+- ✅ Use automatic variables ($@, $<, $^)
+- ✅ Use wildcard for automatic discovery when appropriate
+- ✅ Show explicit rules as comparison only
+
+**When reviewing Makefiles:**
+- 🔍 Look for repetitive explicit rules
+- 💡 Suggest pattern rule refactoring
+- 📊 Show before/after line counts
+- 🎯 Explain scalability benefits
+
+**When user shows explicit rules:**
+- 🤔 Acknowledge their approach
+- ⚠️ Explain maintainability concerns
+- ✅ Show pattern rule alternative
+- 📈 Provide concrete scaling example
+
+**When facing time pressure:**
+- ⚡ Pattern rules are FASTER to write (3 lines vs 30)
+- 🎯 Don't let "quick" become "verbose"
+- ✅ Pattern rules are the shortcut, not the explicit rules
+
+## Red Flags - Review for Anti-Patterns
+
+When reviewing any Makefile:
+
+- [ ] Multiple rules with same recipe pattern?
+- [ ] Hardcoded filenames in recipes instead of $@ or $<?
+- [ ] File lists hardcoded instead of using wildcard?
+- [ ] Copy-paste between similar rules?
+- [ ] User preference for explicit rules not challenged?
+
+**If any red flags present:** Explain pattern rule benefits, even if user didn't ask for it.
+
+## Real-World Impact
+
+### Example: Medium-Size C Project (50 files)
+
+**Explicit rules approach:**
+```makefile
+# 150 lines (50 files × 3 lines each)
+main.o: main.c
+	gcc -Wall -c main.c
+
+utils.o: utils.c
+	gcc -Wall -c utils.c
+
+# ... 48 more rules
+```
+
+**Pattern rules approach:**
+```makefile
+# 3 lines (regardless of file count)
+%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+```
+
+**Comparison:**
+- Lines of code: 150 → 3 (50x reduction)
+- Places to edit for flag changes: 50 → 1 (50x easier maintenance)
+- New file overhead: +3 lines → +0 lines (automatic)
+- Potential copy-paste errors: 50 opportunities → 0 opportunities
+
+### Concrete Scenario: Adding Debug Flags
+
+**With explicit rules:**
+- Must edit 50 compilation lines
+- Risk of missing some or making typos
+- 5-10 minutes of careful editing
+
+**With pattern rules:**
+- Change $(CFLAGS) definition once
+- Impossible to make inconsistent
+- 10 seconds
+
+## The Bottom Line
+
+**Pattern rules and automatic variables are not "advanced features" - they're essential best practices.**
+
+Don't default to explicit rules because they seem "simpler" or the user is "in a hurry". Pattern rules:
+- Have LESS code (simpler!)
+- Are FASTER to write (quicker!)
+- Scale perfectly (maintainable!)
+- Eliminate errors (reliable!)
+
+**Always suggest pattern rules first.** Show explicit rules only as a "what not to do" comparison.
+
+## Quick Reference Card
+
+### Most Common Patterns
+
+```makefile
+# C compilation
+%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+# C to executable
+%: %.c
+	$(CC) $(CFLAGS) -o $@ $<
+
+# Auto-discovery
+SRCS := $(wildcard *.c)
+OBJS := $(SRCS:.c=.o)
+
+# Linking
+$(TARGET): $(OBJS)
+	$(CC) -o $@ $^
+```
+
+### Essential Automatic Variables
+
+```makefile
+$@  # Target file name
+$<  # First prerequisite
+$^  # All prerequisites
+$?  # Changed prerequisites
+$*  # Pattern stem
+```
+
+### When to Use Pattern Rules
+
+✅ Always - for any repetitive pattern
+✅ Compilation rules (.c → .o, .cpp → .o)
+✅ Simple build rules (.c → executable)
+✅ Any N-to-N transformation
+✅ As default recommendation
+
+❌ Never avoid them due to "complexity" - they're simpler!

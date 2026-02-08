@@ -1,0 +1,6 @@
+{
+  "name": "gnu-make",
+  "version": "1.0.0",
+  "description": "GNU Make best practices skills covering fundamentals, pattern rules, multi-directory builds, modular includes, and systematic debugging",
+  "keywords": ["make", "makefile", "gnu-make", "build", "pattern-rules", "debugging"]
+}
