@@ -1,0 +1,17 @@
+# Pattern Index
+# Generated: 2026-01-28
+# This file provides a quick lookup for all patterns
+
+version: 1
+generated_at: 2026-01-28T11:31:24Z
+mode: advising
+
+summary:
+  total_patterns: 0
+  by_classification: {}
+  by_severity: {}
+  pending_review: 0
+
+patterns: {}
+
+tags: {}

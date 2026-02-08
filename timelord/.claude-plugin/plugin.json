@@ -1,0 +1,22 @@
+{
+  "name": "timelord",
+  "version": "1.1.0",
+  "description": "Temporal.io expertise for deploying, managing, and developing workflow applications with self-hosted Temporal clusters",
+  "author": {
+    "name": "Bill",
+    "url": "https://github.com/bill"
+  },
+  "repository": "https://github.com/bill/timelord",
+  "license": "MIT",
+  "keywords": [
+    "temporal",
+    "temporal.io",
+    "workflow",
+    "orchestration",
+    "microservices",
+    "kubernetes",
+    "go",
+    "python",
+    "nexus"
+  ]
+}

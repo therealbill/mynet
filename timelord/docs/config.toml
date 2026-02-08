@@ -1,0 +1,52 @@
+# Hugo configuration for Timelord documentation
+baseURL = "https://timelord.example.com/"
+languageCode = "en-us"
+title = "Timelord - Temporal.io Plugin"
+theme = "hugo-book"
+
+# Book theme configuration
+[params]
+  # Repository configuration
+  BookRepo = "https://github.com/bill/timelord"
+  BookEditPath = "edit/main/docs/content"
+
+  # Logo and branding
+  BookLogo = "/logo.png"
+
+  # Navigation
+  BookMenuBundle = "/menu"
+  BookSection = "/"
+
+  # Search
+  BookSearch = true
+
+  # Table of contents
+  BookToC = true
+
+  # Comments
+  BookComments = false
+
+  # Portable links
+  BookPortableLinks = true
+
+# Markup configuration
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+
+# Menu configuration
+[menu]
+  [[menu.before]]
+    name = "GitHub"
+    url = "https://github.com/bill/timelord"
+    weight = 10
+
+# Output formats
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  page = ["HTML"]
+  section = ["HTML"]

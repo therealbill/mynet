@@ -1,0 +1,59 @@
+package workflows
+
+import (
+	"fmt"
+	"time"
+
+	"go.temporal.io/sdk/workflow"
+)
+
+// --- Input/Output Types ---
+
+// {{.Name}}CallerInput is the input for {{.Name}}CallerWorkflow
+type {{.Name}}CallerInput struct {
+	// Add your input fields here
+	ID string
+}
+
+// {{.Name}}CallerOutput is the output for {{.Name}}CallerWorkflow
+type {{.Name}}CallerOutput struct {
+	// Add your output fields here
+	Result string
+	Status string
+}
+
+// {{.Name}}CallerWorkflow calls a Nexus operation in another namespace.
+// It uses workflow.NewNexusClient to create a client bound to a specific
+// Nexus endpoint and service, then executes an operation and waits for the result.
+//
+// Prerequisites:
+//   - Nexus endpoint "{{.Endpoint}}" must exist and route to the handler namespace
+//   - Handler workers must be running with the "{{.ServiceName}}" Nexus service registered
+func {{.Name}}CallerWorkflow(ctx workflow.Context, input {{.Name}}CallerInput) (*{{.Name}}CallerOutput, error) {
+	logger := workflow.GetLogger(ctx)
+	logger.Info("{{.Name}}CallerWorkflow started", "id", input.ID)
+
+	// Create Nexus client bound to the endpoint and service
+	nexusClient := workflow.NewNexusClient("{{.Endpoint}}", "{{.ServiceName}}")
+
+	// Execute the Nexus operation
+	// This blocks until the operation completes (sync or async).
+	// For async operations, Temporal tracks the backing workflow automatically.
+	future := nexusClient.ExecuteOperation(ctx, "{{.ServiceName}}-process", input, workflow.NexusOperationOptions{
+		// ScheduleToCloseTimeout is required - set it based on expected operation duration.
+		// Without this, the operation may hang indefinitely.
+		ScheduleToCloseTimeout: 10 * time.Minute,
+	})
+
+	var result {{.Name}}CallerOutput
+	if err := future.Get(ctx, &result); err != nil {
+		// Errors from Nexus operations include:
+		// - NexusOperationFailure: application-level error from the handler
+		// - Timeout: scheduleToCloseTimeout exceeded
+		// - Cancellation: workflow or operation was canceled
+		return nil, fmt.Errorf("nexus operation failed: %w", err)
+	}
+
+	logger.Info("{{.Name}}CallerWorkflow completed", "result", result)
+	return &result, nil
+}

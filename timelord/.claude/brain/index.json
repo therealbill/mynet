@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-01-28T11:26:04-06:00",
+  "scan_timestamp": "2026-01-28T17:25:43Z",
+  "scan_metadata": {
+    "last_scan_commit": "",
+    "scanned_at": "2026-01-28T17:25:43.270316Z",
+    "scan_mode": "full",
+    "repo_mode": "hybrid",
+    "packages_scanned": 2,
+    "packages_total": 2
+  },
+  "total_packages": 2,
+  "total_types": 16,
+  "total_functions": 39,
+  "files": [
+    "architecture.md",
+    "apis.md",
+    "types.md",
+    "flows.md"
+  ],
+  "enrichment_stats": {
+    "lsp_provider": "gopls",
+    "lsp_version": "v0.21.0",
+    "requests_total": 17,
+    "requests_succeeded": 16,
+    "requests_failed": 1,
+    "total_duration_ms": 2116,
+    "operations": {
+      "incoming_calls": {
+        "count": 1,
+        "succeeded": 0
+      },
+      "references": {
+        "count": 17,
+        "succeeded": 16
+      }
+    }
+  },
+  "lsp_available": true
+}

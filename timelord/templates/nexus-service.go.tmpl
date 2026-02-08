@@ -1,0 +1,102 @@
+package nexus
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/nexus-rpc/sdk-go/nexus"
+	"go.temporal.io/sdk/client"
+	temporalnexus "go.temporal.io/sdk/temporalnexus"
+	"go.temporal.io/sdk/workflow"
+)
+
+// --- Input/Output Types ---
+
+// {{.Name}}SyncInput is the input for the synchronous {{.Name}} operation
+type {{.Name}}SyncInput struct {
+	// Add your input fields here
+	ID      string
+	Message string
+}
+
+// {{.Name}}SyncOutput is the output for the synchronous {{.Name}} operation
+type {{.Name}}SyncOutput struct {
+	// Add your output fields here
+	Result  string
+	Message string
+}
+
+// {{.Name}}AsyncInput is the input for the asynchronous {{.Name}} operation
+type {{.Name}}AsyncInput struct {
+	// Add your input fields here
+	ID string
+}
+
+// {{.Name}}AsyncOutput is the output for the asynchronous {{.Name}} operation
+type {{.Name}}AsyncOutput struct {
+	// Add your output fields here
+	Result string
+	Status string
+}
+
+// --- Synchronous Operation ---
+
+// {{.Name}}EchoOp is a synchronous Nexus operation that completes immediately (< 10s).
+var {{.Name}}EchoOp = nexus.NewSyncOperation("{{.ServiceName}}-echo",
+	func(ctx context.Context, input {{.Name}}SyncInput, opts nexus.StartOperationOptions) ({{.Name}}SyncOutput, error) {
+		if input.Message == "" {
+			return {{.Name}}SyncOutput{}, nexus.HandlerErrorf(nexus.HandlerErrorTypeBadRequest, "message is required")
+		}
+		return {{.Name}}SyncOutput{
+			Result:  "ok",
+			Message: input.Message,
+		}, nil
+	})
+
+// --- Asynchronous (Workflow-Backed) Operation ---
+
+// {{.Name}}ProcessOp is an asynchronous Nexus operation backed by a workflow.
+// It starts a workflow and returns when the workflow completes.
+var {{.Name}}ProcessOp = temporalnexus.NewWorkflowRunOperation("{{.ServiceName}}-process",
+	{{.Name}}ProcessWorkflow,
+	func(ctx context.Context, input {{.Name}}AsyncInput, opts nexus.StartOperationOptions) (client.StartWorkflowOptions, error) {
+		return client.StartWorkflowOptions{
+			// Use RequestID as workflow ID to deduplicate retries
+			ID: opts.RequestID,
+		}, nil
+	})
+
+// {{.Name}}ProcessWorkflow is the backing workflow for the async Nexus operation.
+func {{.Name}}ProcessWorkflow(ctx workflow.Context, input {{.Name}}AsyncInput) (*{{.Name}}AsyncOutput, error) {
+	logger := workflow.GetLogger(ctx)
+	logger.Info("{{.Name}}ProcessWorkflow started", "id", input.ID)
+
+	// Implement your long-running workflow logic here.
+	// You can use activities, child workflows, timers, etc.
+	//
+	// Example:
+	// var result ActivityOutput
+	// err := workflow.ExecuteActivity(ctx, MyActivity, input).Get(ctx, &result)
+	// if err != nil {
+	//     return nil, fmt.Errorf("activity failed: %w", err)
+	// }
+
+	return &{{.Name}}AsyncOutput{
+		Result: fmt.Sprintf("processed-%s", input.ID),
+		Status: "completed",
+	}, nil
+}
+
+// --- Service Constructor ---
+
+// New{{.Name}}Service creates a new Nexus service with all {{.Name}} operations registered.
+// Register this on your handler worker:
+//
+//	service := New{{.Name}}Service()
+//	w.RegisterNexusService(service)
+func New{{.Name}}Service() *nexus.Service {
+	service := nexus.NewService("{{.ServiceName}}")
+	service.Register({{.Name}}EchoOp)
+	service.Register({{.Name}}ProcessOp)
+	return service
+}

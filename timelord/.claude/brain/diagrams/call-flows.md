@@ -1,0 +1,41 @@
+# Call Flows
+
+Shows function call relationships within the codebase (internal calls only).
+
+```mermaid
+flowchart TD
+    tools_timelord_cli_main[/main.main/]
+    tools_timelord_cli_cmd_init[/cmd.init/]
+    tools_timelord_cli_cmd_runNamespaceList[/cmd.runNamespaceList/]
+    tools_timelord_cli_cmd_runNamespaceCreate[/cmd.runNamespaceCreate/]
+    tools_timelord_cli_cmd_runNamespaceDescribe[/cmd.runNamespaceDescribe/]
+    tools_timelord_cli_cmd_runTemporalCLINs[/cmd.runTemporalCLINs/]
+    tools_timelord_cli_cmd_Execute[/cmd.Execute/]
+    tools_timelord_cli_cmd_outputResult[/cmd.outputResult/]
+    tools_timelord_cli_cmd_runScaffoldProject[/cmd.runScaffoldProject/]
+    tools_timelord_cli_cmd_runScaffoldWorkflow[/cmd.runScaffoldWorkflow/]
+    tools_timelord_cli_cmd_runScaffoldActivity[/cmd.runScaffoldActivity/]
+    tools_timelord_cli_cmd_runScaffoldWorker[/cmd.runScaffoldWorker/]
+    tools_timelord_cli_cmd_executeTemplate[/cmd.executeTemplate/]
+    tools_timelord_cli_cmd_toExportedName[/cmd.toExportedName/]
+    tools_timelord_cli_cmd_toSnakeCase[/cmd.toSnakeCase/]
+    tools_timelord_cli_cmd_runTestReplay[/cmd.runTestReplay/]
+    tools_timelord_cli_cmd_runTestValidate[/cmd.runTestValidate/]
+    tools_timelord_cli_cmd_generateReplayTestCode[/cmd.generateReplayTestCode/]
+    tools_timelord_cli_cmd_findGoFiles[/cmd.findGoFiles/]
+    tools_timelord_cli_cmd_validateGoFile[/cmd.validateGoFile/]
+    tools_timelord_cli_cmd_copyFile[/cmd.copyFile/]
+    tools_timelord_cli_cmd_outputReplayResult[/cmd.outputReplayResult/]
+    tools_timelord_cli_cmd_outputValidationResult[/cmd.outputValidationResult/]
+    tools_timelord_cli_cmd_runGoTest[/cmd.runGoTest/]
+    tools_timelord_cli_cmd_runWorkflowList[/cmd.runWorkflowList/]
+    tools_timelord_cli_cmd_runWorkflowDescribe[/cmd.runWorkflowDescribe/]
+    tools_timelord_cli_cmd_runWorkflowHistory[/cmd.runWorkflowHistory/]
+    tools_timelord_cli_cmd_runWorkflowDiagnose[/cmd.runWorkflowDiagnose/]
+    tools_timelord_cli_cmd_analyzeWorkflow[/cmd.analyzeWorkflow/]
+    tools_timelord_cli_cmd_getTemporalAddress[/cmd.getTemporalAddress/]
+    tools_timelord_cli_cmd_runTemporalCLI[/cmd.runTemporalCLI/]
+    tools_timelord_cli_cmd_runClusterStatus[/cmd.runClusterStatus/]
+    tools_timelord_cli_cmd_runClusterInfo[/cmd.runClusterInfo/]
+    tools_timelord_cli_cmd_runClusterMetrics[/cmd.runClusterMetrics/]
+```

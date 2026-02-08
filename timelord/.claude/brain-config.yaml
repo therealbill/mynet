@@ -1,0 +1,14 @@
+patterns:
+  enabled: true
+  mode: advising                    # learning | advising | ensuring
+
+  severity_overrides:
+    error: ensuring
+    warning: advising
+    info: learning
+
+  detection:
+    from_fixes: true
+    from_adrs: true
+    auto_promote_threshold: 0.8
+    review_threshold: 0.4

@@ -1,0 +1,18 @@
+{
+  "lsp_provider": "gopls",
+  "lsp_version": "v0.21.0",
+  "requests_total": 17,
+  "requests_succeeded": 16,
+  "requests_failed": 1,
+  "total_duration_ms": 2116,
+  "operations": {
+    "incoming_calls": {
+      "count": 1,
+      "succeeded": 0
+    },
+    "references": {
+      "count": 17,
+      "succeeded": 16
+    }
+  }
+}

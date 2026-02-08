@@ -1,0 +1,1603 @@
+{
+  "metadata": {
+    "last_scan_commit": "",
+    "scanned_at": "2026-01-28T17:25:43.270316Z",
+    "scan_mode": "full",
+    "repo_mode": "hybrid",
+    "packages_scanned": 2,
+    "packages_total": 2
+  },
+  "packages": {
+    "tools/timelord-cli": {
+      "Name": "main",
+      "Path": "tools/timelord-cli",
+      "Imports": [
+        "github.com/bill/timelord-cli/cmd"
+      ],
+      "Types": null,
+      "Functions": [
+        {
+          "Name": "main",
+          "Signature": "func()",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/main.go",
+            "Line": 7,
+            "Column": 1
+          }
+        }
+      ],
+      "Constants": null,
+      "Variables": null
+    },
+    "tools/timelord-cli/cmd": {
+      "Name": "cmd",
+      "Path": "tools/timelord-cli/cmd",
+      "Imports": [
+        "encoding/json",
+        "fmt",
+        "os",
+        "os/exec",
+        "strings",
+        "github.com/spf13/cobra",
+        "fmt",
+        "os",
+        "github.com/spf13/cobra",
+        "encoding/json",
+        "fmt",
+        "os",
+        "path/filepath",
+        "strings",
+        "text/template",
+        "github.com/spf13/cobra",
+        "encoding/json",
+        "fmt",
+        "os",
+        "os/exec",
+        "path/filepath",
+        "strings",
+        "github.com/spf13/cobra",
+        "encoding/json",
+        "fmt",
+        "os",
+        "strings",
+        "github.com/spf13/cobra",
+        "encoding/json",
+        "fmt",
+        "os",
+        "os/exec",
+        "strings",
+        "github.com/spf13/cobra"
+      ],
+      "Types": [
+        {
+          "Name": "NamespaceInfo",
+          "Kind": "struct",
+          "Exported": true,
+          "Doc": "",
+          "Fields": [
+            {
+              "Name": "Name",
+              "Type": "string",
+              "Tag": "`json:\"name\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "State",
+              "Type": "string",
+              "Tag": "`json:\"state\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Retention",
+              "Type": "string",
+              "Tag": "`json:\"retention\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Description",
+              "Type": "string",
+              "Tag": "`json:\"description,omitempty\"`",
+              "Exported": true,
+              "Doc": ""
+            }
+          ],
+          "Methods": null,
+          "Implements": null,
+          "Embeds": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/namespace.go",
+            "Line": 57,
+            "Column": 6
+          }
+        },
+        {
+          "Name": "NamespaceListResult",
+          "Kind": "struct",
+          "Exported": true,
+          "Doc": "",
+          "Fields": [
+            {
+              "Name": "Namespaces",
+              "Type": "[]NamespaceInfo",
+              "Tag": "`json:\"namespaces\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Count",
+              "Type": "int",
+              "Tag": "`json:\"count\"`",
+              "Exported": true,
+              "Doc": ""
+            }
+          ],
+          "Methods": null,
+          "Implements": null,
+          "Embeds": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/namespace.go",
+            "Line": 64,
+            "Column": 6
+          }
+        },
+        {
+          "Name": "NamespaceCreateResult",
+          "Kind": "struct",
+          "Exported": true,
+          "Doc": "",
+          "Fields": [
+            {
+              "Name": "Name",
+              "Type": "string",
+              "Tag": "`json:\"name\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Retention",
+              "Type": "string",
+              "Tag": "`json:\"retention\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Message",
+              "Type": "string",
+              "Tag": "`json:\"message\"`",
+              "Exported": true,
+              "Doc": ""
+            }
+          ],
+          "Methods": null,
+          "Implements": null,
+          "Embeds": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/namespace.go",
+            "Line": 69,
+            "Column": 6
+          }
+        },
+        {
+          "Name": "ScaffoldResult",
+          "Kind": "struct",
+          "Exported": true,
+          "Doc": "",
+          "Fields": [
+            {
+              "Name": "Type",
+              "Type": "string",
+              "Tag": "`json:\"type\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Name",
+              "Type": "string",
+              "Tag": "`json:\"name\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Files",
+              "Type": "[]string",
+              "Tag": "`json:\"files\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Message",
+              "Type": "string",
+              "Tag": "`json:\"message\"`",
+              "Exported": true,
+              "Doc": ""
+            }
+          ],
+          "Methods": null,
+          "Implements": null,
+          "Embeds": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/scaffold.go",
+            "Line": 79,
+            "Column": 6
+          }
+        },
+        {
+          "Name": "TemplateData",
+          "Kind": "struct",
+          "Exported": true,
+          "Doc": "",
+          "Fields": [
+            {
+              "Name": "Name",
+              "Type": "string",
+              "Tag": "",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "PackageName",
+              "Type": "string",
+              "Tag": "",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "TaskQueue",
+              "Type": "string",
+              "Tag": "",
+              "Exported": true,
+              "Doc": ""
+            }
+          ],
+          "Methods": null,
+          "Implements": null,
+          "Embeds": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/scaffold.go",
+            "Line": 331,
+            "Column": 6
+          }
+        },
+        {
+          "Name": "ReplayResult",
+          "Kind": "struct",
+          "Exported": true,
+          "Doc": "",
+          "Fields": [
+            {
+              "Name": "Success",
+              "Type": "bool",
+              "Tag": "`json:\"success\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "HistoryFile",
+              "Type": "string",
+              "Tag": "`json:\"historyFile\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "WorkflowName",
+              "Type": "string",
+              "Tag": "`json:\"workflowName,omitempty\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "EventCount",
+              "Type": "int",
+              "Tag": "`json:\"eventCount\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Error",
+              "Type": "string",
+              "Tag": "`json:\"error,omitempty\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Suggestions",
+              "Type": "[]string",
+              "Tag": "`json:\"suggestions,omitempty\"`",
+              "Exported": true,
+              "Doc": ""
+            }
+          ],
+          "Methods": null,
+          "Implements": null,
+          "Embeds": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/test.go",
+            "Line": 61,
+            "Column": 6
+          }
+        },
+        {
+          "Name": "ValidationResult",
+          "Kind": "struct",
+          "Exported": true,
+          "Doc": "",
+          "Fields": [
+            {
+              "Name": "Valid",
+              "Type": "bool",
+              "Tag": "`json:\"valid\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Path",
+              "Type": "string",
+              "Tag": "`json:\"path\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Errors",
+              "Type": "[]ValidationError",
+              "Tag": "`json:\"errors,omitempty\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Warnings",
+              "Type": "[]ValidationError",
+              "Tag": "`json:\"warnings,omitempty\"`",
+              "Exported": true,
+              "Doc": ""
+            }
+          ],
+          "Methods": null,
+          "Implements": null,
+          "Embeds": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/test.go",
+            "Line": 70,
+            "Column": 6
+          }
+        },
+        {
+          "Name": "ValidationError",
+          "Kind": "struct",
+          "Exported": true,
+          "Doc": "",
+          "Fields": [
+            {
+              "Name": "File",
+              "Type": "string",
+              "Tag": "`json:\"file\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Line",
+              "Type": "int",
+              "Tag": "`json:\"line,omitempty\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Type",
+              "Type": "string",
+              "Tag": "`json:\"type\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Description",
+              "Type": "string",
+              "Tag": "`json:\"description\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Suggestion",
+              "Type": "string",
+              "Tag": "`json:\"suggestion,omitempty\"`",
+              "Exported": true,
+              "Doc": ""
+            }
+          ],
+          "Methods": null,
+          "Implements": null,
+          "Embeds": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/test.go",
+            "Line": 77,
+            "Column": 6
+          }
+        },
+        {
+          "Name": "WorkflowListResult",
+          "Kind": "struct",
+          "Exported": true,
+          "Doc": "",
+          "Fields": [
+            {
+              "Name": "Workflows",
+              "Type": "[]WorkflowSummary",
+              "Tag": "`json:\"workflows\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Count",
+              "Type": "int",
+              "Tag": "`json:\"count\"`",
+              "Exported": true,
+              "Doc": ""
+            }
+          ],
+          "Methods": null,
+          "Implements": null,
+          "Embeds": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/workflow.go",
+            "Line": 73,
+            "Column": 6
+          }
+        },
+        {
+          "Name": "WorkflowSummary",
+          "Kind": "struct",
+          "Exported": true,
+          "Doc": "",
+          "Fields": [
+            {
+              "Name": "WorkflowID",
+              "Type": "string",
+              "Tag": "`json:\"workflowId\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "RunID",
+              "Type": "string",
+              "Tag": "`json:\"runId\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Type",
+              "Type": "string",
+              "Tag": "`json:\"type\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Status",
+              "Type": "string",
+              "Tag": "`json:\"status\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "StartTime",
+              "Type": "string",
+              "Tag": "`json:\"startTime\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "CloseTime",
+              "Type": "string",
+              "Tag": "`json:\"closeTime,omitempty\"`",
+              "Exported": true,
+              "Doc": ""
+            }
+          ],
+          "Methods": null,
+          "Implements": null,
+          "Embeds": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/workflow.go",
+            "Line": 78,
+            "Column": 6
+          }
+        },
+        {
+          "Name": "WorkflowDescription",
+          "Kind": "struct",
+          "Exported": true,
+          "Doc": "",
+          "Fields": [
+            {
+              "Name": "WorkflowID",
+              "Type": "string",
+              "Tag": "`json:\"workflowId\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "RunID",
+              "Type": "string",
+              "Tag": "`json:\"runId\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Type",
+              "Type": "string",
+              "Tag": "`json:\"type\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Status",
+              "Type": "string",
+              "Tag": "`json:\"status\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "StartTime",
+              "Type": "string",
+              "Tag": "`json:\"startTime\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "CloseTime",
+              "Type": "string",
+              "Tag": "`json:\"closeTime,omitempty\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "HistoryLength",
+              "Type": "int",
+              "Tag": "`json:\"historyLength\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "TaskQueue",
+              "Type": "string",
+              "Tag": "`json:\"taskQueue\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Memo",
+              "Type": "map[string]interface{}",
+              "Tag": "`json:\"memo,omitempty\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "SearchAttributes",
+              "Type": "map[string]interface{}",
+              "Tag": "`json:\"searchAttributes,omitempty\"`",
+              "Exported": true,
+              "Doc": ""
+            }
+          ],
+          "Methods": null,
+          "Implements": null,
+          "Embeds": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/workflow.go",
+            "Line": 87,
+            "Column": 6
+          }
+        },
+        {
+          "Name": "DiagnosisResult",
+          "Kind": "struct",
+          "Exported": true,
+          "Doc": "",
+          "Fields": [
+            {
+              "Name": "WorkflowID",
+              "Type": "string",
+              "Tag": "`json:\"workflowId\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Status",
+              "Type": "string",
+              "Tag": "`json:\"status\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Issues",
+              "Type": "[]DiagnosisIssue",
+              "Tag": "`json:\"issues\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Suggestions",
+              "Type": "[]string",
+              "Tag": "`json:\"suggestions\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "LastEvent",
+              "Type": "string",
+              "Tag": "`json:\"lastEvent\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "PendingItems",
+              "Type": "[]string",
+              "Tag": "`json:\"pendingItems,omitempty\"`",
+              "Exported": true,
+              "Doc": ""
+            }
+          ],
+          "Methods": null,
+          "Implements": null,
+          "Embeds": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/workflow.go",
+            "Line": 100,
+            "Column": 6
+          }
+        },
+        {
+          "Name": "DiagnosisIssue",
+          "Kind": "struct",
+          "Exported": true,
+          "Doc": "",
+          "Fields": [
+            {
+              "Name": "Severity",
+              "Type": "string",
+              "Tag": "`json:\"severity\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Type",
+              "Type": "string",
+              "Tag": "`json:\"type\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Description",
+              "Type": "string",
+              "Tag": "`json:\"description\"`",
+              "Exported": true,
+              "Doc": ""
+            }
+          ],
+          "Methods": null,
+          "Implements": null,
+          "Embeds": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/workflow.go",
+            "Line": 109,
+            "Column": 6
+          }
+        },
+        {
+          "Name": "ClusterStatus",
+          "Kind": "struct",
+          "Exported": true,
+          "Doc": "",
+          "Fields": [
+            {
+              "Name": "Healthy",
+              "Type": "bool",
+              "Tag": "`json:\"healthy\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Status",
+              "Type": "string",
+              "Tag": "`json:\"status\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Address",
+              "Type": "string",
+              "Tag": "`json:\"address\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Message",
+              "Type": "string",
+              "Tag": "`json:\"message,omitempty\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Error",
+              "Type": "string",
+              "Tag": "`json:\"error,omitempty\"`",
+              "Exported": true,
+              "Doc": ""
+            }
+          ],
+          "Methods": null,
+          "Implements": null,
+          "Embeds": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/cluster.go",
+            "Line": 53,
+            "Column": 6
+          }
+        },
+        {
+          "Name": "ClusterInfo",
+          "Kind": "struct",
+          "Exported": true,
+          "Doc": "",
+          "Fields": [
+            {
+              "Name": "ServerVersion",
+              "Type": "string",
+              "Tag": "`json:\"serverVersion\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "ClusterID",
+              "Type": "string",
+              "Tag": "`json:\"clusterId\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "ClusterName",
+              "Type": "string",
+              "Tag": "`json:\"clusterName\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "HistoryShardCount",
+              "Type": "int",
+              "Tag": "`json:\"historyShardCount\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "PersistenceStore",
+              "Type": "string",
+              "Tag": "`json:\"persistenceStore\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "VisibilityStore",
+              "Type": "string",
+              "Tag": "`json:\"visibilityStore\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "Features",
+              "Type": "map[string]bool",
+              "Tag": "`json:\"features\"`",
+              "Exported": true,
+              "Doc": ""
+            }
+          ],
+          "Methods": null,
+          "Implements": null,
+          "Embeds": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/cluster.go",
+            "Line": 61,
+            "Column": 6
+          }
+        },
+        {
+          "Name": "ClusterMetrics",
+          "Kind": "struct",
+          "Exported": true,
+          "Doc": "",
+          "Fields": [
+            {
+              "Name": "ActiveNamespaces",
+              "Type": "int",
+              "Tag": "`json:\"activeNamespaces\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "WorkflowsRunning",
+              "Type": "int",
+              "Tag": "`json:\"workflowsRunning\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "TaskQueuesActive",
+              "Type": "int",
+              "Tag": "`json:\"taskQueuesActive\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "FrontendLatencyP99",
+              "Type": "float64",
+              "Tag": "`json:\"frontendLatencyP99Ms\"`",
+              "Exported": true,
+              "Doc": ""
+            },
+            {
+              "Name": "HistoryLatencyP99",
+              "Type": "float64",
+              "Tag": "`json:\"historyLatencyP99Ms\"`",
+              "Exported": true,
+              "Doc": ""
+            }
+          ],
+          "Methods": null,
+          "Implements": null,
+          "Embeds": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/cluster.go",
+            "Line": 71,
+            "Column": 6
+          }
+        }
+      ],
+      "Functions": [
+        {
+          "Name": "init",
+          "Signature": "func()",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/namespace.go",
+            "Line": 47,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "runNamespaceList",
+          "Signature": "func(cmd *cobra.Command, args []string) error",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/namespace.go",
+            "Line": 75,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "runNamespaceCreate",
+          "Signature": "func(cmd *cobra.Command, args []string) error",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/namespace.go",
+            "Line": 134,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "runNamespaceDescribe",
+          "Signature": "func(cmd *cobra.Command, args []string) error",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/namespace.go",
+            "Line": 182,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "runTemporalCLINs",
+          "Signature": "func(args ...string) (string, error)",
+          "Exported": false,
+          "Doc": "Helper to run temporal CLI\n",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/namespace.go",
+            "Line": 245,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "Execute",
+          "Signature": "func()",
+          "Exported": true,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/root.go",
+            "Line": 28,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "init",
+          "Signature": "func()",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/root.go",
+            "Line": 35,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "init",
+          "Signature": "func()",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/scaffold.go",
+            "Line": 63,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "outputResult",
+          "Signature": "func(result ScaffoldResult)",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/scaffold.go",
+            "Line": 86,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "runScaffoldProject",
+          "Signature": "func(cmd *cobra.Command, args []string) error",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/scaffold.go",
+            "Line": 103,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "runScaffoldWorkflow",
+          "Signature": "func(cmd *cobra.Command, args []string) error",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/scaffold.go",
+            "Line": 247,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "runScaffoldActivity",
+          "Signature": "func(cmd *cobra.Command, args []string) error",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/scaffold.go",
+            "Line": 275,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "runScaffoldWorker",
+          "Signature": "func(cmd *cobra.Command, args []string) error",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/scaffold.go",
+            "Line": 302,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "executeTemplate",
+          "Signature": "func(name string, data TemplateData) (string, error)",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/scaffold.go",
+            "Line": 337,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "toExportedName",
+          "Signature": "func(s string) string",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/scaffold.go",
+            "Line": 362,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "toSnakeCase",
+          "Signature": "func(s string) string",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/scaffold.go",
+            "Line": 370,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "init",
+          "Signature": "func()",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/test.go",
+            "Line": 50,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "runTestReplay",
+          "Signature": "func(cmd *cobra.Command, args []string) error",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/test.go",
+            "Line": 85,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "runTestValidate",
+          "Signature": "func(cmd *cobra.Command, args []string) error",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/test.go",
+            "Line": 180,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "generateReplayTestCode",
+          "Signature": "func(historyFile string, workflowName string) string",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/test.go",
+            "Line": 227,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "findGoFiles",
+          "Signature": "func(path string) ([]string, error)",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/test.go",
+            "Line": 255,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "validateGoFile",
+          "Signature": "func(file string) ([]ValidationError, []ValidationError)",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/test.go",
+            "Line": 271,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "copyFile",
+          "Signature": "func(src string, dst string) error",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/test.go",
+            "Line": 364,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "outputReplayResult",
+          "Signature": "func(result ReplayResult) error",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/test.go",
+            "Line": 372,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "outputValidationResult",
+          "Signature": "func(result ValidationResult) error",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/test.go",
+            "Line": 399,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "runGoTest",
+          "Signature": "func(dir string, args ...string) (string, error)",
+          "Exported": false,
+          "Doc": "runGoTest runs go test in the specified directory\n",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/test.go",
+            "Line": 449,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "init",
+          "Signature": "func()",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/workflow.go",
+            "Line": 56,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "runWorkflowList",
+          "Signature": "func(cmd *cobra.Command, args []string) error",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/workflow.go",
+            "Line": 115,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "runWorkflowDescribe",
+          "Signature": "func(cmd *cobra.Command, args []string) error",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/workflow.go",
+            "Line": 168,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "runWorkflowHistory",
+          "Signature": "func(cmd *cobra.Command, args []string) error",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/workflow.go",
+            "Line": 234,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "runWorkflowDiagnose",
+          "Signature": "func(cmd *cobra.Command, args []string) error",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/workflow.go",
+            "Line": 270,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "analyzeWorkflow",
+          "Signature": "func(workflowID string, descOutput string, historyOutput string) DiagnosisResult",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/workflow.go",
+            "Line": 356,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "init",
+          "Signature": "func()",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/cluster.go",
+            "Line": 44,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "getTemporalAddress",
+          "Signature": "func() string",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/cluster.go",
+            "Line": 79,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "runTemporalCLI",
+          "Signature": "func(args ...string) (string, error)",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/cluster.go",
+            "Line": 89,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "runClusterStatus",
+          "Signature": "func(cmd *cobra.Command, args []string) error",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/cluster.go",
+            "Line": 97,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "runClusterInfo",
+          "Signature": "func(cmd *cobra.Command, args []string) error",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/cluster.go",
+            "Line": 148,
+            "Column": 1
+          }
+        },
+        {
+          "Name": "runClusterMetrics",
+          "Signature": "func(cmd *cobra.Command, args []string) error",
+          "Exported": false,
+          "Doc": "",
+          "Receiver": "",
+          "Calls": null,
+          "Position": {
+            "File": "tools/timelord-cli/cmd/cluster.go",
+            "Line": 197,
+            "Column": 1
+          }
+        }
+      ],
+      "Constants": [
+        {
+          "Name": "workflowTemplate",
+          "Type": "",
+          "Value": "`package workflows\n\nimport (\n\t\"time\"\n\n\t\"go.temporal.io/sdk/temporal\"\n\t\"go.temporal.io/sdk/workflow\"\n)\n\n// {{.Name}}WorkflowInput is the input for {{.Name}}Workflow\ntype {{.Name}}WorkflowInput struct {\n\t// Add your input fields here\n\tID string\n}\n\n// {{.Name}}WorkflowOutput is the output for {{.Name}}Workflow\ntype {{.Name}}WorkflowOutput struct {\n\t// Add your output fields here\n\tResult string\n}\n\n// {{.Name}}Workflow orchestrates the {{.Name}} process\nfunc {{.Name}}Workflow(ctx workflow.Context, input {{.Name}}WorkflowInput) (*{{.Name}}WorkflowOutput, error) {\n\tlogger := workflow.GetLogger(ctx)\n\tlogger.Info(\"{{.Name}}Workflow started\", \"input\", input)\n\n\t// Configure activity options\n\tao := workflow.ActivityOptions{\n\t\tStartToCloseTimeout: 10 * time.Minute,\n\t\tRetryPolicy: \u0026temporal.RetryPolicy{\n\t\t\tInitialInterval:    time.Second,\n\t\t\tBackoffCoefficient: 2.0,\n\t\t\tMaximumInterval:    time.Minute,\n\t\t\tMaximumAttempts:    5,\n\t\t},\n\t}\n\tctx = workflow.WithActivityOptions(ctx, ao)\n\n\t// Execute activities\n\t// var result ActivityResult\n\t// err := workflow.ExecuteActivity(ctx, YourActivity, activityInput).Get(ctx, \u0026result)\n\t// if err != nil {\n\t//     return nil, err\n\t// }\n\n\treturn \u0026{{.Name}}WorkflowOutput{\n\t\tResult: \"completed\",\n\t}, nil\n}\n`",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "activityTemplate",
+          "Type": "",
+          "Value": "`package activities\n\nimport (\n\t\"context\"\n\n\t\"go.temporal.io/sdk/activity\"\n)\n\n// {{.Name}}Activities contains activities for {{.Name}}\ntype {{.Name}}Activities struct {\n\t// Add dependencies here (database, HTTP client, etc.)\n}\n\n// New{{.Name}}Activities creates a new {{.Name}}Activities instance\nfunc New{{.Name}}Activities() *{{.Name}}Activities {\n\treturn \u0026{{.Name}}Activities{}\n}\n\n// {{.Name}}ActivityInput is the input for {{.Name}}Activity\ntype {{.Name}}ActivityInput struct {\n\t// Add your input fields here\n\tID string\n}\n\n// {{.Name}}ActivityOutput is the output for {{.Name}}Activity\ntype {{.Name}}ActivityOutput struct {\n\t// Add your output fields here\n\tResult string\n}\n\n// {{.Name}}Activity performs the {{.Name}} operation\nfunc (a *{{.Name}}Activities) {{.Name}}Activity(ctx context.Context, input {{.Name}}ActivityInput) (*{{.Name}}ActivityOutput, error) {\n\tlogger := activity.GetLogger(ctx)\n\tlogger.Info(\"{{.Name}}Activity started\", \"input\", input)\n\n\t// For long-running activities, record heartbeat\n\t// activity.RecordHeartbeat(ctx, \"processing\")\n\n\t// Check for cancellation\n\tif ctx.Err() != nil {\n\t\treturn nil, ctx.Err()\n\t}\n\n\t// Implement your activity logic here\n\n\treturn \u0026{{.Name}}ActivityOutput{\n\t\tResult: \"completed\",\n\t}, nil\n}\n`",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "workerTemplate",
+          "Type": "",
+          "Value": "`package main\n\nimport (\n\t\"log\"\n\n\t\"go.temporal.io/sdk/client\"\n\t\"go.temporal.io/sdk/worker\"\n{{- if .PackageName }}\n\t\"{{.PackageName}}/activities\"\n\t\"{{.PackageName}}/workflows\"\n{{- end }}\n)\n\nconst taskQueue = \"{{.TaskQueue}}\"\n\nfunc main() {\n\t// Create Temporal client\n\tc, err := client.Dial(client.Options{\n\t\tHostPort: client.DefaultHostPort,\n\t})\n\tif err != nil {\n\t\tlog.Fatalf(\"Failed to create Temporal client: %v\", err)\n\t}\n\tdefer c.Close()\n\n\t// Create worker\n\tw := worker.New(c, taskQueue, worker.Options{\n\t\t// Configure worker options as needed\n\t\t// MaxConcurrentActivityExecutionSize: 100,\n\t\t// MaxConcurrentWorkflowTaskExecutionSize: 100,\n\t})\n\n\t// Register workflows\n\t// w.RegisterWorkflow(workflows.SampleWorkflow)\n\n\t// Register activities\n\t// activities := activities.NewSampleActivities()\n\t// w.RegisterActivity(activities)\n\n\t// Start worker\n\tlog.Printf(\"Starting worker on task queue: %s\", taskQueue)\n\tif err := w.Run(worker.InterruptCh()); err != nil {\n\t\tlog.Fatalf(\"Worker failed: %v\", err)\n\t}\n}\n`",
+          "Exported": false,
+          "Doc": ""
+        }
+      ],
+      "Variables": [
+        {
+          "Name": "namespaceCmd",
+          "Type": "",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "namespaceListCmd",
+          "Type": "",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "namespaceCreateCmd",
+          "Type": "",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "namespaceDescribeCmd",
+          "Type": "",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "retention",
+          "Type": "string",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "description",
+          "Type": "string",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "jsonOutput",
+          "Type": "bool",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "verbose",
+          "Type": "bool",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "rootCmd",
+          "Type": "",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "scaffoldCmd",
+          "Type": "",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "scaffoldProjectCmd",
+          "Type": "",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "scaffoldWorkflowCmd",
+          "Type": "",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "scaffoldActivityCmd",
+          "Type": "",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "scaffoldWorkerCmd",
+          "Type": "",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "outputDir",
+          "Type": "string",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "taskQueue",
+          "Type": "string",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "packageName",
+          "Type": "string",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "testCmd",
+          "Type": "",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "testReplayCmd",
+          "Type": "",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "testValidateCmd",
+          "Type": "",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "testWorkflowName",
+          "Type": "string",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "testPackagePath",
+          "Type": "string",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "testVerboseOut",
+          "Type": "bool",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "workflowCmd",
+          "Type": "",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "workflowListCmd",
+          "Type": "",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "workflowDescribeCmd",
+          "Type": "",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "workflowHistoryCmd",
+          "Type": "",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "workflowDiagnoseCmd",
+          "Type": "",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "workflowNamespace",
+          "Type": "string",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "workflowQuery",
+          "Type": "string",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "workflowLimit",
+          "Type": "int",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "workflowRunID",
+          "Type": "string",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "clusterCmd",
+          "Type": "",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "clusterStatusCmd",
+          "Type": "",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "clusterInfoCmd",
+          "Type": "",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "clusterMetricsCmd",
+          "Type": "",
+          "Exported": false,
+          "Doc": ""
+        },
+        {
+          "Name": "temporalAddress",
+          "Type": "string",
+          "Exported": false,
+          "Doc": ""
+        }
+      ]
+    }
+  }
+}

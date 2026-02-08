@@ -1,0 +1,49 @@
+package activities
+
+import (
+	"context"
+
+	"go.temporal.io/sdk/activity"
+)
+
+// {{.Name}}Activities contains activities for {{.Name}}
+type {{.Name}}Activities struct {
+	// Add dependencies here (database, HTTP client, etc.)
+}
+
+// New{{.Name}}Activities creates a new {{.Name}}Activities instance
+func New{{.Name}}Activities() *{{.Name}}Activities {
+	return &{{.Name}}Activities{}
+}
+
+// {{.Name}}ActivityInput is the input for {{.Name}}Activity
+type {{.Name}}ActivityInput struct {
+	// Add your input fields here
+	ID string
+}
+
+// {{.Name}}ActivityOutput is the output for {{.Name}}Activity
+type {{.Name}}ActivityOutput struct {
+	// Add your output fields here
+	Result string
+}
+
+// {{.Name}}Activity performs the {{.Name}} operation
+func (a *{{.Name}}Activities) {{.Name}}Activity(ctx context.Context, input {{.Name}}ActivityInput) (*{{.Name}}ActivityOutput, error) {
+	logger := activity.GetLogger(ctx)
+	logger.Info("{{.Name}}Activity started", "input", input)
+
+	// For long-running activities, record heartbeat
+	// activity.RecordHeartbeat(ctx, "processing")
+
+	// Check for cancellation
+	if ctx.Err() != nil {
+		return nil, ctx.Err()
+	}
+
+	// Implement your activity logic here
+
+	return &{{.Name}}ActivityOutput{
+		Result: "completed",
+	}, nil
+}

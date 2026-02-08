@@ -1,0 +1,45 @@
+package main
+
+import (
+	"log"
+
+	"go.temporal.io/sdk/client"
+	"go.temporal.io/sdk/worker"
+{{- if .PackageName }}
+	"{{.PackageName}}/activities"
+	"{{.PackageName}}/workflows"
+{{- end }}
+)
+
+const taskQueue = "{{.TaskQueue}}"
+
+func main() {
+	// Create Temporal client
+	c, err := client.Dial(client.Options{
+		HostPort: client.DefaultHostPort,
+	})
+	if err != nil {
+		log.Fatalf("Failed to create Temporal client: %v", err)
+	}
+	defer c.Close()
+
+	// Create worker
+	w := worker.New(c, taskQueue, worker.Options{
+		// Configure worker options as needed
+		// MaxConcurrentActivityExecutionSize: 100,
+		// MaxConcurrentWorkflowTaskExecutionSize: 100,
+	})
+
+	// Register workflows
+	// w.RegisterWorkflow(workflows.SampleWorkflow)
+
+	// Register activities
+	// activities := activities.NewSampleActivities()
+	// w.RegisterActivity(activities)
+
+	// Start worker
+	log.Printf("Starting worker on task queue: %s", taskQueue)
+	if err := w.Run(worker.InterruptCh()); err != nil {
+		log.Fatalf("Worker failed: %v", err)
+	}
+}

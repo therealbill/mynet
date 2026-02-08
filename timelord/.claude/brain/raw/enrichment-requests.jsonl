@@ -1,0 +1,17 @@
+{"id":"tools/timelord-cli/cmd.Execute","kind":"function","name":"Execute","file":"tools/timelord-cli/cmd/root.go","line":28,"char":1,"ops":["references","incoming_calls"]}
+{"id":"tools/timelord-cli/cmd.NamespaceInfo","kind":"struct","name":"NamespaceInfo","file":"tools/timelord-cli/cmd/namespace.go","line":57,"char":6,"ops":["references"]}
+{"id":"tools/timelord-cli/cmd.NamespaceListResult","kind":"struct","name":"NamespaceListResult","file":"tools/timelord-cli/cmd/namespace.go","line":64,"char":6,"ops":["references"]}
+{"id":"tools/timelord-cli/cmd.NamespaceCreateResult","kind":"struct","name":"NamespaceCreateResult","file":"tools/timelord-cli/cmd/namespace.go","line":69,"char":6,"ops":["references"]}
+{"id":"tools/timelord-cli/cmd.ScaffoldResult","kind":"struct","name":"ScaffoldResult","file":"tools/timelord-cli/cmd/scaffold.go","line":79,"char":6,"ops":["references"]}
+{"id":"tools/timelord-cli/cmd.TemplateData","kind":"struct","name":"TemplateData","file":"tools/timelord-cli/cmd/scaffold.go","line":331,"char":6,"ops":["references"]}
+{"id":"tools/timelord-cli/cmd.ReplayResult","kind":"struct","name":"ReplayResult","file":"tools/timelord-cli/cmd/test.go","line":61,"char":6,"ops":["references"]}
+{"id":"tools/timelord-cli/cmd.ValidationResult","kind":"struct","name":"ValidationResult","file":"tools/timelord-cli/cmd/test.go","line":70,"char":6,"ops":["references"]}
+{"id":"tools/timelord-cli/cmd.ValidationError","kind":"struct","name":"ValidationError","file":"tools/timelord-cli/cmd/test.go","line":77,"char":6,"ops":["references"]}
+{"id":"tools/timelord-cli/cmd.WorkflowListResult","kind":"struct","name":"WorkflowListResult","file":"tools/timelord-cli/cmd/workflow.go","line":73,"char":6,"ops":["references"]}
+{"id":"tools/timelord-cli/cmd.WorkflowSummary","kind":"struct","name":"WorkflowSummary","file":"tools/timelord-cli/cmd/workflow.go","line":78,"char":6,"ops":["references"]}
+{"id":"tools/timelord-cli/cmd.WorkflowDescription","kind":"struct","name":"WorkflowDescription","file":"tools/timelord-cli/cmd/workflow.go","line":87,"char":6,"ops":["references"]}
+{"id":"tools/timelord-cli/cmd.DiagnosisResult","kind":"struct","name":"DiagnosisResult","file":"tools/timelord-cli/cmd/workflow.go","line":100,"char":6,"ops":["references"]}
+{"id":"tools/timelord-cli/cmd.DiagnosisIssue","kind":"struct","name":"DiagnosisIssue","file":"tools/timelord-cli/cmd/workflow.go","line":109,"char":6,"ops":["references"]}
+{"id":"tools/timelord-cli/cmd.ClusterStatus","kind":"struct","name":"ClusterStatus","file":"tools/timelord-cli/cmd/cluster.go","line":53,"char":6,"ops":["references"]}
+{"id":"tools/timelord-cli/cmd.ClusterInfo","kind":"struct","name":"ClusterInfo","file":"tools/timelord-cli/cmd/cluster.go","line":61,"char":6,"ops":["references"]}
+{"id":"tools/timelord-cli/cmd.ClusterMetrics","kind":"struct","name":"ClusterMetrics","file":"tools/timelord-cli/cmd/cluster.go","line":71,"char":6,"ops":["references"]}

@@ -1,0 +1,49 @@
+package workflows
+
+import (
+	"time"
+
+	"go.temporal.io/sdk/temporal"
+	"go.temporal.io/sdk/workflow"
+)
+
+// {{.Name}}WorkflowInput is the input for {{.Name}}Workflow
+type {{.Name}}WorkflowInput struct {
+	// Add your input fields here
+	ID string
+}
+
+// {{.Name}}WorkflowOutput is the output for {{.Name}}Workflow
+type {{.Name}}WorkflowOutput struct {
+	// Add your output fields here
+	Result string
+}
+
+// {{.Name}}Workflow orchestrates the {{.Name}} process
+func {{.Name}}Workflow(ctx workflow.Context, input {{.Name}}WorkflowInput) (*{{.Name}}WorkflowOutput, error) {
+	logger := workflow.GetLogger(ctx)
+	logger.Info("{{.Name}}Workflow started", "input", input)
+
+	// Configure activity options
+	ao := workflow.ActivityOptions{
+		StartToCloseTimeout: 10 * time.Minute,
+		RetryPolicy: &temporal.RetryPolicy{
+			InitialInterval:    time.Second,
+			BackoffCoefficient: 2.0,
+			MaximumInterval:    time.Minute,
+			MaximumAttempts:    5,
+		},
+	}
+	ctx = workflow.WithActivityOptions(ctx, ao)
+
+	// Execute activities
+	// var result ActivityResult
+	// err := workflow.ExecuteActivity(ctx, YourActivity, activityInput).Get(ctx, &result)
+	// if err != nil {
+	//     return nil, err
+	// }
+
+	return &{{.Name}}WorkflowOutput{
+		Result: "completed",
+	}, nil
+}
