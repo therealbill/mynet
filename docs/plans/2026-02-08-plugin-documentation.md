@@ -19,6 +19,19 @@
 
 **Execution note:** Use the Write tool (not echo/cat heredocs in Bash) for all file creation. Use Bash only for mkdir and git commits.
 
+**Agent assignments per file type:**
+
+| File Type | Agent (subagent_type) | Notes |
+|-----------|----------------------|-------|
+| `_index.md` section pages | Manual (Write tool) | Scaffolding — no agent needed |
+| `tutorials/*.md` | `diataxis-docs:doc-tutorial-writer` | Learning-oriented, step-by-step with checkpoints |
+| `howto/*.md` | `diataxis-docs:doc-howto-writer` | Task-oriented, numbered steps, one goal per guide |
+| `reference/*.md` | `diataxis-docs:doc-reference-gen` | Pure specification, no advice, consistent structure |
+| `explanation/*.md` | `diataxis-docs:doc-explanation-writer` | Understanding-oriented, design rationale, trade-offs |
+| Final validation | `diataxis-docs:doc-crosslink-validator` | Run after all docs are written to verify quality |
+
+Each task below specifies agent assignments per file. The executing agent must dispatch the appropriate diataxis subagent for each file via the Task tool, passing the content focus and style reference as context.
+
 **Tier assignments:**
 
 | Tier | Plugins |
@@ -44,6 +57,8 @@
 ## Group A: Marketplace Root Documentation
 
 ### Task 1: Marketplace root docs scaffolding and overview
+
+**Agent:** Manual (Write tool) — scaffolding only, no diataxis content.
 
 **Files:**
 
@@ -186,6 +201,8 @@ git commit -m "add marketplace root docs scaffolding and overview"
 
 ### Task 2: Marketplace root tutorial
 
+**Agent:** `diataxis-docs:doc-tutorial-writer` — dispatch via Task tool.
+
 **Files:**
 
 - Create: `docs/tutorials/getting-started.md`
@@ -206,6 +223,8 @@ git commit -m "add marketplace getting-started tutorial"
 ---
 
 ### Task 3: Marketplace root how-to guides
+
+**Agent:** `diataxis-docs:doc-howto-writer` — dispatch via Task tool, one invocation per guide or batched.
 
 **Files:**
 
@@ -231,6 +250,8 @@ git commit -m "add marketplace how-to guides"
 ---
 
 ### Task 4: Marketplace root reference docs
+
+**Agent:** `diataxis-docs:doc-reference-gen` — dispatch via Task tool. Enforce the "no advice" rule strictly.
 
 **Files:**
 
@@ -258,6 +279,8 @@ git commit -m "add marketplace reference documentation"
 ---
 
 ### Task 5: Marketplace root explanation docs
+
+**Agent:** `diataxis-docs:doc-explanation-writer` — dispatch via Task tool.
 
 **Files:**
 
@@ -287,6 +310,14 @@ git commit -m "add marketplace explanation documentation"
 Each Tier 1 plugin gets ~8 files: _index.md, 4 section indexes, 1 tutorial, 1 how-to, 1 reference, 1 explanation.
 
 ### Task 6: desktop-development docs (1 agent: electron-go-pro)
+
+**Agent assignments:**
+
+- `_index.md` files → Manual (Write tool)
+- `tutorials/getting-started.md` → `diataxis-docs:doc-tutorial-writer`
+- `howto/set-up-electron-go-project.md` → `diataxis-docs:doc-howto-writer`
+- `reference/agents.md` → `diataxis-docs:doc-reference-gen`
+- `explanation/architecture.md` → `diataxis-docs:doc-explanation-writer`
 
 **Files:**
 
@@ -322,6 +353,14 @@ git commit -m "add desktop-development plugin documentation"
 
 ### Task 7: mcp-development docs (2 agents: mcp-integration-engineer, mcp-registry-navigator)
 
+**Agent assignments:**
+
+- `_index.md` files → Manual (Write tool)
+- `tutorials/getting-started.md` → `diataxis-docs:doc-tutorial-writer`
+- `howto/find-and-evaluate-mcp-servers.md` → `diataxis-docs:doc-howto-writer`
+- `reference/agents.md` → `diataxis-docs:doc-reference-gen`
+- `explanation/architecture.md` → `diataxis-docs:doc-explanation-writer`
+
 **Files:**
 
 - Create: `mcp-development/docs/_index.md`
@@ -354,6 +393,15 @@ git commit -m "add mcp-development plugin documentation"
 ---
 
 ### Task 8: ai-development docs (1 agent: ai-engineer, 1 skill: agent-modernizer)
+
+**Agent assignments:**
+
+- `_index.md` files → Manual (Write tool)
+- `tutorials/getting-started.md` → `diataxis-docs:doc-tutorial-writer`
+- `howto/audit-agent-definitions.md` → `diataxis-docs:doc-howto-writer`
+- `reference/agents.md` → `diataxis-docs:doc-reference-gen`
+- `reference/skills.md` → `diataxis-docs:doc-reference-gen`
+- `explanation/architecture.md` → `diataxis-docs:doc-explanation-writer`
 
 **Files:**
 
@@ -388,6 +436,14 @@ git commit -m "add ai-development plugin documentation"
 ---
 
 ### Task 9: utility-skills docs (1 skill: markdown-nested-codeblocks)
+
+**Agent assignments:**
+
+- `_index.md` files → Manual (Write tool)
+- `tutorials/getting-started.md` → `diataxis-docs:doc-tutorial-writer`
+- `howto/nest-code-blocks-correctly.md` → `diataxis-docs:doc-howto-writer`
+- `reference/skills.md` → `diataxis-docs:doc-reference-gen`
+- `explanation/architecture.md` → `diataxis-docs:doc-explanation-writer`
 
 **Files:**
 
@@ -425,6 +481,17 @@ git commit -m "add utility-skills plugin documentation"
 Each Tier 2 plugin gets ~11 files: _index.md, 4 section indexes, 1 tutorial, 2-3 how-tos, 1 reference (per component type), 1-2 explanation pages.
 
 ### Task 10: code-quality docs (5 agents)
+
+**Agent assignments:**
+
+- `_index.md` files → Manual (Write tool)
+- `tutorials/getting-started.md` → `diataxis-docs:doc-tutorial-writer`
+- `howto/review-code-before-committing.md` → `diataxis-docs:doc-howto-writer`
+- `howto/write-and-fix-tests.md` → `diataxis-docs:doc-howto-writer`
+- `howto/audit-accessibility.md` → `diataxis-docs:doc-howto-writer`
+- `reference/agents.md` → `diataxis-docs:doc-reference-gen`
+- `explanation/architecture.md` → `diataxis-docs:doc-explanation-writer`
+- `explanation/choosing-the-right-agent.md` → `diataxis-docs:doc-explanation-writer`
 
 **Files:**
 
@@ -464,6 +531,16 @@ git commit -m "add code-quality plugin documentation"
 
 ### Task 11: web-development docs (6 agents)
 
+**Agent assignments:**
+
+- `_index.md` files → Manual (Write tool)
+- `tutorials/getting-started.md` → `diataxis-docs:doc-tutorial-writer`
+- `howto/build-react-component.md` → `diataxis-docs:doc-howto-writer`
+- `howto/set-up-nextjs-project.md` → `diataxis-docs:doc-howto-writer`
+- `reference/agents.md` → `diataxis-docs:doc-reference-gen`
+- `explanation/architecture.md` → `diataxis-docs:doc-explanation-writer`
+- `explanation/choosing-the-right-agent.md` → `diataxis-docs:doc-explanation-writer`
+
 **Files:**
 
 - Create: `web-development/docs/_index.md`
@@ -499,6 +576,15 @@ git commit -m "add web-development plugin documentation"
 
 ### Task 12: backend-development docs (3 agents)
 
+**Agent assignments:**
+
+- `_index.md` files → Manual (Write tool)
+- `tutorials/getting-started.md` → `diataxis-docs:doc-tutorial-writer`
+- `howto/design-api-architecture.md` → `diataxis-docs:doc-howto-writer`
+- `howto/optimize-sql-queries.md` → `diataxis-docs:doc-howto-writer`
+- `reference/agents.md` → `diataxis-docs:doc-reference-gen`
+- `explanation/architecture.md` → `diataxis-docs:doc-explanation-writer`
+
 **Files:**
 
 - Create: `backend-development/docs/_index.md`
@@ -532,6 +618,15 @@ git commit -m "add backend-development plugin documentation"
 ---
 
 ### Task 13: cli-development docs (3 agents)
+
+**Agent assignments:**
+
+- `_index.md` files → Manual (Write tool)
+- `tutorials/getting-started.md` → `diataxis-docs:doc-tutorial-writer`
+- `howto/build-interactive-tui.md` → `diataxis-docs:doc-howto-writer`
+- `howto/design-cli-visual-style.md` → `diataxis-docs:doc-howto-writer`
+- `reference/agents.md` → `diataxis-docs:doc-reference-gen`
+- `explanation/architecture.md` → `diataxis-docs:doc-explanation-writer`
 
 **Files:**
 
@@ -567,6 +662,15 @@ git commit -m "add cli-development plugin documentation"
 
 ### Task 14: developer-tools docs (3 agents)
 
+**Agent assignments:**
+
+- `_index.md` files → Manual (Write tool)
+- `tutorials/getting-started.md` → `diataxis-docs:doc-tutorial-writer`
+- `howto/set-up-git-workflow.md` → `diataxis-docs:doc-howto-writer`
+- `howto/generate-api-documentation.md` → `diataxis-docs:doc-howto-writer`
+- `reference/agents.md` → `diataxis-docs:doc-reference-gen`
+- `explanation/architecture.md` → `diataxis-docs:doc-explanation-writer`
+
 **Files:**
 
 - Create: `developer-tools/docs/_index.md`
@@ -600,6 +704,15 @@ git commit -m "add developer-tools plugin documentation"
 ---
 
 ### Task 15: utility-agents docs (3 agents)
+
+**Agent assignments:**
+
+- `_index.md` files → Manual (Write tool)
+- `tutorials/getting-started.md` → `diataxis-docs:doc-tutorial-writer`
+- `howto/validate-urls-in-documentation.md` → `diataxis-docs:doc-howto-writer`
+- `howto/extract-all-urls-from-codebase.md` → `diataxis-docs:doc-howto-writer`
+- `reference/agents.md` → `diataxis-docs:doc-reference-gen`
+- `explanation/architecture.md` → `diataxis-docs:doc-explanation-writer`
 
 **Files:**
 
@@ -635,6 +748,15 @@ git commit -m "add utility-agents plugin documentation"
 
 ### Task 16: mobile-development docs (3 agents)
 
+**Agent assignments:**
+
+- `_index.md` files → Manual (Write tool)
+- `tutorials/getting-started.md` → `diataxis-docs:doc-tutorial-writer`
+- `howto/build-ios-feature.md` → `diataxis-docs:doc-howto-writer`
+- `howto/choose-mobile-platform.md` → `diataxis-docs:doc-howto-writer`
+- `reference/agents.md` → `diataxis-docs:doc-reference-gen`
+- `explanation/architecture.md` → `diataxis-docs:doc-explanation-writer`
+
 **Files:**
 
 - Create: `mobile-development/docs/_index.md`
@@ -669,6 +791,15 @@ git commit -m "add mobile-development plugin documentation"
 
 ### Task 17: devops-and-infra docs (4 agents)
 
+**Agent assignments:**
+
+- `_index.md` files → Manual (Write tool)
+- `tutorials/getting-started.md` → `diataxis-docs:doc-tutorial-writer`
+- `howto/set-up-github-actions-ci.md` → `diataxis-docs:doc-howto-writer`
+- `howto/configure-prometheus-monitoring.md` → `diataxis-docs:doc-howto-writer`
+- `reference/agents.md` → `diataxis-docs:doc-reference-gen`
+- `explanation/architecture.md` → `diataxis-docs:doc-explanation-writer`
+
 **Files:**
 
 - Create: `devops-and-infra/docs/_index.md`
@@ -702,6 +833,16 @@ git commit -m "add devops-and-infra plugin documentation"
 ---
 
 ### Task 18: research docs (5 agents)
+
+**Agent assignments:**
+
+- `_index.md` files → Manual (Write tool)
+- `tutorials/getting-started.md` → `diataxis-docs:doc-tutorial-writer`
+- `howto/conduct-literature-review.md` → `diataxis-docs:doc-howto-writer`
+- `howto/produce-research-report.md` → `diataxis-docs:doc-howto-writer`
+- `reference/agents.md` → `diataxis-docs:doc-reference-gen`
+- `explanation/architecture.md` → `diataxis-docs:doc-explanation-writer`
+- `explanation/research-pipeline.md` → `diataxis-docs:doc-explanation-writer`
 
 **Files:**
 
@@ -738,6 +879,17 @@ git commit -m "add research plugin documentation"
 
 ### Task 19: gnu-make docs (5 skills)
 
+**Agent assignments:**
+
+- `_index.md` files → Manual (Write tool)
+- `tutorials/getting-started.md` → `diataxis-docs:doc-tutorial-writer`
+- `howto/debug-slow-makefile.md` → `diataxis-docs:doc-howto-writer`
+- `howto/organize-multi-directory-build.md` → `diataxis-docs:doc-howto-writer`
+- `howto/split-large-makefile.md` → `diataxis-docs:doc-howto-writer`
+- `reference/skills.md` → `diataxis-docs:doc-reference-gen`
+- `explanation/architecture.md` → `diataxis-docs:doc-explanation-writer`
+- `explanation/skill-progression.md` → `diataxis-docs:doc-explanation-writer`
+
 **Files:**
 
 - Create: `gnu-make/docs/_index.md`
@@ -773,6 +925,16 @@ git commit -m "add gnu-make plugin documentation"
 ---
 
 ### Task 20: game-development docs (5 agents)
+
+**Agent assignments:**
+
+- `_index.md` files → Manual (Write tool)
+- `tutorials/getting-started.md` → `diataxis-docs:doc-tutorial-writer`
+- `howto/prototype-game-mechanic.md` → `diataxis-docs:doc-howto-writer`
+- `howto/set-up-unity-project.md` → `diataxis-docs:doc-howto-writer`
+- `reference/agents.md` → `diataxis-docs:doc-reference-gen`
+- `explanation/architecture.md` → `diataxis-docs:doc-explanation-writer`
+- `explanation/choosing-the-right-agent.md` → `diataxis-docs:doc-explanation-writer`
 
 **Files:**
 
@@ -812,6 +974,23 @@ git commit -m "add game-development plugin documentation"
 Each Tier 3 plugin gets ~16 files: _index.md, 4 section indexes, 1 tutorial, 3-5 how-tos, reference pages per component type, 2-3 explanation pages.
 
 ### Task 21: hugo-repo docs (7 skills, 2 agents, 4 commands, 4 templates)
+
+**Agent assignments:**
+
+- `_index.md` files → Manual (Write tool)
+- `tutorials/getting-started.md` → `diataxis-docs:doc-tutorial-writer`
+- `howto/set-up-hugo-site.md` → `diataxis-docs:doc-howto-writer`
+- `howto/add-content-section.md` → `diataxis-docs:doc-howto-writer`
+- `howto/deploy-to-github-pages.md` → `diataxis-docs:doc-howto-writer`
+- `howto/deploy-to-s3.md` → `diataxis-docs:doc-howto-writer`
+- `howto/customize-theme.md` → `diataxis-docs:doc-howto-writer`
+- `reference/skills.md` → `diataxis-docs:doc-reference-gen`
+- `reference/agents.md` → `diataxis-docs:doc-reference-gen`
+- `reference/commands.md` → `diataxis-docs:doc-reference-gen`
+- `reference/templates.md` → `diataxis-docs:doc-reference-gen`
+- `explanation/architecture.md` → `diataxis-docs:doc-explanation-writer`
+- `explanation/design-decisions.md` → `diataxis-docs:doc-explanation-writer`
+- `explanation/component-interaction.md` → `diataxis-docs:doc-explanation-writer`
 
 **Files:**
 
@@ -854,6 +1033,17 @@ git commit -m "add hugo-repo plugin documentation"
 
 ### Task 22: programming-languages docs (8 agents)
 
+**Agent assignments:**
+
+- `_index.md` files → Manual (Write tool)
+- `tutorials/getting-started.md` → `diataxis-docs:doc-tutorial-writer`
+- `howto/modernize-legacy-code.md` → `diataxis-docs:doc-howto-writer`
+- `howto/optimize-performance.md` → `diataxis-docs:doc-howto-writer`
+- `howto/migrate-to-typescript.md` → `diataxis-docs:doc-howto-writer`
+- `reference/agents.md` → `diataxis-docs:doc-reference-gen`
+- `explanation/architecture.md` → `diataxis-docs:doc-explanation-writer`
+- `explanation/language-specialization.md` → `diataxis-docs:doc-explanation-writer`
+
 **Files:**
 
 - Create: `programming-languages/docs/_index.md`
@@ -889,6 +1079,19 @@ git commit -m "add programming-languages plugin documentation"
 ---
 
 ### Task 23: diataxis-docs docs (7 agents)
+
+**Agent assignments:**
+
+- `_index.md` files → Manual (Write tool)
+- `tutorials/getting-started.md` → `diataxis-docs:doc-tutorial-writer`
+- `howto/restructure-docs-to-diataxis.md` → `diataxis-docs:doc-howto-writer`
+- `howto/write-a-tutorial.md` → `diataxis-docs:doc-howto-writer`
+- `howto/write-reference-docs.md` → `diataxis-docs:doc-howto-writer`
+- `howto/validate-doc-quality.md` → `diataxis-docs:doc-howto-writer`
+- `reference/agents.md` → `diataxis-docs:doc-reference-gen`
+- `explanation/architecture.md` → `diataxis-docs:doc-explanation-writer`
+- `explanation/diataxis-in-practice.md` → `diataxis-docs:doc-explanation-writer`
+- `explanation/orchestration-model.md` → `diataxis-docs:doc-explanation-writer`
 
 **Files:**
 
@@ -926,6 +1129,38 @@ git commit -m "add diataxis-docs plugin documentation"
 
 ---
 
+## Group E: Validation
+
+### Task 24: Cross-link validation and quality check
+
+**Agent:** `diataxis-docs:doc-crosslink-validator` — dispatch via Task tool.
+
+**Scope:** Validate all documentation created in Tasks 1-23.
+
+**Step 1:** Run the doc-crosslink-validator agent across all `docs/` directories:
+
+- Root `docs/`
+- Each plugin's `docs/` directory
+
+**Step 2:** Check for:
+
+- Missing frontmatter (title, description, weight)
+- Diataxis type purity (no advice in reference, no explanation in how-tos)
+- Cross-reference validity (links to related plugins resolve)
+- Missing `_index.md` section pages
+- Orphaned pages (not linked from any parent)
+
+**Step 3:** Fix any issues found.
+
+**Step 4:** Commit fixes if any.
+
+```bash
+git add -A
+git commit -m "fix documentation quality issues from crosslink validation"
+```
+
+---
+
 ## Summary of Commits
 
 1. `add marketplace root docs scaffolding and overview` (Task 1)
@@ -951,3 +1186,4 @@ git commit -m "add diataxis-docs plugin documentation"
 21. `add hugo-repo plugin documentation` (Task 21)
 22. `add programming-languages plugin documentation` (Task 22)
 23. `add diataxis-docs plugin documentation` (Task 23)
+24. `fix documentation quality issues from crosslink validation` (Task 24, if needed)
