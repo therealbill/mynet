@@ -2,6 +2,7 @@
 title: "Game Development"
 description: "Game design, development, Unity, Unreal Engine, and 3D art agents"
 weight: 10
+bookCollapseSection: true
 ---
 
 # Game Development

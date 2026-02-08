@@ -2,6 +2,7 @@
 title: "Code Quality"
 description: "Code review, testing, accessibility, and architectural quality agents"
 weight: 1
+bookCollapseSection: true
 ---
 
 # Code Quality

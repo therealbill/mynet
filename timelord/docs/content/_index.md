@@ -1,6 +1,7 @@
 ---
 title: "Timelord Documentation"
 type: docs
+bookCollapseSection: true
 ---
 
 # Timelord

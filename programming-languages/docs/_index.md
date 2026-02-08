@@ -2,6 +2,7 @@
 title: "Programming Languages"
 description: "Language-specific code writing, review, and optimization agents"
 weight: 10
+bookCollapseSection: true
 ---
 
 # Programming Languages

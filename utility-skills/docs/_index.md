@@ -2,6 +2,7 @@
 title: "Utility Skills"
 description: "Cross-domain utility skills for markdown and documentation"
 weight: 16
+bookCollapseSection: true
 ---
 
 # Utility Skills

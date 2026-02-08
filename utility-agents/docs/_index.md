@@ -2,6 +2,7 @@
 title: "Utility Agents"
 description: "Episode orchestration, URL validation, and link extraction agents"
 weight: 10
+bookCollapseSection: true
 ---
 
 # Utility Agents

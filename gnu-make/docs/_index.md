@@ -2,6 +2,7 @@
 title: "GNU Make"
 description: "Makefile fundamentals, advanced features, multi-directory builds, modularity, and debugging skills"
 weight: 10
+bookCollapseSection: true
 ---
 
 # GNU Make

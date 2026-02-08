@@ -2,6 +2,7 @@
 title: "MCP Development"
 description: "MCP server discovery, integration, and multi-server orchestration"
 weight: 14
+bookCollapseSection: true
 ---
 
 # MCP Development

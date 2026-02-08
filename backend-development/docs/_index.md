@@ -2,6 +2,7 @@
 title: "Backend Development"
 description: "Backend architecture, Go services, and SQL agents"
 weight: 3
+bookCollapseSection: true
 ---
 
 # Backend Development

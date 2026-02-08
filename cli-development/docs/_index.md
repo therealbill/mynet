@@ -2,6 +2,7 @@
 title: "CLI Development"
 description: "CLI tools, TUI frameworks, and terminal UI development agents"
 weight: 10
+bookCollapseSection: true
 ---
 
 # CLI Development

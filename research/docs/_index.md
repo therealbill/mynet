@@ -2,6 +2,7 @@
 title: "Research"
 description: "Academic, technical, and comprehensive research agents with synthesis and reporting"
 weight: 10
+bookCollapseSection: true
 ---
 
 # Research

@@ -2,6 +2,7 @@
 title: "AI Development"
 description: "AI/ML feature implementation and agent definition modernization"
 weight: 8
+bookCollapseSection: true
 ---
 
 # AI Development

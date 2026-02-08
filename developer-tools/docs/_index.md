@@ -2,6 +2,7 @@
 title: "Developer Tools"
 description: "Documentation engineering, Git workflow management, and rapid prototyping agents"
 weight: 10
+bookCollapseSection: true
 ---
 
 # Developer Tools

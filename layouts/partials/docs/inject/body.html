@@ -1,0 +1,14 @@
+<script>
+// Scroll the sidebar to the active menu item. Deferred to the load event
+// so it runs after browser scroll restoration and full layout.
+window.addEventListener('load', function () {
+  var container = document.querySelector('.book-menu-content');
+  var active = container && container.querySelector('a.active');
+  if (!container || !active) return;
+
+  var activeRect = active.getBoundingClientRect();
+  var containerRect = container.getBoundingClientRect();
+  var offset = activeRect.top - containerRect.top + container.scrollTop;
+  container.scrollTop = offset - container.clientHeight / 3;
+});
+</script>

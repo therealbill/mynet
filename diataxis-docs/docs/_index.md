@@ -2,6 +2,7 @@
 title: "Diataxis Docs"
 description: "Documentation transformation agents following the Diataxis framework"
 weight: 10
+bookCollapseSection: true
 ---
 
 # Diataxis Docs

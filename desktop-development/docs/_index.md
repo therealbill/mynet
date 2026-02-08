@@ -2,6 +2,7 @@
 title: "Desktop Development"
 description: "Electron+Go hybrid desktop application development for macOS"
 weight: 9
+bookCollapseSection: true
 ---
 
 # Desktop Development

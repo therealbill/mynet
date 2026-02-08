@@ -2,6 +2,7 @@
 title: "Mobile Development"
 description: "iOS, cross-platform mobile, and Swift development agents"
 weight: 10
+bookCollapseSection: true
 ---
 
 # Mobile Development

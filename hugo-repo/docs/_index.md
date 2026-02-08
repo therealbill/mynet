@@ -2,6 +2,7 @@
 title: "Hugo Repo"
 description: "Hugo site generation with skills, agents, commands, and templates for documentation sites"
 weight: 10
+bookCollapseSection: true
 ---
 
 # Hugo Repo

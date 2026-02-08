@@ -2,6 +2,7 @@
 title: "Web Development"
 description: "Frontend frameworks, UI/UX design, and fullstack web development agents"
 weight: 2
+bookCollapseSection: true
 ---
 
 # Web Development

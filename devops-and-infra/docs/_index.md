@@ -2,6 +2,7 @@
 title: "DevOps and Infrastructure"
 description: "CI/CD automation, GitHub Actions, monitoring, and Prometheus agents"
 weight: 10
+bookCollapseSection: true
 ---
 
 # DevOps and Infrastructure
