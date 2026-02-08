@@ -219,70 +219,15 @@ make -p | grep "^VARNAME\s*="
 
 ### Issue: "Build is Slow"
 
-**DON'T say:** "Use ccache, enable -j, optimize flags..."
-
-**DO say:**
-
-"Let's measure where time is spent:
-
-```bash
-# Baseline timing
-time make clean && time make all
-
-# Incremental build (should be fast)
-touch src/main.c && time make all
-
-# Is it compilation or linking?
-make clean
-time make VERBOSE=1 all  # Watch which steps are slow
-```
-
-What do these timings show? That tells us where to optimize."
-
-**After diagnosis**, suggest targeted fixes.
+Start by measuring: `time make clean && time make all` for baseline, `touch src/main.c && time make all` for incremental. Identify whether compilation or linking is slow before suggesting optimizations.
 
 ### Issue: "Everything Rebuilds"
 
-**DON'T say:** "Check your dependencies, use .d files..."
-
-**DO say:**
-
-"Let's see why Make thinks everything is out of date:
-
-```bash
-# Build once
-make all
-
-# Should be no-op
-make -n all
-
-# If it wants to rebuild, debug why:
-make -d all 2>&1 | grep 'File.*is newer than'
-```
-
-This shows exactly which file timestamps are causing rebuilds."
+Verify with `make all && make -n all` (should say "nothing to be done"). If it wants to rebuild, use `make -d all 2>&1 | grep 'File.*is newer'` to find the timestamp causing it.
 
 ### Issue: "Target Doesn't Rebuild When It Should"
 
-**DON'T say:** "You need to add dependencies..."
-
-**DO say:**
-
-"Let's see what dependencies Make knows about:
-
-```bash
-# Print rule for target
-make -p | grep -A10 "^target:"
-
-# Check if Make sees file changes
-touch dependency.h
-make -d target 2>&1 | grep dependency.h
-
-# Verify .d files if using auto-dependencies
-cat build/target.d
-```
-
-This shows what Make knows. We can see what's missing."
+Check known dependencies with `make -p | grep -A10 "^target:"`. Then `touch dependency.h && make -d target 2>&1 | grep dependency.h` to verify Make sees the file change.
 
 ## When to Suggest Optimizations
 

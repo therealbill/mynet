@@ -81,21 +81,7 @@ $(SUBDIRS):
 
 ## When User Insists on Loops
 
-**If user says:** "I prefer loops, they're clearer"
-
-**Respond with:** Explanation of trade-offs, then suggest proper pattern:
-
-"I understand loops seem straightforward, but they have significant limitations:
-
-1. **No parallelization**: The entire loop is one shell command. `make -j4` can't parallelize across subdirectories because Make doesn't see them as separate jobs.
-
-2. **Error handling complexity**: Need `|| exit 1` for each command, and `-k` flag won't work as expected.
-
-3. **Scalability**: As your project grows, serial builds become painfully slow.
-
-The phony target pattern solves all these issues and is the standard approach in professional projects. Here's the equivalent structure that enables parallel builds..."
-
-Then show the correct pattern above.
+When the user prefers shell loops, acknowledge the approach, then explain the three concrete limitations: no parallelization with -j, broken -k continue-on-error behavior, and need for manual `|| exit 1` error handling. Show the phony target equivalent and note that `make -j4` with phony targets can deliver 4-8x speedup on multi-directory projects.
 
 ## Quick Reference
 

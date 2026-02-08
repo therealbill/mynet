@@ -205,19 +205,7 @@ help: ## Show this help message
 
 ## Handling "Keep It Simple" Requests
 
-When user says "don't overcomplicate" or "keep it simple":
-
-**Don't skip:**
-- `.PHONY` declarations (correctness)
-- Tab characters (requirement)
-- Help target (discoverability)
-
-**Can simplify:**
-- Reduce variables if truly minimal project
-- Skip advanced features (conditionals, functions)
-- Use straightforward patterns
-
-**Explain the distinction**: "I'll keep it simple while including the essentials for correctness - `.PHONY` to prevent conflicts and a help target for discoverability. These are standard in professional Makefiles."
+When the user asks for simplicity, include .PHONY (correctness), tab characters (requirement), and the help target (discoverability) as non-negotiable fundamentals. Simplify by reducing variables and skipping advanced features like conditionals and functions. Explain the distinction: "These are essentials for correctness, not complexity."
 
 ## Common Mistakes
 

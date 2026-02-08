@@ -297,43 +297,7 @@ For patterns on sharing configuration across multiple projects using `include ..
 
 ## When User Insists on "One File"
 
-**If user says:** "I prefer keeping everything in one file - it's simpler to manage and I know where everything is."
-
-**Respond with:**
-
-"I understand the appeal of having everything in one place, but large single-file Makefiles have significant trade-offs:
-
-**Navigation:**
-- One file: Scroll through 500 lines to find variables
-- Modular: Open config.mk directly (100 lines, focused)
-
-**Maintenance:**
-- One file: Change affects entire file, complex merge conflicts
-- Modular: Edit only relevant file, isolated changes
-
-**'Knowing where things are' works both ways:**
-- One file: \"It's somewhere in these 500 lines\"
-- Modular: \"Compiler flags? config.mk. Rules? rules.mk.\" (clearer!)
-
-**Team collaboration:**
-- One file: Multiple people editing = merge conflicts
-- Modular: Different people edit different files = fewer conflicts
-
-**Reusability:**
-- One file: Copy-paste to new projects (duplication)
-- Modular: `include ../common/config.mk` (shared, DRY)
-
-**Real example:** Your Makefile is 485 lines. That's harder to navigate than:
-```
-Makefile (50 lines) - orchestration
-config.mk (100 lines) - variables
-rules.mk (150 lines) - pattern rules
-targets.mk (200 lines) - targets
-```
-
-I'll show you both approaches so you can compare. The modular version is actually easier to navigate once you see it."
-
-Then create BOTH versions, make modular the default, explain benefits.
+When the user prefers a single file, acknowledge the convenience for small projects, then explain the trade-offs at scale: navigating 500 lines vs opening the right focused file, merge conflicts when multiple people edit one file, and inability to share configuration across projects. Create both versions with the modular structure as the default, and let the user compare.
 
 ## Proactive Guidance - Size-Based Triggers
 

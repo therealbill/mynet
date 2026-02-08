@@ -193,48 +193,11 @@ $(foreach app,$(APPS),$(eval $(app): $(app).c))
 
 ## When User Prefers Explicit Rules
 
-**If user says:** "I prefer explicit rules for each file - they're clearer"
-
-**Respond with:**
-
-"I understand explicit rules seem straightforward, but they have significant limitations:
-
-1. **Scalability**: Right now with 5 files, explicit rules are 15 lines. With 50 files, that's 150 lines of identical patterns. Pattern rules stay at 3 lines regardless of project size.
-
-2. **Maintenance burden**: If you need to add `-g` flag for debugging, you'd need to edit 50 rules. With pattern rules, it's one change.
-
-3. **Error potential**: Copy-paste errors are common. Pattern rules eliminate this risk entirely.
-
-4. **Clarity at scale**: Explicit rules are 'clearer' for 3 files, but with 50 files, scanning through 150 lines to understand 'compile .c to .o' is harder than reading one pattern rule.
-
-The pattern rule `%.o: %.c` clearly states: 'any .o file depends on the corresponding .c file and is compiled with this command.' That's actually MORE clear than 50 explicit examples.
-
-I'll implement pattern rules, but if you prefer explicit rules for learning purposes, I can show both approaches side-by-side."
-
-Then show the pattern rule version with explanation.
+When user prefers explicit rules, acknowledge their perspective, then explain the scalability and maintenance limitations (N files = N rules to edit for any flag change). Show both approaches side-by-side with the pattern rule version as the recommended default.
 
 ## "Keep It Simple" Requests
 
-**Pattern rules ARE simpler** - less code, easier to understand at scale.
-
-**Comparison:**
-
-```makefile
-# "Simple" explicit version: 24 lines for 8 targets
-app1: app1.c
-	gcc -o app1 app1.c
-
-app2: app2.c
-	gcc -o app2 app2.c
-
-# ... 6 more identical rules
-
-# Actually simple pattern version: 3 lines for ANY number of targets
-%: %.c
-	$(CC) $(CFLAGS) -o $@ $<
-```
-
-**Counter the misconception:** "Pattern rules add complexity" is backwards thinking. More lines = more complexity. Pattern rules reduce code by 8x while making intent clearer.
+Pattern rules are simpler — less code, fewer places to edit, impossible to have copy-paste inconsistencies. When user equates "simple" with "explicit rules for each file," reframe: more lines of identical code is more complexity, not less. Show a concrete line-count comparison.
 
 ## Common Pattern Rule Scenarios
 
