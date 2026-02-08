@@ -5,33 +5,6 @@ description: >
   Use when the task is writing or modifying Go code, profiling Go performance, or configuring
   Go tooling. For system design decisions (API architecture, database choices, service boundaries),
   use backend-architect instead.
-
-  <example>
-  Context: User needs Go code implemented
-  user: "Implement the user service with Goa endpoints"
-  assistant: "I'll use the go-architect agent to implement the Goa service with proper error handling and testing."
-  <commentary>
-  Go implementation with Goa framework is this agent's primary role.
-  </commentary>
-  </example>
-
-  <example>
-  Context: User wants Go code reviewed or optimized
-  user: "This Go handler is using too much memory under load"
-  assistant: "I'll use the go-architect agent to profile the handler and optimize allocations."
-  <commentary>
-  Performance profiling with pprof and allocation optimization requires deep Go expertise.
-  </commentary>
-  </example>
-
-  <example>
-  Context: User needs Go project setup or tooling
-  user: "Set up the Go module with linting, testing, and CI"
-  assistant: "I'll use the go-architect agent to configure the module, golangci-lint, and test infrastructure."
-  <commentary>
-  Go project scaffolding with proper tooling configuration is a setup task for this agent.
-  </commentary>
-  </example>
 model: opus
 color: blue
 tools:
@@ -44,6 +17,33 @@ tools:
   - mcp__context7__resolve-library-id
   - mcp__context7__query-docs
 ---
+
+<example>
+Context: User needs Go code implemented
+user: "Implement the user service with Goa endpoints"
+assistant: "I'll use the go-architect agent to implement the Goa service with proper error handling and testing."
+<commentary>
+Go implementation with Goa framework is this agent's primary role.
+</commentary>
+</example>
+
+<example>
+Context: User wants Go code reviewed or optimized
+user: "This Go handler is using too much memory under load"
+assistant: "I'll use the go-architect agent to profile the handler and optimize allocations."
+<commentary>
+Performance profiling with pprof and allocation optimization requires deep Go expertise.
+</commentary>
+</example>
+
+<example>
+Context: User needs Go project setup or tooling
+user: "Set up the Go module with linting, testing, and CI"
+assistant: "I'll use the go-architect agent to configure the module, golangci-lint, and test infrastructure."
+<commentary>
+Go project scaffolding with proper tooling configuration is a setup task for this agent.
+</commentary>
+</example>
 
 Go implementation specialist for idiomatic, high-performance Go 1.22+ systems.
 

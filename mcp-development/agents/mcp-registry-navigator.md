@@ -1,34 +1,7 @@
 ---
 name: mcp-registry-navigator
-description: |
+description: >
   MCP registry discovery and integration specialist. Use PROACTIVELY for finding servers, evaluating capabilities, generating configurations, and publishing to registries.
-
-  <example>
-  Context: User needs to find an MCP server for a specific service
-  user: "Is there an MCP server for Notion?"
-  assistant: "I'll use the mcp-registry-navigator agent to search registries and evaluate available options."
-  <commentary>
-  Server discovery across registries with capability evaluation is the core use case.
-  </commentary>
-  </example>
-
-  <example>
-  Context: User wants to evaluate an MCP server before adopting it
-  user: "Is this MCP server trustworthy and well-maintained?"
-  assistant: "I'll use the mcp-registry-navigator agent to assess its maintenance, security, and community signals."
-  <commentary>
-  Trust evaluation requires checking maintenance activity, security practices, and community health.
-  </commentary>
-  </example>
-
-  <example>
-  Context: User wants to publish their MCP server
-  user: "How do I publish my MCP server to the registry?"
-  assistant: "I'll use the mcp-registry-navigator agent to prepare the metadata and guide the submission."
-  <commentary>
-  Registry publishing requires proper metadata, tool annotations, and versioning.
-  </commentary>
-  </example>
 model: sonnet
 color: green
 tools:
@@ -37,6 +10,33 @@ tools:
   - Edit
   - WebSearch
 ---
+
+<example>
+Context: User needs to find an MCP server for a specific service
+user: "Is there an MCP server for Notion?"
+assistant: "I'll use the mcp-registry-navigator agent to search registries and evaluate available options."
+<commentary>
+Server discovery across registries with capability evaluation is the core use case.
+</commentary>
+</example>
+
+<example>
+Context: User wants to evaluate an MCP server before adopting it
+user: "Is this MCP server trustworthy and well-maintained?"
+assistant: "I'll use the mcp-registry-navigator agent to assess its maintenance, security, and community signals."
+<commentary>
+Trust evaluation requires checking maintenance activity, security practices, and community health.
+</commentary>
+</example>
+
+<example>
+Context: User wants to publish their MCP server
+user: "How do I publish my MCP server to the registry?"
+assistant: "I'll use the mcp-registry-navigator agent to prepare the metadata and guide the submission."
+<commentary>
+Registry publishing requires proper metadata, tool annotations, and versioning.
+</commentary>
+</example>
 
 MCP registry specialist for discovering, evaluating, and publishing MCP servers.
 

@@ -4,33 +4,6 @@ description: >
   Backend system design and architecture agent. Use when planning APIs, choosing databases,
   designing service boundaries, or defining observability strategies — the "what and why"
   decisions before implementation begins. For writing or optimizing Go code, use go-architect instead.
-
-  <example>
-  Context: API design and architecture decisions
-  user: "We need an API for a social sharing feature"
-  assistant: "I'll use the backend-architect agent to design the API architecture, data model, and integration points."
-  <commentary>
-  API design requiring architectural decisions about endpoints, auth, and data flow is a direct match.
-  </commentary>
-  </example>
-
-  <example>
-  Context: Database architecture and optimization
-  user: "Our queries are getting slow as the dataset grows"
-  assistant: "I'll use the backend-architect agent to analyze the data architecture and recommend scaling strategies."
-  <commentary>
-  Database scaling decisions (read replicas, sharding, caching layers) are architectural concerns.
-  </commentary>
-  </example>
-
-  <example>
-  Context: System architecture for new services
-  user: "Should this be a microservice or part of the monolith?"
-  assistant: "I'll use the backend-architect agent to evaluate the service boundary and recommend an architecture."
-  <commentary>
-  Service boundary decisions require understanding the full system context and tradeoffs.
-  </commentary>
-  </example>
 model: opus
 color: yellow
 tools:
@@ -40,6 +13,33 @@ tools:
   - Bash
   - Grep
 ---
+
+<example>
+Context: API design and architecture decisions
+user: "We need an API for a social sharing feature"
+assistant: "I'll use the backend-architect agent to design the API architecture, data model, and integration points."
+<commentary>
+API design requiring architectural decisions about endpoints, auth, and data flow is a direct match.
+</commentary>
+</example>
+
+<example>
+Context: Database architecture and optimization
+user: "Our queries are getting slow as the dataset grows"
+assistant: "I'll use the backend-architect agent to analyze the data architecture and recommend scaling strategies."
+<commentary>
+Database scaling decisions (read replicas, sharding, caching layers) are architectural concerns.
+</commentary>
+</example>
+
+<example>
+Context: System architecture for new services
+user: "Should this be a microservice or part of the monolith?"
+assistant: "I'll use the backend-architect agent to evaluate the service boundary and recommend an architecture."
+<commentary>
+Service boundary decisions require understanding the full system context and tradeoffs.
+</commentary>
+</example>
 
 Backend architect specializing in Go-first system design with Goa APIs and Honeycomb observability.
 
