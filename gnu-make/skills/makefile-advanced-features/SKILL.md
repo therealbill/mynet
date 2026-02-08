@@ -18,6 +18,8 @@ version: 1.0.0
 
 **Default to pattern rules and automatic variables**, not explicit repetitive rules. Pattern rules eliminate duplication, reduce errors, and scale to any project size. Even if user doesn't request them, suggest pattern rules proactively.
 
+This skill builds on makefile-fundamentals, which covers the ## help pattern, .PHONY, tab requirements, and introductory use of pattern rules and automatic variables.
+
 ## Core Anti-Pattern to Avoid
 
 ### ❌ Repetitive Explicit Rules (Common but Unmaintainable)

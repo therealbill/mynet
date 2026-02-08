@@ -132,6 +132,8 @@ myapp: main.o utils.o
 - `$^` = all prerequisites
 - `$*` = stem (in pattern rules)
 
+For in-depth coverage of automatic variables in pattern rules, conditional compilation, and target-specific variables, see the makefile-advanced-features skill.
+
 ### 4. Standard Variables
 
 Use conventional variable names:
@@ -161,6 +163,8 @@ main.o: main.c
 utils.o: utils.c
 	$(CC) $(CFLAGS) -c utils.c -o utils.o
 ```
+
+For static pattern rules, wildcard auto-discovery, and multi-extension patterns, see the makefile-advanced-features skill.
 
 ## Quick Reference
 
