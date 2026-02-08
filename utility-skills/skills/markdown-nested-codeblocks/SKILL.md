@@ -12,13 +12,13 @@ description: >-
 version: 1.1.0
 ---
 
-# Markdown Nested Code Blocks
-
 ## Overview
 
 When markdown contains code blocks inside other code blocks (nested fences), same-length fences break rendering. The k+1 rule solves this: wrap content containing k backticks in a fence of k+1 backticks, or switch the outer fence to tildes.
 
 **Critical:** This rule applies ALWAYS - even under time pressure, even for "quick" documentation, even when you think "it'll probably work." Broken rendering is worse than taking 10 extra seconds to count backticks.
+
+Broken nested fences cause documentation that doesn't render on GitHub/GitLab and code examples visible as plain text.
 
 ## The k+1 Rule
 
@@ -109,7 +109,7 @@ Nested code blocks are needed when you're:
 ## Common Mistakes
 
 ### Using Same-Length Fences
-```markdown
+`````markdown
 # ❌ WRONG
 ```markdown
 Content with ```code``` blocks
@@ -119,10 +119,10 @@ Content with ```code``` blocks
 ````markdown
 Content with ```code``` blocks
 ````
-```
+`````
 
 ### Forgetting to Match Closing Fence
-```markdown
+`````markdown
 # ❌ WRONG - Opening is 4 backticks, closing is 3
 ````markdown
 Content
@@ -132,10 +132,10 @@ Content
 ````markdown
 Content
 ````
-```
+`````
 
 ### Trying to Escape Inner Backticks
-```markdown
+`````markdown
 # ❌ WRONG - Don't escape, use longer fence
 ```markdown
 Content with \`\`\`code\`\`\` blocks
@@ -145,7 +145,7 @@ Content with \`\`\`code\`\`\` blocks
 ````markdown
 Content with ```code``` blocks
 ````
-```
+`````
 
 ## When to Use Tildes vs Longer Backticks
 
@@ -158,25 +158,7 @@ Content with ```code``` blocks
 - Inner content uses tildes
 - Both work - choose based on readability
 
-## Red Flags - STOP and Apply k+1 Rule
+## Constraint: No Exceptions
 
-If you're thinking any of these thoughts, **STOP** and apply the k+1 rule:
+Apply the k+1 rule on every code fence that contains other code fences. Never use same-length fences for nested blocks regardless of urgency, simplicity, or assumed parser tolerance. There are no cases where skipping this rule is acceptable.
 
-- "I'll just use triple backticks, that's standard"
-- "No time to count backticks"
-- "This will probably render fine"
-- "GitHub will figure it out"
-- "It's simple markdown, same fences should work"
-- "I'll fix it later if it breaks"
-
-**All of these lead to broken rendering.** Take 10 seconds now to count backticks and add one. Fixing broken documentation later wastes more time.
-
-## Real-World Impact
-
-Broken nested code blocks cause:
-- Documentation that doesn't render on GitHub/GitLab
-- Code examples visible as plain text instead of highlighted
-- Tutorials that confuse readers
-- README files that look unprofessional
-
-Applying k+1 rule ensures clean rendering across all markdown parsers.
