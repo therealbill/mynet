@@ -100,6 +100,6 @@ The agents are not sequential -- you do not have to use backend-architect before
 
 ## See Also
 
-- [Agent Reference]({{< ref "reference/agents" >}}) -- full specification of all three agents
-- [Getting Started]({{< ref "tutorials/getting-started" >}}) -- see the design-implement workflow in practice
-- [Design API Architecture]({{< ref "howto/design-api-architecture" >}}) -- practical guide for working with backend-architect
+- [Agent Reference](../../reference/agents/) -- full specification of all three agents
+- [Getting Started](../../tutorials/getting-started/) -- see the design-implement workflow in practice
+- [Design API Architecture](../../howto/design-api-architecture/) -- practical guide for working with backend-architect

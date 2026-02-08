@@ -136,6 +136,6 @@ Some questions sit on the boundary between agents. Here are the tiebreakers:
 
 ## See Also
 
-- [Architecture]({{< ref "explanation/architecture" >}}) -- the three-layer design behind these agent roles
-- [Agent Reference]({{< ref "reference/agents" >}}) -- technical specifications for all five agents
-- [Prototype a Game Mechanic]({{< ref "howto/prototype-game-mechanic" >}}) -- the designer-to-developer workflow in practice
+- [Architecture](../../explanation/architecture/) -- the three-layer design behind these agent roles
+- [Agent Reference](../../reference/agents/) -- technical specifications for all five agents
+- [Prototype a Game Mechanic](../../howto/prototype-game-mechanic/) -- the designer-to-developer workflow in practice

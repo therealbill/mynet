@@ -4,7 +4,7 @@ description: "Why the plugin uses seven specialized agents instead of one genera
 weight: 1
 doc_type: explanation
 prerequisites:
-  - "Familiarity with the Diataxis documentation framework (see [Diataxis in Practice]({{< ref \"explanation/diataxis-in-practice\" >}}))"
+  - "Familiarity with the Diataxis documentation framework (see Diataxis in Practice)"
 est_time: "10 minutes"
 roles: ["developer", "architect", "technical writer"]
 stability: stable
@@ -65,7 +65,7 @@ The diataxis-orchestrator coordinates the other six agents but writes no content
 
 The orchestrator's responsibilities are sequencing (which agents run in what order), context passing (docs path, source path, transformation plan), progress tracking (reviewing output between steps), and error handling (maintaining partial progress if an agent fails).
 
-For a detailed discussion of how orchestration works, see {{< ref "explanation/orchestration-model" >}}.
+For a detailed discussion of how orchestration works, see [Orchestration Model](../../explanation/orchestration-model/).
 
 ## Why It Is Designed This Way
 
@@ -108,8 +108,8 @@ Not all agents run for every task. The orchestrator invokes only the agents need
 
 ## Related
 
-- {{< ref "reference/agents" >}} -- Complete specification of all seven agents
-- {{< ref "explanation/orchestration-model" >}} -- How the orchestrator coordinates the workflow
-- {{< ref "explanation/diataxis-in-practice" >}} -- The Diataxis principles that drive this architecture
-- {{< ref "tutorials/getting-started" >}} -- Hands-on tutorial using all seven agents
-- {{< ref "howto/restructure-docs-to-diataxis" >}} -- Practical guide to running a restructuring
+- [Complete specification of all seven agents](../../reference/agents/)
+- [How the orchestrator coordinates the workflow](../../explanation/orchestration-model/)
+- [The Diataxis principles that drive this architecture](../../explanation/diataxis-in-practice/)
+- [Hands-on tutorial using all seven agents](../../tutorials/getting-started/)
+- [Practical guide to running a restructuring](../../howto/restructure-docs-to-diataxis/)

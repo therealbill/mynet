@@ -171,6 +171,6 @@ Compare against your baseline numbers. If the improvement is not significant, re
 
 ## See Also
 
-- [Skill Reference]({{< ref "reference/skills" >}}) -- makefile-debugging-optimization skill specification
-- [Organize a Multi-Directory Build]({{< ref "howto/organize-multi-directory-build" >}}) -- fix parallelism issues in multi-directory builds
-- [Skill Progression]({{< ref "explanation/skill-progression" >}}) -- how debugging fits the learning path
+- [Skill Reference](../../reference/skills/) -- makefile-debugging-optimization skill specification
+- [Organize a Multi-Directory Build](../../howto/organize-multi-directory-build/) -- fix parallelism issues in multi-directory builds
+- [Skill Progression](../../explanation/skill-progression/) -- how debugging fits the learning path

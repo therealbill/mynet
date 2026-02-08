@@ -221,6 +221,6 @@ All subdirectories (`agents/`, `skills/`, `commands/`, `templates/`, `docs/`) ar
 
 ## See Also
 
-- [Plugin Catalog]({{< ref "plugin-catalog" >}}) -- complete listing of all plugins
-- [Plugin JSON]({{< ref "plugin-json" >}}) -- per-plugin manifest specification
-- [Marketplace Manifest]({{< ref "marketplace-manifest" >}}) -- root marketplace manifest specification
+- [Plugin Catalog](../plugin-catalog/) -- complete listing of all plugins
+- [Plugin JSON](../plugin-json/) -- per-plugin manifest specification
+- [Marketplace Manifest](../marketplace-manifest/) -- root marketplace manifest specification

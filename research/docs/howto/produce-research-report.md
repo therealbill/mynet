@@ -117,6 +117,6 @@ For simple investigations, steps 1 and 3 may suffice. For complex topics with mu
 
 ## Related guides
 
-- [Conduct a Literature Review]({{< ref "conduct-literature-review" >}}) -- academic-focused workflow with source evaluation
-- [Architecture]({{< ref "../explanation/architecture" >}}) -- why the pipeline is structured this way
-- [Agent Reference]({{< ref "../reference/agents" >}}) -- specifications for all five agents
+- [Conduct a Literature Review](../conduct-literature-review/) -- academic-focused workflow with source evaluation
+- [Architecture](../../explanation/architecture/) -- why the pipeline is structured this way
+- [Agent Reference](../../reference/agents/) -- specifications for all five agents

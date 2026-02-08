@@ -125,6 +125,6 @@ The bottleneck may not be the query itself. Connection pool exhaustion, ORM over
 
 ## See Also
 
-- [Getting Started]({{< ref "tutorials/getting-started" >}}) -- tutorial showing sql-pro in the context of a full backend project
-- [Agent Reference]({{< ref "reference/agents" >}}) -- sql-pro specification and capabilities
-- [Design API Architecture]({{< ref "howto/design-api-architecture" >}}) -- when the performance problem requires architectural changes
+- [Getting Started](../../tutorials/getting-started/) -- tutorial showing sql-pro in the context of a full backend project
+- [Agent Reference](../../reference/agents/) -- sql-pro specification and capabilities
+- [Design API Architecture](../../howto/design-api-architecture/) -- when the performance problem requires architectural changes

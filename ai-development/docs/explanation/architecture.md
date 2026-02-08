@@ -44,6 +44,6 @@ This cross-plugin applicability is deliberate. The audit criteria and rewriting 
 
 ## Related
 
-- [Agent Reference]({{< ref "/reference/agents" >}}) -- ai-engineer specification and capabilities
-- [Skill Reference]({{< ref "/reference/skills" >}}) -- agent-modernizer audit criteria and severity levels
+- [Agent Reference](../../reference/agents/) -- ai-engineer specification and capabilities
+- [Skill Reference](../../reference/skills/) -- agent-modernizer audit criteria and severity levels
 - research plugin -- Gathering domain knowledge before ai-engineer implementations

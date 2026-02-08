@@ -102,6 +102,6 @@ code-reviewer reads the full context of modified files, not just the diff. If it
 
 ## See Also
 
-- [Getting Started]({{< ref "tutorials/getting-started" >}}) -- tutorial walkthrough of the review-test-fix cycle
-- [Agent Reference]({{< ref "reference/agents" >}}) -- code-reviewer specification
-- [Architecture]({{< ref "explanation/architecture" >}}) -- why code-reviewer is a separate specialized agent
+- [Getting Started](../../tutorials/getting-started/) -- tutorial walkthrough of the review-test-fix cycle
+- [Agent Reference](../../reference/agents/) -- code-reviewer specification
+- [Architecture](../../explanation/architecture/) -- why code-reviewer is a separate specialized agent

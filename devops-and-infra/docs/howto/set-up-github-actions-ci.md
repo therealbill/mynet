@@ -111,6 +111,6 @@ Ask github-actions-expert about reusable workflows and composite actions. Reusab
 
 ## See Also
 
-- [Getting Started]({{< ref "tutorials/getting-started" >}}) -- tutorial covering CI setup and monitoring together
-- [Architecture]({{< ref "explanation/architecture" >}}) -- why github-actions-expert is separate from devops-automator
-- [Agent Reference]({{< ref "reference/agents" >}}) -- github-actions-expert specification
+- [Getting Started](../../tutorials/getting-started/) -- tutorial covering CI setup and monitoring together
+- [Architecture](../../explanation/architecture/) -- why github-actions-expert is separate from devops-automator
+- [Agent Reference](../../reference/agents/) -- github-actions-expert specification

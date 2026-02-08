@@ -108,9 +108,9 @@ The core workflow is: **github-actions-expert builds the pipeline, prometheus-ex
 
 ## Next Steps
 
-- [Set Up GitHub Actions CI]({{< ref "howto/set-up-github-actions-ci" >}}) -- detailed guide for CI/CD workflow configuration
-- [Configure Prometheus Monitoring]({{< ref "howto/configure-prometheus-monitoring" >}}) -- detailed guide for metrics and alerting
-- [Architecture]({{< ref "explanation/architecture" >}}) -- understand how the four agents divide the DevOps pipeline
-- [Agent Reference]({{< ref "reference/agents" >}}) -- full specification of all four agents
+- [Set Up GitHub Actions CI](../../howto/set-up-github-actions-ci/) -- detailed guide for CI/CD workflow configuration
+- [Configure Prometheus Monitoring](../../howto/configure-prometheus-monitoring/) -- detailed guide for metrics and alerting
+- [Architecture](../../explanation/architecture/) -- understand how the four agents divide the DevOps pipeline
+- [Agent Reference](../../reference/agents/) -- full specification of all four agents
 
 For the services being deployed, see the [backend-development](/backend-development/) plugin. For pre-commit quality checks in your pipeline, see the [code-quality](/code-quality/) plugin.

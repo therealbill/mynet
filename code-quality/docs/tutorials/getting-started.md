@@ -122,8 +122,8 @@ In this tutorial, you:
 
 ## Next Steps
 
-- [Review Code Before Committing]({{< ref "howto/review-code-before-committing" >}}) -- integrate code review into your pre-commit workflow
-- [Write and Fix Tests]({{< ref "howto/write-and-fix-tests" >}}) -- advanced test creation and repair techniques
-- [Audit Accessibility]({{< ref "howto/audit-accessibility" >}}) -- check web content for WCAG compliance
-- [Choosing the Right Agent]({{< ref "explanation/choosing-the-right-agent" >}}) -- when to use each of the five code quality agents
+- [Review Code Before Committing](../../howto/review-code-before-committing/) -- integrate code review into your pre-commit workflow
+- [Write and Fix Tests](../../howto/write-and-fix-tests/) -- advanced test creation and repair techniques
+- [Audit Accessibility](../../howto/audit-accessibility/) -- check web content for WCAG compliance
+- [Choosing the Right Agent](../../explanation/choosing-the-right-agent/) -- when to use each of the five code quality agents
 - For language-specific code quality expertise, combine these agents with the [programming-languages](/programming-languages/) plugin

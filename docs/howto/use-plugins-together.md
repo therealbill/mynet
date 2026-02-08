@@ -176,7 +176,7 @@ After running a multi-plugin workflow:
 
 ## Next Steps
 
-- [How to Install a Plugin]({{< ref "howto/install-a-plugin" >}}) -- add or remove plugins as your workflow changes
-- [How to Find the Right Plugin]({{< ref "howto/find-right-plugin" >}}) -- discover additional plugins to extend your workflow
-- [Marketplace Architecture]({{< ref "explanation/marketplace-architecture" >}}) -- understand how plugins, agents, and skills interact
-- [Plugin Design Philosophy]({{< ref "explanation/plugin-design-philosophy" >}}) -- why plugins are structured this way
+- [How to Install a Plugin](../../howto/install-a-plugin/) -- add or remove plugins as your workflow changes
+- [How to Find the Right Plugin](../../howto/find-right-plugin/) -- discover additional plugins to extend your workflow
+- [Marketplace Architecture](../../explanation/marketplace-architecture/) -- understand how plugins, agents, and skills interact
+- [Plugin Design Philosophy](../../explanation/plugin-design-philosophy/) -- why plugins are structured this way

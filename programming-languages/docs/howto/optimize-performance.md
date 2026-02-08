@@ -160,6 +160,6 @@ The agent will not remove plugins without discussing the tradeoff. It explains t
 
 ## See Also
 
-- {{< ref "howto/modernize-legacy-code" >}} -- Modernizing legacy patterns often improves performance as a side effect
-- {{< ref "explanation/language-specialization" >}} -- Why language-specific knowledge matters for performance
-- {{< ref "reference/agents" >}} -- Complete agent specifications including tool access
+- [Modernizing legacy patterns often improves performance as a side effect](../../howto/modernize-legacy-code/)
+- [Why language-specific knowledge matters for performance](../../explanation/language-specialization/)
+- [Complete agent specifications including tool access](../../reference/agents/)

@@ -12,7 +12,7 @@ This guide covers setting up automated deployment of a Hugo site to GitHub Pages
 
 Use this when you want to host your Hugo site on GitHub Pages with automated deployments triggered by content changes. GitHub Pages is the simpler deployment target -- free, minimal setup, and tightly integrated with GitHub.
 
-If you need custom authentication, custom HTTP headers, or sites larger than 1GB, see {{< ref "howto/deploy-to-s3" >}} instead.
+If you need custom authentication, custom HTTP headers, or sites larger than 1GB, see [Deploy to S3](../../howto/deploy-to-s3/) instead.
 
 ## Prerequisites
 
@@ -116,7 +116,7 @@ env:
 
 ## Related
 
-- {{< ref "howto/deploy-to-s3" >}} -- Alternative deployment to AWS S3
-- {{< ref "reference/commands" >}} -- Full `/hugo-deploy` command specification
-- {{< ref "reference/templates" >}} -- The `github-pages.yml.tmpl` template specification
-- {{< ref "explanation/design-decisions" >}} -- Why separate deployment skills exist
+- [Alternative deployment to AWS S3](../../howto/deploy-to-s3/)
+- [Full `/hugo-deploy` command specification](../../reference/commands/)
+- [The `github-pages.yml.tmpl` template specification](../../reference/templates/)
+- [Why separate deployment skills exist](../../explanation/design-decisions/)

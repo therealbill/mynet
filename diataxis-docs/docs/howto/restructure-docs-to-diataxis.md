@@ -6,7 +6,7 @@ doc_type: how-to
 prerequisites:
   - "An existing documentation directory"
   - "The diataxis-docs plugin installed"
-  - "Completed the [Getting Started tutorial]({{< ref \"tutorials/getting-started\" >}})"
+  - "Completed the Getting Started tutorial"
 est_time: "30 minutes"
 roles: ["developer", "technical writer"]
 stability: stable
@@ -22,7 +22,7 @@ Transform an existing documentation directory into the four-type Diataxis model:
 
 - An existing documentation directory with markdown files
 - The diataxis-docs plugin installed and available
-- Familiarity with the Diataxis model (see {{< ref "explanation/diataxis-in-practice" >}})
+- Familiarity with the Diataxis model (see [Diataxis in Practice](../../explanation/diataxis-in-practice/))
 
 ## Steps
 
@@ -133,7 +133,7 @@ After completing the restructuring:
 Content like changelogs, contributing guides, or FAQs sit outside the four types. Keep them at the top level of your docs directory. The Diataxis model covers product documentation, not all project files.
 
 **The inventory classifies a page differently than expected.**
-Review the classification signals. A page you consider a "tutorial" may actually be a how-to if it solves a specific problem rather than teaching through building. Read {{< ref "explanation/diataxis-in-practice" >}} for the distinctions.
+Review the classification signals. A page you consider a "tutorial" may actually be a how-to if it solves a specific problem rather than teaching through building. Read [Diataxis in Practice](../../explanation/diataxis-in-practice/) for the distinctions.
 
 **Splitting a page creates two pages that feel incomplete.**
 This is expected. After splitting, each page needs to be expanded to stand on its own. A how-to extracted from a mixed page may need a proper verification section. An explanation extracted may need trade-off discussion added.
@@ -143,8 +143,8 @@ Address cross-link warnings iteratively. Start with the highest-traffic pages an
 
 ## See Also
 
-- {{< ref "tutorials/getting-started" >}} -- Full tutorial walking through the entire pipeline
-- {{< ref "howto/validate-doc-quality" >}} -- Detailed guide on interpreting and fixing quality reports
-- {{< ref "reference/agents" >}} -- Specifications for all seven agents
-- {{< ref "explanation/diataxis-in-practice" >}} -- The principles behind Diataxis type separation
-- {{< ref "explanation/orchestration-model" >}} -- How the orchestrator coordinates the restructuring workflow
+- [Full tutorial walking through the entire pipeline](../../tutorials/getting-started/)
+- [Detailed guide on interpreting and fixing quality reports](../../howto/validate-doc-quality/)
+- [Specifications for all seven agents](../../reference/agents/)
+- [The principles behind Diataxis type separation](../../explanation/diataxis-in-practice/)
+- [How the orchestrator coordinates the restructuring workflow](../../explanation/orchestration-model/)

@@ -286,6 +286,6 @@ Agent: Diagnoses Lumen performance and recommends fallback strategies for constr
 
 ## See Also
 
-- [Architecture]({{< ref "explanation/architecture" >}}) -- design decisions behind the three-layer agent structure
-- [Choosing the Right Agent]({{< ref "explanation/choosing-the-right-agent" >}}) -- decision guide for agent selection
-- [Getting Started]({{< ref "tutorials/getting-started" >}}) -- tutorial using game-designer and unity-game-developer together
+- [Architecture](../../explanation/architecture/) -- design decisions behind the three-layer agent structure
+- [Choosing the Right Agent](../../explanation/choosing-the-right-agent/) -- decision guide for agent selection
+- [Getting Started](../../tutorials/getting-started/) -- tutorial using game-designer and unity-game-developer together

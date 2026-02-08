@@ -98,6 +98,6 @@ test-writer-fixer does not set up external databases or APIs. If tests need infr
 
 ## See Also
 
-- [Getting Started]({{< ref "tutorials/getting-started" >}}) -- tutorial walkthrough of the review-test-fix cycle
-- [Agent Reference]({{< ref "reference/agents" >}}) -- test-writer-fixer specification
-- [Choosing the Right Agent]({{< ref "explanation/choosing-the-right-agent" >}}) -- when to use test-writer-fixer versus playwright-expert
+- [Getting Started](../../tutorials/getting-started/) -- tutorial walkthrough of the review-test-fix cycle
+- [Agent Reference](../../reference/agents/) -- test-writer-fixer specification
+- [Choosing the Right Agent](../../explanation/choosing-the-right-agent/) -- when to use test-writer-fixer versus playwright-expert

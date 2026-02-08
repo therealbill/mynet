@@ -261,9 +261,9 @@ In this tutorial, you:
 Now that you have a working plugin installation, explore further:
 
 - **Try other agents in code-quality** -- the `test-writer-fixer` agent generates tests for your code, and the `architect-review` agent evaluates your project's architecture
-- **Browse the marketplace** -- the [Plugin Catalog]({{< ref "reference/plugin-catalog" >}}) lists all available plugins with their component counts
-- **Install multiple plugins** -- see [How to Use Plugins Together]({{< ref "howto/use-plugins-together" >}}) for combining agents across plugins
-- **Find the right plugin** -- use [How to Find the Right Plugin]({{< ref "howto/find-right-plugin" >}}) to match plugins to your workflow
+- **Browse the marketplace** -- the [Plugin Catalog](../../reference/plugin-catalog/) lists all available plugins with their component counts
+- **Install multiple plugins** -- see [How to Use Plugins Together](../../howto/use-plugins-together/) for combining agents across plugins
+- **Find the right plugin** -- use [How to Find the Right Plugin](../../howto/find-right-plugin/) to match plugins to your workflow
 
 ## Troubleshooting
 

@@ -135,10 +135,10 @@ For deeper investigations, you can dispatch multiple researcher agents in parall
 - Use **technical-researcher** for code repository evaluation
 - Use **comprehensive-researcher** for broad multi-source coverage
 
-Feed all their outputs into the research-synthesizer together. The synthesizer is designed to merge findings from multiple agents, organizing by theme rather than by source. See the [research pipeline explanation]({{< ref "../explanation/research-pipeline" >}}) for details on parallel dispatch.
+Feed all their outputs into the research-synthesizer together. The synthesizer is designed to merge findings from multiple agents, organizing by theme rather than by source. See the [research pipeline explanation](../../explanation/research-pipeline/) for details on parallel dispatch.
 
 ## Next steps
 
-- [Conduct a Literature Review]({{< ref "../howto/conduct-literature-review" >}}) -- use the academic-researcher for scholarly sources
-- [Produce a Research Report]({{< ref "../howto/produce-research-report" >}}) -- detailed steps for the synthesis-to-report workflow
-- [Agent Reference]({{< ref "../reference/agents" >}}) -- specifications for all five agents
+- [Conduct a Literature Review](../../howto/conduct-literature-review/) -- use the academic-researcher for scholarly sources
+- [Produce a Research Report](../../howto/produce-research-report/) -- detailed steps for the synthesis-to-report workflow
+- [Agent Reference](../../reference/agents/) -- specifications for all five agents

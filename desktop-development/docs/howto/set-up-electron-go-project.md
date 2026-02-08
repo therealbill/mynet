@@ -140,6 +140,6 @@ Ensure your Apple Developer certificate is installed in Keychain Access and not 
 
 ## See Also
 
-- [Getting Started]({{< ref "tutorials/getting-started" >}}) -- tutorial walkthrough of building a complete app
-- [Architecture]({{< ref "explanation/architecture" >}}) -- why Electron+Go and how the IPC boundary works
+- [Getting Started](../../tutorials/getting-started/) -- tutorial walkthrough of building a complete app
+- [Architecture](../../explanation/architecture/) -- why Electron+Go and how the IPC boundary works
 - For terminal-only Go applications without a GUI, use the [cli-development](/cli-development/) plugin instead

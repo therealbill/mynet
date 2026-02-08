@@ -135,7 +135,7 @@ Navigate to `http://localhost:1313/` and verify all sections appear in the navig
 
 ## Related
 
-- {{< ref "howto/add-content-section" >}} -- Add more directories after initial setup
-- {{< ref "reference/agents" >}} -- hugo-site-architect agent specification
-- {{< ref "reference/skills" >}} -- hugo-module-mounts skill specification
-- {{< ref "explanation/architecture" >}} -- How skills and agents work together
+- [Add more directories after initial setup](../../howto/add-content-section/)
+- [hugo-site-architect agent specification](../../reference/agents/)
+- [hugo-module-mounts skill specification](../../reference/skills/)
+- [How skills and agents work together](../../explanation/architecture/)

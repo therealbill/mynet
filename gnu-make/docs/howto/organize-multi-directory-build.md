@@ -195,6 +195,6 @@ The "Entering directory" messages should show `lib` before `app` and `tests`, wi
 
 ## See Also
 
-- [Skill Reference]({{< ref "reference/skills" >}}) -- makefile-recursive-multi-directory skill specification
-- [Split a Large Makefile]({{< ref "howto/split-large-makefile" >}}) -- organize individual Makefiles with includes
-- [Debug a Slow Makefile]({{< ref "howto/debug-slow-makefile" >}}) -- diagnose parallelism and rebuild issues
+- [Skill Reference](../../reference/skills/) -- makefile-recursive-multi-directory skill specification
+- [Split a Large Makefile](../../howto/split-large-makefile/) -- organize individual Makefiles with includes
+- [Debug a Slow Makefile](../../howto/debug-slow-makefile/) -- diagnose parallelism and rebuild issues

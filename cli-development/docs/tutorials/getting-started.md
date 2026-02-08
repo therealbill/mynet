@@ -138,9 +138,9 @@ main.go
 
 ## Next Steps
 
-- [Build an Interactive TUI]({{< ref "/cli-development/howto/build-interactive-tui" >}}) — Detailed guide for Bubble Tea TUI development
-- [Design CLI Visual Style]({{< ref "/cli-development/howto/design-cli-visual-style" >}}) — Add visual polish with cli-ui-designer
-- [Agent Reference]({{< ref "/cli-development/reference/agents" >}}) — Full specifications for all three agents
+- [Build an Interactive TUI](../../howto/build-interactive-tui/) — Detailed guide for Bubble Tea TUI development
+- [Design CLI Visual Style](../../howto/design-cli-visual-style/) — Add visual polish with cli-ui-designer
+- [Agent Reference](../../reference/agents/) — Full specifications for all three agents
 
 ## Cross-Plugin References
 

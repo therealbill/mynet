@@ -61,4 +61,4 @@ Collaboration between plugins happens entirely through Claude's dispatch layer. 
 
 ## Related
 
-- [Component Conventions]({{< ref "reference/component-conventions" >}}) -- field-by-field specification for agents, skills, commands, and templates
+- [Component Conventions](../../reference/component-conventions/) -- field-by-field specification for agents, skills, commands, and templates

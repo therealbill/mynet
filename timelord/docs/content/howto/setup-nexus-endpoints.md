@@ -130,4 +130,4 @@ Start the handler worker first (connects to handler-ns), then the caller worker 
 
 - `nexus-operations` skill for detailed implementation patterns
 - `nexus-decision-guide` skill for architecture evaluation
-- [Handle Workflow Failures](/how-to/handle-workflow-failures/) for recovery strategies
+- [Handle Workflow Failures](../handle-workflow-failures/) for recovery strategies

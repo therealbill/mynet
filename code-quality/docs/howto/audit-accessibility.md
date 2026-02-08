@@ -103,6 +103,6 @@ web-accessibility-checker audits your source code, not compiled output. If a thi
 
 ## See Also
 
-- [Getting Started]({{< ref "tutorials/getting-started" >}}) -- tutorial walkthrough of the code quality workflow
-- [Agent Reference]({{< ref "reference/agents" >}}) -- web-accessibility-checker specification
-- [Choosing the Right Agent]({{< ref "explanation/choosing-the-right-agent" >}}) -- when to use web-accessibility-checker versus other agents
+- [Getting Started](../../tutorials/getting-started/) -- tutorial walkthrough of the code quality workflow
+- [Agent Reference](../../reference/agents/) -- web-accessibility-checker specification
+- [Choosing the Right Agent](../../explanation/choosing-the-right-agent/) -- when to use web-accessibility-checker versus other agents

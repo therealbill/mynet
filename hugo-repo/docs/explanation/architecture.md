@@ -102,9 +102,9 @@ The complete set of 17 components:
 
 ## Related
 
-- {{< ref "explanation/design-decisions" >}} -- Why the plugin is structured this way
-- {{< ref "explanation/component-interaction" >}} -- Detailed interaction patterns between components
-- {{< ref "reference/skills" >}} -- Full specifications for all 7 skills
-- {{< ref "reference/agents" >}} -- Full specifications for both agents
-- {{< ref "reference/commands" >}} -- Full specifications for all 4 commands
-- {{< ref "reference/templates" >}} -- Full specifications for all 4 templates
+- [Why the plugin is structured this way](../../explanation/design-decisions/)
+- [Detailed interaction patterns between components](../../explanation/component-interaction/)
+- [Full specifications for all 7 skills](../../reference/skills/)
+- [Full specifications for both agents](../../reference/agents/)
+- [Full specifications for all 4 commands](../../reference/commands/)
+- [Full specifications for all 4 templates](../../reference/templates/)

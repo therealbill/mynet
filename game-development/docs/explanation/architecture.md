@@ -65,6 +65,6 @@ Not every task requires all layers. A pure balancing question goes only to game-
 
 ## See Also
 
-- [Choosing the Right Agent]({{< ref "explanation/choosing-the-right-agent" >}}) -- practical decision guide for which agent to invoke
-- [Agent Reference]({{< ref "reference/agents" >}}) -- technical specifications for all five agents
-- [Getting Started]({{< ref "tutorials/getting-started" >}}) -- tutorial demonstrating the design-to-implementation handoff
+- [Choosing the Right Agent](../../explanation/choosing-the-right-agent/) -- practical decision guide for which agent to invoke
+- [Agent Reference](../../reference/agents/) -- technical specifications for all five agents
+- [Getting Started](../../tutorials/getting-started/) -- tutorial demonstrating the design-to-implementation handoff

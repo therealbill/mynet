@@ -117,6 +117,6 @@ Your `tsconfig.json` has `strict: false` or omits it, and your codebase has `any
 
 ## See Also
 
-- {{< ref "howto/migrate-to-typescript" >}} -- Full project migration from JavaScript to TypeScript
-- {{< ref "howto/optimize-performance" >}} -- Performance optimization after modernization
-- {{< ref "reference/agents" >}} -- Complete specifications for all language agents
+- [Full project migration from JavaScript to TypeScript](../../howto/migrate-to-typescript/)
+- [Performance optimization after modernization](../../howto/optimize-performance/)
+- [Complete specifications for all language agents](../../reference/agents/)

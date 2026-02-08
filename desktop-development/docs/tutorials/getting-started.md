@@ -151,6 +151,6 @@ In this tutorial, you:
 
 ## Next Steps
 
-- [Set Up an Electron+Go Project]({{< ref "howto/set-up-electron-go-project" >}}) -- configure IPC, code signing, and packaging for distribution
-- [Architecture]({{< ref "explanation/architecture" >}}) -- understand why Electron+Go is a strong combination for desktop apps
-- [Agent Reference]({{< ref "reference/agents" >}}) -- full specification of the electron-go-pro agent
+- [Set Up an Electron+Go Project](../../howto/set-up-electron-go-project/) -- configure IPC, code signing, and packaging for distribution
+- [Architecture](../../explanation/architecture/) -- understand why Electron+Go is a strong combination for desktop apps
+- [Agent Reference](../../reference/agents/) -- full specification of the electron-go-pro agent

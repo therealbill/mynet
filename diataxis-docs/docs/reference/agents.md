@@ -481,7 +481,7 @@ Scans existing documentation and classifies each page by Diataxis type. Identifi
 
 ## See Also
 
-- {{< ref "tutorials/getting-started" >}} -- Tutorial using all seven agents
-- {{< ref "howto/restructure-docs-to-diataxis" >}} -- Restructuring workflow using these agents
-- {{< ref "explanation/architecture" >}} -- Why seven specialized agents instead of one
-- {{< ref "explanation/orchestration-model" >}} -- How the orchestrator coordinates the specialists
+- [Tutorial using all seven agents](../../tutorials/getting-started/)
+- [Restructuring workflow using these agents](../../howto/restructure-docs-to-diataxis/)
+- [Why seven specialized agents instead of one](../../explanation/architecture/)
+- [How the orchestrator coordinates the specialists](../../explanation/orchestration-model/)

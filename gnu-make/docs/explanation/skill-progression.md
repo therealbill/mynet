@@ -93,6 +93,6 @@ This progression means a user working through the skills in order builds a compl
 
 ## See Also
 
-- [Skill Reference]({{< ref "reference/skills" >}}) -- technical specifications for all five skills
-- [Architecture]({{< ref "explanation/architecture" >}}) -- how the plugin is structured
-- [Debug a Slow Makefile]({{< ref "howto/debug-slow-makefile" >}}) -- practical application of the debugging skill
+- [Skill Reference](../../reference/skills/) -- technical specifications for all five skills
+- [Architecture](../../explanation/architecture/) -- how the plugin is structured
+- [Debug a Slow Makefile](../../howto/debug-slow-makefile/) -- practical application of the debugging skill

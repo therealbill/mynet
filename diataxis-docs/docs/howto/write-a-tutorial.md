@@ -23,7 +23,7 @@ Create a learning-oriented tutorial using the **doc-tutorial-writer** agent that
 - The diataxis-docs plugin installed and available
 - A clear understanding of what the learner should build
 - Access to the source code or tool being documented
-- Understanding of the difference between tutorials and how-to guides (see {{< ref "explanation/diataxis-in-practice" >}})
+- Understanding of the difference between tutorials and how-to guides (see [Diataxis in Practice](../../explanation/diataxis-in-practice/))
 
 ## Steps
 
@@ -126,7 +126,7 @@ Add the missing knowledge as a prerequisite or add earlier steps that establish 
 
 ## See Also
 
-- {{< ref "reference/agents" >}} -- doc-tutorial-writer agent specification
-- {{< ref "explanation/diataxis-in-practice" >}} -- Why tutorials are learning-oriented, not task-oriented
-- {{< ref "howto/restructure-docs-to-diataxis" >}} -- Restructuring existing docs that mix tutorial content with other types
-- {{< ref "howto/validate-doc-quality" >}} -- Validate the tutorial passes quality checks
+- [doc-tutorial-writer agent specification](../../reference/agents/)
+- [Why tutorials are learning-oriented, not task-oriented](../../explanation/diataxis-in-practice/)
+- [Restructuring existing docs that mix tutorial content with other types](../../howto/restructure-docs-to-diataxis/)
+- [Validate the tutorial passes quality checks](../../howto/validate-doc-quality/)

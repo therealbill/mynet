@@ -211,6 +211,6 @@ Each file has a single responsibility and fits on a screen. Team members can wor
 
 ## See Also
 
-- [Skill Reference]({{< ref "reference/skills" >}}) -- makefile-includes-modularity skill specification
-- [Organize a Multi-Directory Build]({{< ref "howto/organize-multi-directory-build" >}}) -- structure across multiple directories
-- [Architecture]({{< ref "explanation/architecture" >}}) -- how the skills relate to each other
+- [Skill Reference](../../reference/skills/) -- makefile-includes-modularity skill specification
+- [Organize a Multi-Directory Build](../../howto/organize-multi-directory-build/) -- structure across multiple directories
+- [Architecture](../../explanation/architecture/) -- how the skills relate to each other

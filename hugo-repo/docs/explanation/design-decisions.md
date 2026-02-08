@@ -84,7 +84,7 @@ The division follows a general principle: if the task has a fixed, predictable p
 
 ## Related
 
-- {{< ref "explanation/architecture" >}} -- Overview of how the 17 components fit together
-- {{< ref "explanation/component-interaction" >}} -- How these design decisions play out in practice
-- {{< ref "reference/skills" >}} -- Full skill specifications showing the domain boundaries
-- {{< ref "reference/agents" >}} -- Full agent specifications showing tool and process differences
+- [Overview of how the 17 components fit together](../../explanation/architecture/)
+- [How these design decisions play out in practice](../../explanation/component-interaction/)
+- [Full skill specifications showing the domain boundaries](../../reference/skills/)
+- [Full agent specifications showing tool and process differences](../../reference/agents/)

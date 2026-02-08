@@ -68,5 +68,5 @@ Agent: Implements visual search using computer vision with image recognition and
 
 ## Related
 
-- [Skill Reference]({{< ref "/reference/skills" >}}) -- agent-modernizer specification
-- [Architecture]({{< ref "/explanation/architecture" >}}) -- Design rationale for ai-engineer's pragmatic approach
+- [Skill Reference](../../reference/skills/) -- agent-modernizer specification
+- [Architecture](../../explanation/architecture/) -- Design rationale for ai-engineer's pragmatic approach

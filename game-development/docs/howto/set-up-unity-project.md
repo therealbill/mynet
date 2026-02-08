@@ -149,6 +149,6 @@ This is expected Unity behavior. ScriptableObject changes made during Play mode 
 
 ## See Also
 
-- [Getting Started]({{< ref "tutorials/getting-started" >}}) -- tutorial building a mechanic inside a Unity project
-- [Agent Reference]({{< ref "reference/agents" >}}) -- unity-game-developer specification
-- [Architecture]({{< ref "explanation/architecture" >}}) -- why engine-specific agents exist alongside the generalist game-developer
+- [Getting Started](../../tutorials/getting-started/) -- tutorial building a mechanic inside a Unity project
+- [Agent Reference](../../reference/agents/) -- unity-game-developer specification
+- [Architecture](../../explanation/architecture/) -- why engine-specific agents exist alongside the generalist game-developer

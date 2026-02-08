@@ -207,5 +207,5 @@ prometheus-expert activates when the user mentions:
 
 ## See Also
 
-- [Architecture]({{< ref "explanation/architecture" >}}) -- why the agents are split this way
-- [Getting Started]({{< ref "tutorials/getting-started" >}}) -- see the CI and monitoring agents in action
+- [Architecture](../../explanation/architecture/) -- why the agents are split this way
+- [Getting Started](../../tutorials/getting-started/) -- see the CI and monitoring agents in action

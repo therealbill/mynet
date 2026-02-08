@@ -66,6 +66,6 @@ This delegation pattern reflects how the Mynet marketplace works: plugins collab
 
 ## See Also
 
-- [Agent Reference]({{< ref "reference/agents" >}}) -- electron-go-pro specification
-- [Set Up an Electron+Go Project]({{< ref "howto/set-up-electron-go-project" >}}) -- practical setup steps
-- [Getting Started]({{< ref "tutorials/getting-started" >}}) -- build your first hybrid app
+- [Agent Reference](../../reference/agents/) -- electron-go-pro specification
+- [Set Up an Electron+Go Project](../../howto/set-up-electron-go-project/) -- practical setup steps
+- [Getting Started](../../tutorials/getting-started/) -- build your first hybrid app

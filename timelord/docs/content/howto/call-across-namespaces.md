@@ -17,7 +17,7 @@ Use `workflow.NewNexusClient` to create a client bound to a Nexus endpoint and s
 
 ## Prerequisites
 
-- Nexus endpoint configured (see [Set Up Nexus Endpoints](/how-to/setup-nexus-endpoints/))
+- Nexus endpoint configured (see [Set Up Nexus Endpoints](../setup-nexus-endpoints/))
 - Handler service running in the target namespace
 - Understanding of sync vs async Nexus operations
 
@@ -128,5 +128,5 @@ func OrderWorkflow(ctx workflow.Context, order Order) (*OrderResult, error) {
 
 ## Related
 
-- [Set Up Nexus Endpoints](/how-to/setup-nexus-endpoints/) for initial configuration
+- [Set Up Nexus Endpoints](../setup-nexus-endpoints/) for initial configuration
 - `nexus-operations` skill for comprehensive patterns

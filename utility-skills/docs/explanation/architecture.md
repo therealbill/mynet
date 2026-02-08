@@ -40,6 +40,6 @@ This is the key advantage of encoding the k+1 rule as a skill with broad trigger
 
 ## See Also
 
-- [Getting Started]({{< ref "tutorials/getting-started" >}}) -- see the skill in action
-- [Nest Code Blocks Correctly]({{< ref "howto/nest-code-blocks-correctly" >}}) -- apply the k+1 rule step by step
-- [Skill Reference]({{< ref "reference/skills" >}}) -- trigger patterns and technical specification
+- [Getting Started](../../tutorials/getting-started/) -- see the skill in action
+- [Nest Code Blocks Correctly](../../howto/nest-code-blocks-correctly/) -- apply the k+1 rule step by step
+- [Skill Reference](../../reference/skills/) -- trigger patterns and technical specification

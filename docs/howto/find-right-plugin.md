@@ -141,7 +141,7 @@ After identifying the right plugin:
 
 ## Next Steps
 
-- [How to Install a Plugin]({{< ref "howto/install-a-plugin" >}}) -- install the plugin you found
-- [How to Use Plugins Together]({{< ref "howto/use-plugins-together" >}}) -- combine agents across plugins
-- [Plugin Catalog]({{< ref "reference/plugin-catalog" >}}) -- complete listing of all plugins
-- [Marketplace Manifest]({{< ref "reference/marketplace-manifest" >}}) -- marketplace.json schema
+- [How to Install a Plugin](../../howto/install-a-plugin/) -- install the plugin you found
+- [How to Use Plugins Together](../../howto/use-plugins-together/) -- combine agents across plugins
+- [Plugin Catalog](../../reference/plugin-catalog/) -- complete listing of all plugins
+- [Marketplace Manifest](../../reference/marketplace-manifest/) -- marketplace.json schema

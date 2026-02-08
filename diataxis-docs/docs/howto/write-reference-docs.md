@@ -149,7 +149,7 @@ Replace workflow examples with minimal syntax demonstrations. A reference exampl
 
 ## See Also
 
-- {{< ref "reference/agents" >}} -- doc-reference-gen agent specification
-- {{< ref "explanation/diataxis-in-practice" >}} -- Why reference is information-oriented with no advice
-- {{< ref "howto/validate-doc-quality" >}} -- Validate reference pages pass quality checks
-- {{< ref "howto/restructure-docs-to-diataxis" >}} -- Extract reference content from mixed-type pages
+- [doc-reference-gen agent specification](../../reference/agents/)
+- [Why reference is information-oriented with no advice](../../explanation/diataxis-in-practice/)
+- [Validate reference pages pass quality checks](../../howto/validate-doc-quality/)
+- [Extract reference content from mixed-type pages](../../howto/restructure-docs-to-diataxis/)

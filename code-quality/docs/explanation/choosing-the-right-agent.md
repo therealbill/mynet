@@ -78,6 +78,6 @@ In these cases, proceed directly to committing without running the quality agent
 
 ## See Also
 
-- [Agent Reference]({{< ref "reference/agents" >}}) -- technical specifications for all five agents
-- [Architecture]({{< ref "explanation/architecture" >}}) -- why five specialized agents instead of one
-- [Getting Started]({{< ref "tutorials/getting-started" >}}) -- tutorial walkthrough of the review-test-fix cycle
+- [Agent Reference](../../reference/agents/) -- technical specifications for all five agents
+- [Architecture](../../explanation/architecture/) -- why five specialized agents instead of one
+- [Getting Started](../../tutorials/getting-started/) -- tutorial walkthrough of the review-test-fix cycle

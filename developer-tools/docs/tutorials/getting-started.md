@@ -127,8 +127,8 @@ In this tutorial, you:
 
 ## Next Steps
 
-- [Set Up Git Workflow]({{< ref "howto/set-up-git-workflow" >}}) -- detailed guide for branching strategy and automation configuration
-- [Generate API Documentation]({{< ref "howto/generate-api-documentation" >}}) -- advanced documentation generation with CI validation
-- [Architecture]({{< ref "explanation/architecture" >}}) -- understand why developer-tools uses three specialized agents
+- [Set Up Git Workflow](../../howto/set-up-git-workflow/) -- detailed guide for branching strategy and automation configuration
+- [Generate API Documentation](../../howto/generate-api-documentation/) -- advanced documentation generation with CI validation
+- [Architecture](../../explanation/architecture/) -- understand why developer-tools uses three specialized agents
 - For Diataxis-structured documentation beyond API reference, see the [diataxis-docs](/diataxis-docs/) plugin
 - For code review integration in your new workflow, see the [code-quality](/code-quality/) plugin

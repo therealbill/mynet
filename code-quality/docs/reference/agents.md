@@ -325,6 +325,6 @@ Level A violations listed first, then AA. Level AAA flagged only when specifical
 
 ## See Also
 
-- [Architecture]({{< ref "explanation/architecture" >}}) -- why five specialized agents instead of one
-- [Choosing the Right Agent]({{< ref "explanation/choosing-the-right-agent" >}}) -- decision guide
-- [Getting Started]({{< ref "tutorials/getting-started" >}}) -- tutorial walkthrough
+- [Architecture](../../explanation/architecture/) -- why five specialized agents instead of one
+- [Choosing the Right Agent](../../explanation/choosing-the-right-agent/) -- decision guide
+- [Getting Started](../../tutorials/getting-started/) -- tutorial walkthrough

@@ -112,6 +112,6 @@ Each element in the `plugins` array has the following fields.
 
 ## See Also
 
-- [Plugin Catalog]({{< ref "plugin-catalog" >}}) -- complete listing of all plugins
-- [Plugin JSON]({{< ref "plugin-json" >}}) -- per-plugin manifest specification
-- [Component Conventions]({{< ref "component-conventions" >}}) -- agent, skill, command, and template formats
+- [Plugin Catalog](../plugin-catalog/) -- complete listing of all plugins
+- [Plugin JSON](../plugin-json/) -- per-plugin manifest specification
+- [Component Conventions](../component-conventions/) -- agent, skill, command, and template formats

@@ -186,5 +186,5 @@ swift-expert does not have a fixed "do not" list. It makes opinionated recommend
 
 ## See Also
 
-- [Architecture]({{< ref "explanation/architecture" >}}) -- when to use each agent and how they relate
-- [Getting Started]({{< ref "tutorials/getting-started" >}}) -- tutorial using ios-developer and swift-expert together
+- [Architecture](../../explanation/architecture/) -- when to use each agent and how they relate
+- [Getting Started](../../tutorials/getting-started/) -- tutorial using ios-developer and swift-expert together

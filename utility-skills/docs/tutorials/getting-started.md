@@ -117,6 +117,6 @@ The skill activates proactively whenever Claude writes documentation containing 
 
 ## See Also
 
-- [Nest Code Blocks Correctly]({{< ref "howto/nest-code-blocks-correctly" >}}) -- step-by-step guide for applying the k+1 rule
-- [Skill Reference]({{< ref "reference/skills" >}}) -- technical specification for markdown-nested-codeblocks
-- [Architecture]({{< ref "explanation/architecture" >}}) -- why this is a skill rather than an agent
+- [Nest Code Blocks Correctly](../../howto/nest-code-blocks-correctly/) -- step-by-step guide for applying the k+1 rule
+- [Skill Reference](../../reference/skills/) -- technical specification for markdown-nested-codeblocks
+- [Architecture](../../explanation/architecture/) -- why this is a skill rather than an agent

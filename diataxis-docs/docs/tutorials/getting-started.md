@@ -262,11 +262,11 @@ You have transformed a documentation directory into a clean Diataxis structure:
 
 ## Next Steps
 
-- {{< ref "howto/restructure-docs-to-diataxis" >}} -- Repeat this process on other documentation directories
-- {{< ref "howto/validate-doc-quality" >}} -- Run validation checks regularly as docs evolve
-- {{< ref "reference/agents" >}} -- Review the full specification of all seven agents
-- {{< ref "explanation/architecture" >}} -- Understand why the plugin uses seven specialized agents
-- {{< ref "explanation/diataxis-in-practice" >}} -- Learn the principles behind Diataxis type separation
+- [Repeat this process on other documentation directories](../../howto/restructure-docs-to-diataxis/)
+- [Run validation checks regularly as docs evolve](../../howto/validate-doc-quality/)
+- [Review the full specification of all seven agents](../../reference/agents/)
+- [Understand why the plugin uses seven specialized agents](../../explanation/architecture/)
+- [Learn the principles behind Diataxis type separation](../../explanation/diataxis-in-practice/)
 
 ## Troubleshooting
 

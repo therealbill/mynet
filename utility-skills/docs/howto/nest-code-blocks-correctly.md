@@ -101,6 +101,6 @@ Preview the markdown in your target renderer (GitHub, VS Code preview, Hugo, or 
 
 ## See Also
 
-- [Getting Started]({{< ref "tutorials/getting-started" >}}) -- tutorial walkthrough of the skill in action
-- [Skill Reference]({{< ref "reference/skills" >}}) -- trigger patterns and compatibility details
-- [Architecture]({{< ref "explanation/architecture" >}}) -- why nested fences break and how the k+1 rule works
+- [Getting Started](../../tutorials/getting-started/) -- tutorial walkthrough of the skill in action
+- [Skill Reference](../../reference/skills/) -- trigger patterns and compatibility details
+- [Architecture](../../explanation/architecture/) -- why nested fences break and how the k+1 rule works

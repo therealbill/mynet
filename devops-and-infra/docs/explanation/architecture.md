@@ -62,7 +62,7 @@ These plugins do not import each other. They collaborate through Claude's dispat
 
 ## See Also
 
-- [Agent Reference]({{< ref "reference/agents" >}}) -- full specification of all four agents
-- [Getting Started]({{< ref "tutorials/getting-started" >}}) -- see the CI and monitoring agents in practice
-- [Set Up GitHub Actions CI]({{< ref "howto/set-up-github-actions-ci" >}}) -- practical guide for the build stage
-- [Configure Prometheus Monitoring]({{< ref "howto/configure-prometheus-monitoring" >}}) -- practical guide for the monitoring stage
+- [Agent Reference](../../reference/agents/) -- full specification of all four agents
+- [Getting Started](../../tutorials/getting-started/) -- see the CI and monitoring agents in practice
+- [Set Up GitHub Actions CI](../../howto/set-up-github-actions-ci/) -- practical guide for the build stage
+- [Configure Prometheus Monitoring](../../howto/configure-prometheus-monitoring/) -- practical guide for the monitoring stage

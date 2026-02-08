@@ -104,4 +104,4 @@ For a literature review that also evaluates software implementations:
 2. Use technical-researcher to evaluate any open-source implementations mentioned in the papers
 3. Feed both outputs into research-synthesizer to merge academic and practical perspectives
 
-See [Produce a Research Report]({{< ref "produce-research-report" >}}) for the full multi-agent workflow.
+See [Produce a Research Report](../produce-research-report/) for the full multi-agent workflow.

@@ -112,10 +112,10 @@ In this tutorial, you:
 
 ## Next Steps
 
-- [Build an iOS Feature]({{< ref "howto/build-ios-feature" >}}) -- detailed guide for implementing SwiftUI features with proper state management
-- [Choose Mobile Platform]({{< ref "howto/choose-mobile-platform" >}}) -- use mobile-developer to decide between native and cross-platform
-- [Agent Reference]({{< ref "reference/agents" >}}) -- full specifications for all three mobile agents
-- [Architecture]({{< ref "explanation/architecture" >}}) -- understand when to use each agent
+- [Build an iOS Feature](../../howto/build-ios-feature/) -- detailed guide for implementing SwiftUI features with proper state management
+- [Choose Mobile Platform](../../howto/choose-mobile-platform/) -- use mobile-developer to decide between native and cross-platform
+- [Agent Reference](../../reference/agents/) -- full specifications for all three mobile agents
+- [Architecture](../../explanation/architecture/) -- understand when to use each agent
 
 ### Cross-Plugin References
 

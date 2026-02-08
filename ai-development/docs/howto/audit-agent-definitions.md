@@ -113,6 +113,6 @@ Prioritize by severity. Fix frontmatter-only issues first, then full rewrites.
 
 ## Related
 
-- [Getting Started]({{< ref "/tutorials/getting-started" >}}) -- Step-by-step tutorial walking through a first audit
-- [Skill Reference]({{< ref "/reference/skills" >}}) -- agent-modernizer specification and audit criteria
+- [Getting Started](../../tutorials/getting-started/) -- Step-by-step tutorial walking through a first audit
+- [Skill Reference](../../reference/skills/) -- agent-modernizer specification and audit criteria
 - research plugin -- Use for gathering domain knowledge before writing agent prompts from scratch

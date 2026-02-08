@@ -113,6 +113,6 @@ Paste the existing architecture or code and ask backend-architect to review it. 
 
 ## See Also
 
-- [Getting Started]({{< ref "tutorials/getting-started" >}}) -- full tutorial walking through the design-then-implement workflow
-- [Architecture]({{< ref "explanation/architecture" >}}) -- why architecture-first and how the agents divide responsibilities
-- [Agent Reference]({{< ref "reference/agents" >}}) -- backend-architect specification
+- [Getting Started](../../tutorials/getting-started/) -- full tutorial walking through the design-then-implement workflow
+- [Architecture](../../explanation/architecture/) -- why architecture-first and how the agents divide responsibilities
+- [Agent Reference](../../reference/agents/) -- backend-architect specification

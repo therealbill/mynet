@@ -181,6 +181,6 @@ Each agent in this plugin represents a concentration of language-specific knowle
 
 ## See Also
 
-- {{< ref "explanation/architecture" >}} -- The architectural rationale for one agent per language
-- {{< ref "reference/agents" >}} -- Complete technical specifications for each agent
-- {{< ref "tutorials/getting-started" >}} -- Hands-on experience with agent specialization
+- [The architectural rationale for one agent per language](../../explanation/architecture/)
+- [Complete technical specifications for each agent](../../reference/agents/)
+- [Hands-on experience with agent specialization](../../tutorials/getting-started/)

@@ -106,6 +106,6 @@ Should this view model use an actor instead of @MainActor?
 
 ## See Also
 
-- [Getting Started]({{< ref "tutorials/getting-started" >}}) -- end-to-end tutorial building and reviewing an iOS feature
-- [Agent Reference]({{< ref "reference/agents" >}}) -- ios-developer specification
-- [Architecture]({{< ref "explanation/architecture" >}}) -- when to use ios-developer vs swift-expert
+- [Getting Started](../../tutorials/getting-started/) -- end-to-end tutorial building and reviewing an iOS feature
+- [Agent Reference](../../reference/agents/) -- ios-developer specification
+- [Architecture](../../explanation/architecture/) -- when to use ios-developer vs swift-expert

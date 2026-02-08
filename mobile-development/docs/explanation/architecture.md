@@ -90,7 +90,7 @@ The mobile-development agents work alongside agents from other plugins:
 
 ## See Also
 
-- [Agent Reference]({{< ref "reference/agents" >}}) -- full specifications for all three agents
-- [Getting Started]({{< ref "tutorials/getting-started" >}}) -- tutorial showing ios-developer and swift-expert working together
-- [Build an iOS Feature]({{< ref "howto/build-ios-feature" >}}) -- practical guide for ios-developer
-- [Choose Mobile Platform]({{< ref "howto/choose-mobile-platform" >}}) -- practical guide for mobile-developer
+- [Agent Reference](../../reference/agents/) -- full specifications for all three agents
+- [Getting Started](../../tutorials/getting-started/) -- tutorial showing ios-developer and swift-expert working together
+- [Build an iOS Feature](../../howto/build-ios-feature/) -- practical guide for ios-developer
+- [Choose Mobile Platform](../../howto/choose-mobile-platform/) -- practical guide for mobile-developer

@@ -69,6 +69,6 @@ Similarly, playwright-expert writes E2E tests but does not build the web applica
 
 ## See Also
 
-- [Agent Reference]({{< ref "reference/agents" >}}) -- specifications for all five agents
-- [Choosing the Right Agent]({{< ref "explanation/choosing-the-right-agent" >}}) -- decision guide for selecting the right agent
-- [Getting Started]({{< ref "tutorials/getting-started" >}}) -- tutorial walkthrough of the review-test-fix cycle
+- [Agent Reference](../../reference/agents/) -- specifications for all five agents
+- [Choosing the Right Agent](../../explanation/choosing-the-right-agent/) -- decision guide for selecting the right agent
+- [Getting Started](../../tutorials/getting-started/) -- tutorial walkthrough of the review-test-fix cycle

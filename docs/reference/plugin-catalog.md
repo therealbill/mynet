@@ -60,6 +60,6 @@ Plugins grouped by domain area.
 
 ## See Also
 
-- [Marketplace Manifest]({{< ref "marketplace-manifest" >}}) -- specification of `marketplace.json`
-- [Plugin JSON]({{< ref "plugin-json" >}}) -- specification of `plugin.json`
-- [Component Conventions]({{< ref "component-conventions" >}}) -- agent, skill, command, and template formats
+- [Marketplace Manifest](../marketplace-manifest/) -- specification of `marketplace.json`
+- [Plugin JSON](../plugin-json/) -- specification of `plugin.json`
+- [Component Conventions](../component-conventions/) -- agent, skill, command, and template formats

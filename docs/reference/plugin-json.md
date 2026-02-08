@@ -97,6 +97,6 @@ The `plugin.json` file sits inside a `.claude-plugin` subdirectory within the pl
 
 ## See Also
 
-- [Plugin Catalog]({{< ref "plugin-catalog" >}}) -- complete listing of all plugins
-- [Marketplace Manifest]({{< ref "marketplace-manifest" >}}) -- root marketplace manifest specification
-- [Component Conventions]({{< ref "component-conventions" >}}) -- agent, skill, command, and template formats
+- [Plugin Catalog](../plugin-catalog/) -- complete listing of all plugins
+- [Marketplace Manifest](../marketplace-manifest/) -- root marketplace manifest specification
+- [Component Conventions](../component-conventions/) -- agent, skill, command, and template formats

@@ -163,7 +163,7 @@ In this tutorial, you:
 
 ## Next Steps
 
-- [Prototype a Game Mechanic]({{< ref "howto/prototype-game-mechanic" >}}) -- rapid iteration workflow for testing mechanics before full implementation
-- [Set Up a Unity Project]({{< ref "howto/set-up-unity-project" >}}) -- complete Unity project architecture beyond a single mechanic
-- [Choosing the Right Agent]({{< ref "explanation/choosing-the-right-agent" >}}) -- when to use game-designer vs game-developer vs engine-specific agents
-- [Agent Reference]({{< ref "reference/agents" >}}) -- full specifications for all five agents
+- [Prototype a Game Mechanic](../../howto/prototype-game-mechanic/) -- rapid iteration workflow for testing mechanics before full implementation
+- [Set Up a Unity Project](../../howto/set-up-unity-project/) -- complete Unity project architecture beyond a single mechanic
+- [Choosing the Right Agent](../../explanation/choosing-the-right-agent/) -- when to use game-designer vs game-developer vs engine-specific agents
+- [Agent Reference](../../reference/agents/) -- full specifications for all five agents

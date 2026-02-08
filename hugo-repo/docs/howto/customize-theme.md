@@ -139,6 +139,6 @@ hugo server --buildDrafts --disableFastRender
 
 ## Related
 
-- {{< ref "reference/skills" >}} -- hugo-themes and hugo-content-authoring skill specifications
-- {{< ref "tutorials/getting-started" >}} -- Theme customization in the context of a full setup
-- {{< ref "explanation/architecture" >}} -- How skills provide knowledge for theme work
+- [hugo-themes and hugo-content-authoring skill specifications](../../reference/skills/)
+- [Theme customization in the context of a full setup](../../tutorials/getting-started/)
+- [How skills provide knowledge for theme work](../../explanation/architecture/)

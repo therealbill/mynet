@@ -106,6 +106,6 @@ Build the product list screen as a native SwiftUI view
 
 ## See Also
 
-- [Getting Started]({{< ref "tutorials/getting-started" >}}) -- end-to-end tutorial with ios-developer and swift-expert
-- [Agent Reference]({{< ref "reference/agents" >}}) -- mobile-developer specification
-- [Architecture]({{< ref "explanation/architecture" >}}) -- how the three agents cover different concerns
+- [Getting Started](../../tutorials/getting-started/) -- end-to-end tutorial with ios-developer and swift-expert
+- [Agent Reference](../../reference/agents/) -- mobile-developer specification
+- [Architecture](../../explanation/architecture/) -- how the three agents cover different concerns

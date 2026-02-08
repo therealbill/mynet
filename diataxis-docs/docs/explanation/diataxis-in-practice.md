@@ -144,8 +144,8 @@ Even a small project benefits from type separation. A README that mixes "quick s
 
 ## Related
 
-- {{< ref "reference/agents" >}} -- Specifications for the four type-specific writer agents
-- {{< ref "explanation/architecture" >}} -- Why diataxis-docs uses one agent per type
-- {{< ref "explanation/orchestration-model" >}} -- How the orchestrator sequences type-specific writing
-- {{< ref "howto/restructure-docs-to-diataxis" >}} -- Practical guide to applying Diataxis to existing docs
-- {{< ref "tutorials/getting-started" >}} -- Hands-on tutorial demonstrating the full Diataxis pipeline
+- [Specifications for the four type-specific writer agents](../../reference/agents/)
+- [Why diataxis-docs uses one agent per type](../../explanation/architecture/)
+- [How the orchestrator sequences type-specific writing](../../explanation/orchestration-model/)
+- [Practical guide to applying Diataxis to existing docs](../../howto/restructure-docs-to-diataxis/)
+- [Hands-on tutorial demonstrating the full Diataxis pipeline](../../tutorials/getting-started/)

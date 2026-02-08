@@ -204,11 +204,11 @@ After this step, you should have:
 
 Now that your site is deployed, explore these topics:
 
-- {{< ref "howto/add-content-section" >}} to mount additional documentation directories
-- {{< ref "howto/deploy-to-s3" >}} if you need AWS S3 hosting instead of GitHub Pages
-- {{< ref "howto/customize-theme" >}} for deeper theme customization techniques
-- {{< ref "reference/skills" >}} for the full list of skills available in this plugin
-- {{< ref "explanation/architecture" >}} to understand how all 17 components work together
+- [Add Content Section](../../howto/add-content-section/) to mount additional documentation directories
+- [Deploy to S3](../../howto/deploy-to-s3/) if you need AWS S3 hosting instead of GitHub Pages
+- [Customize Theme](../../howto/customize-theme/) for deeper theme customization techniques
+- [Skills](../../reference/skills/) for the full list of skills available in this plugin
+- [Architecture](../../explanation/architecture/) to understand how all 17 components work together
 
 ## Troubleshooting
 

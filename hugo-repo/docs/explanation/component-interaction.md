@@ -133,6 +133,6 @@ This design work requires judgment that adapts to the specific repository, which
 
 ## Related
 
-- {{< ref "explanation/architecture" >}} -- Overview of the four component types
-- {{< ref "explanation/design-decisions" >}} -- Why the plugin is structured this way
-- {{< ref "tutorials/getting-started" >}} -- See these interactions in practice during a full setup
+- [Overview of the four component types](../../explanation/architecture/)
+- [Why the plugin is structured this way](../../explanation/design-decisions/)
+- [See these interactions in practice during a full setup](../../tutorials/getting-started/)

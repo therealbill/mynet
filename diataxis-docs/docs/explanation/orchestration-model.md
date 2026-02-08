@@ -4,8 +4,8 @@ description: "How diataxis-orchestrator coordinates the six specialist agents, w
 weight: 3
 doc_type: explanation
 prerequisites:
-  - "Familiarity with the diataxis-docs agent architecture (see [Architecture]({{< ref \"explanation/architecture\" >}}))"
-  - "Understanding of the four Diataxis types (see [Diataxis in Practice]({{< ref \"explanation/diataxis-in-practice\" >}}))"
+  - "Familiarity with the diataxis-docs agent architecture (see Architecture)"
+  - "Understanding of the four Diataxis types (see Diataxis in Practice)"
 est_time: "12 minutes"
 roles: ["developer", "architect"]
 stability: stable
@@ -164,8 +164,8 @@ The orchestrator asks for user confirmation before major structural changes. It 
 
 ## Related
 
-- {{< ref "reference/agents" >}} -- Specifications for the orchestrator and all six specialist agents
-- {{< ref "explanation/architecture" >}} -- Why seven specialized agents instead of one
-- {{< ref "explanation/diataxis-in-practice" >}} -- The Diataxis types that drive the creation order
-- {{< ref "howto/restructure-docs-to-diataxis" >}} -- Practical guide using the orchestration workflow
-- {{< ref "tutorials/getting-started" >}} -- Tutorial walking through the full orchestrated pipeline
+- [Specifications for the orchestrator and all six specialist agents](../../reference/agents/)
+- [Why seven specialized agents instead of one](../../explanation/architecture/)
+- [The Diataxis types that drive the creation order](../../explanation/diataxis-in-practice/)
+- [Practical guide using the orchestration workflow](../../howto/restructure-docs-to-diataxis/)
+- [Tutorial walking through the full orchestrated pipeline](../../tutorials/getting-started/)

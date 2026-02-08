@@ -18,7 +18,7 @@ Choose S3 over GitHub Pages when you need:
 - Multiple sites deployed from one repository
 - Deployment from any CI system (not just GitHub Actions)
 
-For simpler deployments without these requirements, see {{< ref "howto/deploy-to-github-pages" >}}.
+For simpler deployments without these requirements, see [Deploy to Github Pages](../../howto/deploy-to-github-pages/).
 
 ## Prerequisites
 
@@ -162,7 +162,7 @@ The `--maxDeletes 100` flag prevents accidental mass deletion. If you need to re
 
 ## Related
 
-- {{< ref "howto/deploy-to-github-pages" >}} -- Simpler deployment to GitHub Pages
-- {{< ref "reference/commands" >}} -- Full `/hugo-deploy` command specification
-- {{< ref "reference/templates" >}} -- The `s3-deploy.yml.tmpl` template specification
-- {{< ref "explanation/design-decisions" >}} -- Why separate deployment skills for GitHub Pages and S3
+- [Simpler deployment to GitHub Pages](../../howto/deploy-to-github-pages/)
+- [Full `/hugo-deploy` command specification](../../reference/commands/)
+- [The `s3-deploy.yml.tmpl` template specification](../../reference/templates/)
+- [Why separate deployment skills for GitHub Pages and S3](../../explanation/design-decisions/)

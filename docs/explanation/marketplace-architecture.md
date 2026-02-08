@@ -57,5 +57,5 @@ The cost of independent versioning is that there is no single "marketplace versi
 
 ## Related
 
-- [Plugin Catalog]({{< ref "reference/plugin-catalog" >}}) -- complete listing of all plugins and their components
-- [Marketplace Manifest]({{< ref "reference/marketplace-manifest" >}}) -- field-by-field reference for marketplace.json
+- [Plugin Catalog](../../reference/plugin-catalog/) -- complete listing of all plugins and their components
+- [Marketplace Manifest](../../reference/marketplace-manifest/) -- field-by-field reference for marketplace.json

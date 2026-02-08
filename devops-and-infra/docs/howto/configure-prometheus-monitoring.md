@@ -109,6 +109,6 @@ Increase the `for` duration or adjust the threshold. If a latency alert fires ev
 
 ## See Also
 
-- [Getting Started]({{< ref "tutorials/getting-started" >}}) -- tutorial covering CI setup and monitoring together
-- [Architecture]({{< ref "explanation/architecture" >}}) -- why prometheus-expert and performance-monitor are separate agents
-- [Agent Reference]({{< ref "reference/agents" >}}) -- prometheus-expert specification
+- [Getting Started](../../tutorials/getting-started/) -- tutorial covering CI setup and monitoring together
+- [Architecture](../../explanation/architecture/) -- why prometheus-expert and performance-monitor are separate agents
+- [Agent Reference](../../reference/agents/) -- prometheus-expert specification

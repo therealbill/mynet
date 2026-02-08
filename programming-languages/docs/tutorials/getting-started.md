@@ -209,6 +209,6 @@ In this tutorial you:
 
 ## Next Steps
 
-- Read the {{< ref "howto/modernize-legacy-code" >}} guide for specific legacy modernization recipes
-- See the {{< ref "reference/agents" >}} for the complete specification of all five agents
-- Learn {{< ref "explanation/language-specialization" >}} to understand what each agent knows that a generalist does not
+- Read the [Modernize Legacy Code](../../howto/modernize-legacy-code/) guide for specific legacy modernization recipes
+- See the [Agents](../../reference/agents/) for the complete specification of all five agents
+- Learn [Language Specialization](../../explanation/language-specialization/) to understand what each agent knows that a generalist does not

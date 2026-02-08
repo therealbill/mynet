@@ -107,6 +107,6 @@ The agent-modernizer skill audits agent definitions against a structured checkli
 
 ## Next Steps
 
-- [Audit Agent Definitions]({{< ref "/howto/audit-agent-definitions" >}}) -- Task-focused guide for bringing agents up to standard
-- [Skill Reference]({{< ref "/reference/skills" >}}) -- Full specification for agent-modernizer
-- [Architecture]({{< ref "/explanation/architecture" >}}) -- Why this plugin serves both AI builders and plugin maintainers
+- [Audit Agent Definitions](../../howto/audit-agent-definitions/) -- Task-focused guide for bringing agents up to standard
+- [Skill Reference](../../reference/skills/) -- Full specification for agent-modernizer
+- [Architecture](../../explanation/architecture/) -- Why this plugin serves both AI builders and plugin maintainers

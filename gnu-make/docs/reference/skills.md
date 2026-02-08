@@ -201,6 +201,6 @@ The gnu-make plugin contains five skills. Each skill provides knowledge injectio
 
 ## See Also
 
-- [Getting Started]({{< ref "tutorials/getting-started" >}}) -- tutorial walkthrough of the five skills
-- [Architecture]({{< ref "explanation/architecture" >}}) -- why skills are organized this way
-- [Skill Progression]({{< ref "explanation/skill-progression" >}}) -- the learning path through the skills
+- [Getting Started](../../tutorials/getting-started/) -- tutorial walkthrough of the five skills
+- [Architecture](../../explanation/architecture/) -- why skills are organized this way
+- [Skill Progression](../../explanation/skill-progression/) -- the learning path through the skills

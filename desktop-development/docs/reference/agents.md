@@ -101,5 +101,5 @@ Agent: Configures dual code signing, notarization, and the hybrid build pipeline
 
 ## See Also
 
-- [Architecture]({{< ref "explanation/architecture" >}}) -- design decisions behind the Electron+Go approach
-- [Set Up an Electron+Go Project]({{< ref "howto/set-up-electron-go-project" >}}) -- step-by-step project setup
+- [Architecture](../../explanation/architecture/) -- design decisions behind the Electron+Go approach
+- [Set Up an Electron+Go Project](../../howto/set-up-electron-go-project/) -- step-by-step project setup

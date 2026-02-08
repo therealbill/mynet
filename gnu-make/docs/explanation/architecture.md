@@ -69,6 +69,6 @@ This narrow scope is intentional. A skill that tries to cover everything dilutes
 
 ## See Also
 
-- [Skill Reference]({{< ref "reference/skills" >}}) -- technical specifications for all five skills
-- [Skill Progression]({{< ref "explanation/skill-progression" >}}) -- the learning path through fundamentals to debugging
-- [Getting Started]({{< ref "tutorials/getting-started" >}}) -- hands-on introduction to the skills
+- [Skill Reference](../../reference/skills/) -- technical specifications for all five skills
+- [Skill Progression](../../explanation/skill-progression/) -- the learning path through fundamentals to debugging
+- [Getting Started](../../tutorials/getting-started/) -- hands-on introduction to the skills

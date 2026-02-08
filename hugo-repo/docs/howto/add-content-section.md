@@ -113,6 +113,6 @@ Mount documentation to a custom location in the content tree:
 
 ## Related
 
-- {{< ref "howto/set-up-hugo-site" >}} -- Initial Hugo site setup with module mounts
-- {{< ref "reference/commands" >}} -- Full `/hugo-add-section` command specification
-- {{< ref "explanation/component-interaction" >}} -- How commands use templates
+- [Initial Hugo site setup with module mounts](../../howto/set-up-hugo-site/)
+- [Full `/hugo-add-section` command specification](../../reference/commands/)
+- [How commands use templates](../../explanation/component-interaction/)

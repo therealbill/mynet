@@ -135,6 +135,6 @@ Ask game-developer to verify that your implementation uses fixed-timestep physic
 
 ## See Also
 
-- [Getting Started]({{< ref "tutorials/getting-started" >}}) -- full tutorial walking through design and implementation
-- [Architecture]({{< ref "explanation/architecture" >}}) -- why design and implementation are separate agents
-- [Choosing the Right Agent]({{< ref "explanation/choosing-the-right-agent" >}}) -- when to use game-designer vs game-developer
+- [Getting Started](../../tutorials/getting-started/) -- full tutorial walking through design and implementation
+- [Architecture](../../explanation/architecture/) -- why design and implementation are separate agents
+- [Choosing the Right Agent](../../explanation/choosing-the-right-agent/) -- when to use game-designer vs game-developer

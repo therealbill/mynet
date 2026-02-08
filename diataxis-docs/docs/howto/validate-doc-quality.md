@@ -144,7 +144,7 @@ The validator checks for the presence of cross-links but not their placement or 
 
 ## See Also
 
-- {{< ref "reference/agents" >}} -- doc-crosslink-validator agent specification
-- {{< ref "explanation/diataxis-in-practice" >}} -- Understanding type purity and why it matters
-- {{< ref "howto/restructure-docs-to-diataxis" >}} -- Full restructuring workflow including validation
-- {{< ref "tutorials/getting-started" >}} -- Tutorial covering the end-to-end pipeline including validation
+- [doc-crosslink-validator agent specification](../../reference/agents/)
+- [Understanding type purity and why it matters](../../explanation/diataxis-in-practice/)
+- [Full restructuring workflow including validation](../../howto/restructure-docs-to-diataxis/)
+- [Tutorial covering the end-to-end pipeline including validation](../../tutorials/getting-started/)

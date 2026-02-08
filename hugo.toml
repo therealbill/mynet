@@ -6,10 +6,6 @@ baseURL = 'https://therealbill.github.io/mynet/'
 languageCode = 'en-us'
 title = 'Mynet Plugin Marketplace'
 
-# Downgrade broken ref shortcodes to warnings (plugin docs use relative refs
-# that don't resolve after being mounted under /plugins/<name>/)
-refLinksErrorLevel = 'WARNING'
-
 # Suppress raw HTML warnings from goldmark
 ignoreLogs = ['warning-goldmark-raw-html']
 

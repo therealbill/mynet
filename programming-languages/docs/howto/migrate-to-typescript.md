@@ -159,6 +159,6 @@ The agent installs type definitions for your test framework (`@types/jest`, `@ty
 
 ## See Also
 
-- {{< ref "howto/modernize-legacy-code" >}} -- The TypeScript section covers replacing `any` types in existing TypeScript projects
-- {{< ref "reference/agents" >}} -- Full specification of the typescript-pro agent
-- {{< ref "explanation/language-specialization" >}} -- What typescript-pro knows about the type system that a general agent does not
+- [The TypeScript section covers replacing `any` types in existing TypeScript projects](../../howto/modernize-legacy-code/)
+- [Full specification of the typescript-pro agent](../../reference/agents/)
+- [What typescript-pro knows about the type system that a general agent does not](../../explanation/language-specialization/)

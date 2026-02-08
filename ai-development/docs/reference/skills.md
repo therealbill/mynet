@@ -82,6 +82,6 @@ When auditing a directory of agents, produces a summary table:
 
 ## Related
 
-- [Agent Reference]({{< ref "/reference/agents" >}}) -- ai-engineer specification
-- [Getting Started]({{< ref "/tutorials/getting-started" >}}) -- Tutorial walking through a first audit
-- [Audit Agent Definitions]({{< ref "/howto/audit-agent-definitions" >}}) -- Task-focused audit guide
+- [Agent Reference](../../reference/agents/) -- ai-engineer specification
+- [Getting Started](../../tutorials/getting-started/) -- Tutorial walking through a first audit
+- [Audit Agent Definitions](../../howto/audit-agent-definitions/) -- Task-focused audit guide
