@@ -103,6 +103,13 @@
       "keywords": ["utility", "orchestration", "url", "validation", "extraction"]
     },
     {
+      "name": "research",
+      "source": "./research",
+      "description": "Deep research agents for academic literature, technical analysis, multi-source investigation, synthesis, and report generation",
+      "version": "1.0.0",
+      "keywords": ["research", "academic", "technical", "synthesis", "report", "literature-review"]
+    },
+    {
       "name": "timelord",
       "source": "./timelord",
       "description": "Temporal.io expertise for deploying, managing, and developing workflow applications with self-hosted Temporal clusters",

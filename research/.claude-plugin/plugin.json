@@ -1,0 +1,6 @@
+{
+  "name": "research",
+  "version": "1.0.0",
+  "description": "Deep research agents for academic literature, technical analysis, multi-source investigation, finding synthesis, and report generation",
+  "keywords": ["research", "academic", "technical", "synthesis", "report", "literature-review", "arxiv", "github"]
+}
