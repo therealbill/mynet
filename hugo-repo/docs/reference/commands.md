@@ -1,12 +1,12 @@
 ---
 title: "Commands Reference"
-description: "Technical specifications for all 4 hugo-repo slash commands including arguments, behavior, and output"
+description: "Technical specifications for all 5 hugo-repo slash commands including arguments, behavior, and output"
 weight: 3
 ---
 
 # Commands Reference
 
-The hugo-repo plugin includes 4 slash commands. Commands provide quick, targeted actions that users invoke directly. They follow a defined process and produce predictable output.
+The hugo-repo plugin includes 5 slash commands. Commands provide quick, targeted actions that users invoke directly. They follow a defined process and produce predictable output.
 
 ---
 
@@ -43,16 +43,18 @@ The hugo-repo plugin includes 4 slash commands. Commands provide quick, targeted
 3. Report findings to the user: discovered directories, recommended mounts, proposed hierarchy
 4. Run `hugo new site . --force` and `hugo mod init github.com/<detected-from-git-remote>`
 5. Generate `hugo.toml` with standard module mounts and custom mounts for each docs directory
-6. Create section index pages: `content/_index.md`, parent section indexes, verify mounted directories have `_index.md`
-7. Install theme if specified or user accepts recommendation
-8. Update `.gitignore` with `public/`, `resources/`, `.hugo_build.lock`
-9. Verify by running `hugo server --buildDrafts` and reporting the result
+6. Create section index pages: `content/_index.md`, parent section indexes; recursively scan each mounted directory and create `_index.md` for any subdirectory containing `.md` files but lacking an index; all generated indexes include `bookCollapseSection: true` for collapsible navigation
+7. Create render hook at `layouts/_default/_markup/render-link.html` for portable links (handles `.md` extensions and resolves paths)
+8. Install theme if specified or user accepts recommendation
+9. Update `.gitignore` with `public/`, `resources/`, `.hugo_build.lock`
+10. Verify by running `hugo server --buildDrafts` and reporting the result
 
 ### Output
 
 - `hugo.toml` configuration file
 - `go.mod` and `go.sum` module files
-- `_index.md` section index pages for all sections
+- `_index.md` section index pages for all sections (with collapsible navigation enabled)
+- `layouts/_default/_markup/render-link.html` render hook
 - Updated `.gitignore`
 - Theme module dependency (if theme specified)
 
@@ -223,6 +225,56 @@ The hugo-repo plugin includes 4 slash commands. Commands provide quick, targeted
 ### Output
 
 - Updated `hugo.toml` with new mount entry
-- `_index.md` in the source directory (if created)
+- `_index.md` in the source directory (if created, includes `bookCollapseSection: true`)
 - Parent section `_index.md` (if created)
 - Updated deployment workflow path filter
+
+---
+
+## /hugo-fix-indexes
+
+| Field | Value |
+|-------|-------|
+| Purpose | Scan content directories and create missing `_index.md` files |
+
+### Arguments
+
+| Name | Required | Description |
+|------|----------|-------------|
+| path | No | Optional path to scan (defaults to all mounted content) |
+
+### Syntax
+
+```
+/hugo-fix-indexes [path]
+```
+
+### Examples
+
+```
+/hugo-fix-indexes            # Scan all content
+/hugo-fix-indexes docs/      # Scan specific directory
+```
+
+### Process
+
+1. Read `hugo.toml` to identify all module mounts targeting `content/`
+2. Scan each mounted directory recursively for subdirectories that contain at least one `.md` file (excluding `_index.md`) and do NOT have an `_index.md` file
+3. Create `_index.md` for each missing index:
+   - Derive title from directory name using kebab-case to Title Case conversion
+   - Include `bookCollapseSection: true` for collapsible sidebar navigation
+   - Set weight based on alphabetical order within parent (starting at 10, incrementing by 10)
+4. Report the list of created files
+
+### Title derivation
+
+| Directory name | Generated title |
+|---------------|-----------------|
+| `getting-started` | Getting Started |
+| `api-reference` | API Reference |
+| `howto` | Howto |
+
+### Output
+
+- `_index.md` files for all directories that were missing them
+- Summary report of files created

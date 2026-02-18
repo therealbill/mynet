@@ -1,0 +1,29 @@
+{{- $url := .Destination -}}
+{{- $text := .Text -}}
+{{- $title := .Title -}}
+
+{{- /* Skip external links, mailto, and anchors */ -}}
+{{- if and (not (hasPrefix $url "http")) (not (hasPrefix $url "mailto:")) (not (hasPrefix $url "#")) -}}
+  {{- /* Strip .md extension */ -}}
+  {{- $url = replaceRE `\.md$` "/" $url -}}
+  {{- $url = replaceRE `\.md#` "/#" $url -}}
+
+  {{- /* Resolve relative paths via GetPage */ -}}
+  {{- if not (hasPrefix $url "/") -}}
+    {{- $page := .Page.GetPage $url -}}
+    {{- if $page -}}
+      {{- $url = $page.RelPermalink -}}
+    {{- else -}}
+      {{- $cleanUrl := strings.TrimSuffix "/" $url -}}
+      {{- $page = .Page.GetPage $cleanUrl -}}
+      {{- if $page -}}
+        {{- $url = $page.RelPermalink -}}
+      {{- end -}}
+    {{- end -}}
+  {{- else -}}
+    {{- /* Absolute internal path - use relURL for correct baseURL handling */ -}}
+    {{- $url = $url | relURL -}}
+  {{- end -}}
+{{- end -}}
+
+<a href="{{ $url | safeURL }}"{{ with $title }} title="{{ . }}"{{ end }}>{{ $text }}</a>

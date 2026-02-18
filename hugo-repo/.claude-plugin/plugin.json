@@ -1,6 +1,6 @@
 {
   "name": "hugo-repo",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Hugo site management for GitHub repositories — multi-directory content aggregation, theme customization, data-driven content, and deployment to GitHub Pages or AWS S3",
   "author": {
     "name": "Bill",

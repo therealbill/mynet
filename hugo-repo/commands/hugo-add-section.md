@@ -35,6 +35,7 @@ Mount a new directory into the Hugo site as a content section.
    title: "New Plugin"
    description: "New Plugin documentation"
    weight: 99
+   bookCollapseSection: true
    ---
    ```
 

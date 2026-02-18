@@ -1,12 +1,12 @@
 ---
 title: "Templates Reference"
-description: "Technical specifications for all 4 hugo-repo scaffolding templates including placeholders, default values, and usage context"
+description: "Technical specifications for all 5 hugo-repo scaffolding templates including placeholders, default values, and usage context"
 weight: 4
 ---
 
 # Templates Reference
 
-The hugo-repo plugin includes 4 templates used by commands to generate configuration and workflow files. Templates contain placeholders that are replaced with project-specific values during scaffolding.
+The hugo-repo plugin includes 5 templates used by commands to generate configuration and workflow files. Templates contain placeholders that are replaced with project-specific values during scaffolding.
 
 ---
 
@@ -213,8 +213,11 @@ Same as github-pages.yml.tmpl, with the workflow file path changed to `.github/w
 title: "{{SECTION_TITLE}}"
 description: "{{SECTION_DESCRIPTION}}"
 weight: {{WEIGHT}}
+bookCollapseSection: true
 ---
 ```
+
+The `bookCollapseSection: true` parameter enables collapsible navigation in themes that support it (such as Hugo Book). Other themes safely ignore this parameter.
 
 ### Usage context
 
@@ -222,4 +225,46 @@ This template is used whenever a new section index page is needed:
 
 - During `/hugo-init` for the home page and all discovered sections
 - During `/hugo-add-section` for the mounted directory and any missing parent sections
+- During `/hugo-fix-indexes` for directories missing index files
 - The hugo-site-architect agent uses this pattern when scaffolding sections
+
+---
+
+## render-link.html.tmpl
+
+| Field | Value |
+|-------|-------|
+| Path | `templates/render-link.html.tmpl` |
+| Generated file | `layouts/_default/_markup/render-link.html` |
+| Used by | `/hugo-init` command |
+
+### Purpose
+
+This render hook enables portable markdown links without requiring Hugo-specific modifications to source documentation:
+
+- Strips `.md` extensions from internal links (e.g., `[Link](page.md)` → `/page/`)
+- Resolves relative paths via Hugo's `GetPage` function
+- Handles absolute internal paths with correct `baseURL` handling
+- Preserves external links, mailto links, and anchor-only links unchanged
+
+### Link transformation rules
+
+| Input | Output |
+|-------|--------|
+| `[Link](page.md)` | `<a href="/section/page/">Link</a>` |
+| `[Link](page.md#anchor)` | `<a href="/section/page/#anchor">Link</a>` |
+| `[Link](../sibling/)` | Resolved via `GetPage` to absolute path |
+| `[Link](/docs/page/)` | Uses `relURL` for correct baseURL handling |
+| `[Link](https://example.com)` | Unchanged (external) |
+| `[Link](mailto:user@example.com)` | Unchanged (mailto) |
+| `[Link](#anchor)` | Unchanged (same-page anchor) |
+
+### Template structure
+
+The render hook uses Go template logic to:
+
+1. Check if the URL is external, mailto, or anchor-only (skip processing)
+2. Strip `.md` extension and handle anchors
+3. For relative paths, attempt `GetPage` resolution with and without trailing slash
+4. For absolute internal paths, use Hugo's `relURL` pipe for correct baseURL handling
+5. Output the final `<a>` tag with optional title attribute

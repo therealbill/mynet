@@ -37,21 +37,28 @@ Analyze the repository structure and scaffold a Hugo site with appropriate modul
 5. **Create section index pages:**
    - `content/_index.md` (home page)
    - Parent section `_index.md` for each mount group (e.g., `content/plugins/_index.md`)
-   - Verify each mounted directory has its own `_index.md`
+   - **Scan each mounted directory recursively** — create `_index.md` for any subdirectory containing `.md` files but lacking an index
+   - All generated indexes include `bookCollapseSection: true` for collapsible sidebar navigation (Book theme)
+   - Derive titles from directory names using kebab-case to Title Case conversion
 
-6. **Install theme** (if specified or if user accepts recommendation):
+6. **Create render hook for portable links:**
+   - Create `layouts/_default/_markup/render-link.html` from template
+   - This handles `.md` extensions in links and resolves paths correctly
+   - Enables standard markdown links without Hugo-specific shortcodes
+
+7. **Install theme** (if specified or if user accepts recommendation):
    ```bash
    hugo mod get github.com/theNewDynamic/gohugo-theme-ananke
    ```
 
-7. **Update `.gitignore`:**
+8. **Update `.gitignore`:**
    ```
    public/
    resources/
    .hugo_build.lock
    ```
 
-8. **Verify** by running `hugo server --buildDrafts` and reporting the result.
+9. **Verify** by running `hugo server --buildDrafts` and reporting the result.
 
 ## Usage
 
