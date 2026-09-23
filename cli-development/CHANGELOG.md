@@ -22,7 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - All three descriptions rewritten in the "Use when the user asks to…" form with an explicit "Do not use for … (use `<sibling>`)" handoff
 - `cli-developer` is Go-first; Node and Python are handled on request
 - `go-tui-developer` owns interactive TUIs and hybrid TUI-plus-CLI Go projects; plain Go CLIs route to `cli-developer`
-- `go-tui-developer` terminal-background guidance rewritten around v2 `View.BackgroundColor`, keeping the v1 AppleScript path as a fallback
+- `go-tui-developer` terminal-background guidance rewritten around v2 `View.BackgroundColor` and v1 termenv, with AppleScript kept only as the macOS Terminal.app route
 - Generic process and convention lines trimmed from `cli-developer`
 - Reference, how-to, tutorial, and explanation pages updated to name both Charm majors
 - Code review corrected color-override precedence, SIGINT and SIGPIPE behavior, XDG fallback rules, the locale rule for Unicode fallbacks, and the Charm v1 and v2 terminal-background facts
