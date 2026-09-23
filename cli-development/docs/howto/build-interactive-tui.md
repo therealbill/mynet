@@ -67,8 +67,9 @@ Business logic stays in `internal/app/`. TUI models in `internal/tui/` call into
 If your TUI needs theming support, go-tui-developer can add:
 
 - **Theme files** — User-defined themes in YAML or TOML with semantic color roles (primary, secondary, success, warning, error, muted, background, foreground)
-- **Dark mode detection** — `termenv.HasDarkBackground()` detects the terminal background
-- **Adaptive colors** — `lipgloss.AdaptiveColor` automatically switches between light and dark variants
+- **Dark mode detection** — Charm v2: `tea.RequestBackgroundColor` in `Init`, then `tea.BackgroundColorMsg.IsDark()` in `Update`. Charm v1: `termenv.HasDarkBackground()` at startup.
+- **Adaptive colors** — Charm v2: `lipgloss.LightDark(isDark)` picks between a light and a dark value. Charm v1: `lipgloss.AdaptiveColor` switches automatically.
+- **Charm version** — The agent reads `go.mod` and follows the matching major; new projects default to v2 under the `charm.land/.../v2` module paths.
 - **Color profile degradation** — Styles degrade gracefully from TrueColor to ANSI 256 to ANSI 16 to plain ASCII
 
 Theme loading happens at startup. Styles are derived from the loaded theme, not hardcoded.
@@ -92,3 +93,8 @@ If the interaction is non-interactive — the user provides all input as flags a
 
 **Huh forms for structured input**
 For collecting structured input (multi-field forms, confirmations, selections), go-tui-developer uses the Huh library rather than building custom input flows. Mention "form" or "survey" in your prompt to trigger this.
+
+## See Also
+
+- [Architecture](../../explanation/architecture/) — why TUI and CLI concerns are split across agents, and the Charm v1/v2 split
+- [Agent Reference](../../reference/agents/) — full go-tui-developer specification, including the Charm version comparison table

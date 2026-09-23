@@ -80,10 +80,15 @@ The agent designs with this constraint from the start. Color enhances meaning bu
 ## Troubleshooting
 
 **Colors unreadable on light terminals**
-This happens when the design only targets dark backgrounds. cli-ui-designer specifies both light and dark variants for each color role. If you implemented only the dark variants, go back to the agent and ask for the full adaptive palette. The agent uses `lipgloss.AdaptiveColor` or equivalent to switch automatically.
+This happens when the design only targets dark backgrounds. cli-ui-designer specifies a light and a dark value for every color role at each color depth, and its spec includes a light-background legibility check. If you implemented only the dark values, go back to the agent and ask for the full palette. The implementer switches between them with `lipgloss.LightDark` (Charm v2) or `lipgloss.AdaptiveColor` (Charm v1), or the equivalent in a non-Go stack.
 
 **ASCII art breaks at narrow widths**
 The agent limits ASCII art to under 60 characters wide for this reason. If you have wider art, ask the agent for a compact alternative. In general, ASCII art is treated as a liability — it often looks wrong in different font sizes, line heights, or terminal emulators.
 
 **Output hard to scan despite colors**
 Color alone does not create hierarchy. The agent uses whitespace as the primary layout tool — blank lines between sections, indentation for sub-items, alignment for related values. If output is hard to scan, the issue is usually spacing and grouping, not color. Ask the agent to redesign the whitespace structure.
+
+## See Also
+
+- [Architecture](../../explanation/architecture/) — the design-implementation split between cli-ui-designer and the two implementer agents
+- [Agent Reference](../../reference/agents/) — full cli-ui-designer specification, including the locale and Unicode fallback rules

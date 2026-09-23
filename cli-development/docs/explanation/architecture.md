@@ -24,7 +24,7 @@ Each agent addresses a distinct concern:
 
 **cli-developer** handles the structural shell of a command-line tool. This includes the command hierarchy (top-level commands, subcommands, flags), configuration precedence (flags over env vars over config files over defaults), output format conventions (human-readable by default, structured with `--output json`), error handling (stderr, exit codes), and shell completions. The agent produces the scaffolding that makes a CLI tool feel professional and predictable. It works across Go (Cobra), Node.js (Commander/yargs), and Python (Click).
 
-**go-tui-developer** handles interactive terminal interfaces built with the Charm stack in Go. This is a specialized domain — the Bubble Tea framework uses a Model-View-Update pattern that requires careful model decomposition, message routing, and component composition. The agent understands Bubbles components (list, table, viewport, textinput, spinner, progress), Lip Gloss styling, Huh forms, terminal theming with termenv, and color profile degradation. It uses the opus model because complex TUI development involves significant state management and multi-component orchestration.
+**go-tui-developer** handles interactive terminal interfaces built with the Charm stack in Go. This is a specialized domain — the Bubble Tea framework uses a Model-View-Update pattern that requires careful model decomposition, message routing, and component composition. The agent understands Bubbles components (list, table, viewport, textinput, spinner, progress), Lip Gloss styling, Huh forms, terminal theming across Charm v1 (termenv) and v2 (Bubble Tea background and color-profile messages), and color profile degradation. It uses the opus model because complex TUI development involves significant state management and multi-component orchestration.
 
 **cli-ui-designer** handles visual design decisions for terminal output. This agent does not write implementation code. It produces design specifications — color role maps, prompt symbol vocabularies, typographic hierarchies, whitespace structures — that guide implementation. The distinction is important: design decisions (which color means "error", how to indicate progress, what symbol means "run this") are separate from the code that renders them.
 
@@ -74,3 +74,10 @@ The cli-development plugin intersects with several other plugins:
 - **backend-development/go-architect** — When a CLI tool is part of a larger Go service. The go-architect agent handles service architecture (HTTP servers, database layers, dependency injection) while cli-developer handles the command-line entry points.
 
 - **desktop-development** — When a terminal interface is not enough. If requirements include rich graphics, mouse interaction beyond basic click support, or multi-window layouts, the desktop-development plugin covers GUI frameworks. The transition point: if the terminal is the right environment, use cli-development; if you need a desktop application, use desktop-development.
+
+## See Also
+
+- [Getting Started](../../tutorials/getting-started/) — a guided walkthrough building a CLI and TUI together
+- [Build an Interactive TUI](../../howto/build-interactive-tui/) — task-oriented guide to go-tui-developer, including Charm v1/v2 handling
+- [Design CLI Visual Style](../../howto/design-cli-visual-style/) — task-oriented guide to cli-ui-designer
+- [Agent Reference](../../reference/agents/) — full specifications for all three agents

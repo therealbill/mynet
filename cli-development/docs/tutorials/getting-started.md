@@ -118,6 +118,8 @@ func (m statusModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 }
 ```
 
+This snippet targets Charm v1. On Charm v2 the key case is `case tea.KeyPressMsg:` and `View` returns a `tea.View` rather than a string; the agent reads `go.mod` and picks the matching form.
+
 The agent integrates this with Cobra so that `migrate status --interactive` launches the TUI, while `migrate status` still outputs a plain table or JSON. This preserves the non-interactive path for scripting and pipelines.
 
 The package layout follows a clean structure:
