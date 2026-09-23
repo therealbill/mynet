@@ -133,7 +133,7 @@
       "name": "cli-development",
       "source": "./cli-development",
       "description": "CLI tools, TUI frameworks, and terminal UI development agents",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "keywords": [
         "cli",
         "tui",
