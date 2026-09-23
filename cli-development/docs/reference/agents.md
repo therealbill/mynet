@@ -208,7 +208,7 @@ See also: [Design CLI Visual Style](../../howto/design-cli-visual-style/) for th
 
 ### Output
 
-A Markdown design spec: the color role map as principle 3 specifies, including the no-color rendering; the symbol vocabulary with its ASCII fallback and the switching rule; the spacing and hierarchy rules; and an 80-column and a 120-column mock of the primary screen as plain text. Implementation code is out of scope. Names the library the implementer should use only when asked.
+A Markdown design spec: the color role map as principle 3 specifies, including the no-color rendering; the symbol vocabulary with its ASCII fallback and the switching rule; the spacing and hierarchy rules; and an 80-column and a 120-column mock of the primary screen as plain text. Implementation code is out of scope. Name the library the implementer should use only when asked.
 
 ### Do Not
 
