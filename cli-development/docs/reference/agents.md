@@ -30,18 +30,21 @@ Go command-line tools: Cobra command trees, flags and subcommands, migrating han
 - **Go:** Cobra, or urfave/cli when already in use
 - **Node.js:** Commander or yargs
 - **Python:** Click
+- Match the project's existing framework over the agent's preference
 
 ### Conventions
 
 - Configuration precedence: flags > environment variables > config file > compiled defaults; config under `$XDG_CONFIG_HOME/<tool>/`, falling back to `~/.config/<tool>/` when the variable is unset, empty, or not an absolute path; never `os.UserConfigDir()`, which returns a non-XDG path on macOS
 - Data on stdout, diagnostics on stderr; structured output behind `--output json|yaml`
-- Exit codes: 0 success, 1 error, 2 usage error, 130 interrupted; 141 is shell-reported for a SIGPIPE kill, never set by the tool itself
-- Color only on a TTY with `NO_COLOR` unset or empty; `CLICOLOR_FORCE` or a nonzero `FORCE_COLOR` overrides and wins over `NO_COLOR`, `FORCE_COLOR=0` disables color
-- SIGINT cancels through `context.Context`, then re-raises the signal (`signal.Reset` plus `syscall.Kill`) so the exit status is genuinely signaled, falling back to `os.Exit(130)` on Windows; checking stdout writes for SIGPIPE/EPIPE is dead code, since a broken pipe already kills the Go process
+- Exit codes: 0 success, 1 error, 2 usage error, 130 interrupted; 141 is shell-reported for a SIGPIPE kill, never set by the tool itself; document domain-specific codes, and never exit 0 on failure
+- `CLICOLOR_FORCE` set to a non-empty value other than 0, or a non-zero `FORCE_COLOR`, forces color and wins over `NO_COLOR`; `FORCE_COLOR=0` disables it; otherwise color only on a TTY with `NO_COLOR` unset or empty
+- SIGINT cancels through `context.Context`, then re-raises the signal (`signal.Reset` plus `syscall.Kill`) so the exit status is genuinely signaled, falling back to `os.Exit(130)` on Windows; checking stdout or stderr writes for SIGPIPE/EPIPE is dead code, since a broken pipe already kills the Go process; handle EPIPE only on descriptors you open yourself, and never call `signal.Notify` or `signal.Ignore` for SIGPIPE
 - `-` for stdin, `--` for end of options, `--dry-run` on every mutating command
 - Helpful errors with the failing value and a "did you mean" suggestion
 - Completions for bash, zsh, fish, and PowerShell, with dynamic completions for runtime values
 - Non-interactive equivalent for every prompt
+- Progressive disclosure: a handful of top-level commands, the first `--help` screen fits one terminal page, and every command and flag has a one-line description with examples in `--help`
+- Predictable flags: GNU-style long flags with short aliases; boolean flags take no value, negated with `--no-`
 
 ### Process
 
@@ -95,7 +98,7 @@ See also: [Build an Interactive TUI](../../howto/build-interactive-tui/) for the
 
 ### Charm Version Handling
 
-The agent reads `go.mod` and follows the matching major. New projects default to v2 (`charm.land/.../v2`). v1 (`github.com/charmbracelet/...`) remains only when a required component has no v2 release — for example `76creates/stickers`; `bubble-table` and `promptkit` are v2-ready at their unsuffixed import paths.
+The agent reads `go.mod` and follows the matching major. New projects default to v2 (`charm.land/.../v2`). v1 (`github.com/charmbracelet/...`) remains only when a required component has no v2 release — for example `76creates/stickers`; `bubble-table` and `promptkit` are v2-ready at their unsuffixed import paths, and `ntcharts` and `bubblezone` ship `/v2` modules alongside them. Check each dependency's `go.mod` rather than guessing a path.
 
 | Concern | v1 | v2 |
 | --- | --- | --- |
@@ -107,13 +110,15 @@ The agent reads `go.mod` and follows the matching major. New projects default to
 | Color profile | `termenv.ColorProfile()` | `tea.ColorProfileMsg` |
 | Terminal background | `termenv.DefaultOutput().SetBackgroundColor` writes OSC 11 with no reset helper, so the agent writes the OSC 111 reset itself | `v.BackgroundColor`, with the renderer emitting the reset on shutdown |
 
-The reset returns the terminal to its configured default background, not a saved snapshot of the previous color.
+OSC 111 reset support is narrower than OSC 11 set support.
+
+Detection is asynchronous in v2: render with a neutral default until `BackgroundColorMsg` arrives, then rebuild styles. Never block in `Init` waiting for a terminal reply.
 
 ### Architecture Principles
 
 - One `tea.Model` per screen or panel, composed by embedding child models
 - Bubbles components wrapped in domain models, never reimplemented
-- Lip Gloss for all styling, `tea.WindowSizeMsg` handled in every layout model
+- Lip Gloss for all styling
 - Cobra commands stay thin; every TUI command has a non-interactive form
 - Package layout:
 
@@ -124,13 +129,23 @@ The reset returns the terminal to its configured default background, not a saved
   internal/app/             # Business logic
   main.go
   ```
+- Agent-friendly design: each model in its own file, business logic separated from UI, interfaces at boundaries
+
+### Key Patterns
+
+- `tea.WindowSizeMsg` handled in every layout model and propagated to child models
+- `tea.Batch` to combine commands from multiple child updates
+- `tea.Cmd` for all side effects; never block in `Init` or `Update`
+- `tea.Quit` only from the root model
+- Alt screen for full-screen TUIs (v1 `tea.WithAltScreen()`, v2 `v.AltScreen = true`), not for inline output
+- `key.Binding` and `help.Model` from Bubbles for keybindings
 
 ### Theming
 
 - User-defined YAML or TOML themes with semantic color roles, validated at load
 - Separate light and dark palettes per theme, selected once the background is known
 - Styles derived from the theme into a `Styles` struct passed to models; switching rebuilds the struct and propagates it with a custom `tea.Msg`
-- Terminal background set via OSC 11; emulator detection first; AppleScript on macOS Terminal.app only as a v1 fallback
+- Terminal background set via OSC 11; emulator detection first; AppleScript is the only route on macOS Terminal.app; treat background changing as optional polish that degrades to a no-op
 
 ### Process
 
@@ -180,7 +195,7 @@ See also: [Design CLI Visual Style](../../howto/design-cli-visual-style/) for th
 - Design for the worst terminal and both backgrounds: a light-background and a dark-background value for every role at TrueColor and ANSI 256, and a palette index at ANSI 16; also specify the no-color rendering the tool uses when `NO_COLOR` is set or stdout is not a terminal
 - Whitespace is the primary layout tool
 - Prompt symbols carry meaning: `$` run, `>` type, `...` working
-- Unicode is not guaranteed: every symbol gets an ASCII fallback pair, both padded to the same field width; the switching rule resolves the effective locale as `LC_ALL`, else `LC_CTYPE`, else `LANG`, and uses Unicode only when its codeset names UTF-8, matched case-insensitively with the hyphen optional; box-drawing glyphs such as `─` are East Asian Ambiguous width and take two cells in CJK locales, breaking alignment; the pointer fallback is `->`
+- Unicode is not guaranteed: every symbol gets an ASCII fallback pair, both padded to the same field width; the switching rule resolves the effective locale as `LC_ALL`, else `LC_CTYPE`, else `LANG`, and uses Unicode only when its codeset names UTF-8, matched case-insensitively with the hyphen optional, or when the user passes an explicit flag such as `--unicode` or `--ascii` to override the locale rule; box-drawing glyphs such as `─` are East Asian Ambiguous width and take two cells in CJK locales, breaking alignment; the pointer fallback is `->`
 - ASCII art is a liability: branding only, under 60 columns so it survives an 80-column terminal with indentation, with a plain-text fallback
 
 ### Process
@@ -193,7 +208,7 @@ See also: [Design CLI Visual Style](../../howto/design-cli-visual-style/) for th
 
 ### Output
 
-A Markdown design spec: the color role map as principle 3 specifies, including the no-color rendering; the symbol vocabulary with its ASCII fallback and the switching rule; the spacing and hierarchy rules; and an 80-column and a 120-column mock of the primary screen as plain text. Implementation code is out of scope.
+A Markdown design spec: the color role map as principle 3 specifies, including the no-color rendering; the symbol vocabulary with its ASCII fallback and the switching rule; the spacing and hierarchy rules; and an 80-column and a 120-column mock of the primary screen as plain text. Implementation code is out of scope. Names the library the implementer should use only when asked.
 
 ### Do Not
 
