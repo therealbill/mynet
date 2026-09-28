@@ -1,6 +1,6 @@
 # Project Layout and Build Contract
 
-**Verified against:** `v3.0.0-beta.25`, 2026-09-28, by running `wails3 init -n wailsprobe -t react -d wailsprobe -mod example.com/wailsprobe` and `task build` (9.3 MB binary, about 8 seconds including `npm install`). Sources: the generated files, `guides/dev/project-structure.md`, `concepts/build-system.md`, `guides/server-build.md`, `reference/cli.md`.
+**Verified against:** `v3.0.0-beta.25`, 2026-09-28, by running `wails3 init -n wailsprobe -t react -d wailsprobe -mod example.com/wailsprobe` and `task build` (9.3 MB binary, about 8 seconds including `npm install`). Sources: the generated files, `guides/dev/project-structure.md`, `concepts/build-system.md`, `guides/server-build.md`, `reference/cli.md`, `guides/events-reference.md`, and the owner's mock-up `Taskfile.yml` and package layout (`~/Projects/Praetor/tactical-bridge-wails`).
 
 ## Scaffold
 
@@ -171,7 +171,7 @@ After editing `info` or `protocols`, run `task common:update:build-assets`.
 - Services are plain structs registered with `application.NewService(&T{})`. Exported methods become bindings; a `context.Context` first parameter gives the frontend a cancellable promise; returned `error` becomes a rejected promise.
 - Optional lifecycle: `ServiceStartup(ctx, options) error` (registration order; an error aborts startup), `ServiceShutdown() error` (reverse order), `ServiceName() string`.
 - Generated files: `frontend/bindings/<module>/<service>.ts` and `index.ts`; typed events in `frontend/bindings/github.com/wailsapp/wails/v3/internal/eventcreate.ts` and `eventdata.d.ts`.
-- Typed events: `application.RegisterEvent[T]("name")` in `init()`; emit with `app.Event.Emit("name", value)` or `window.EmitEvent`; `-tags strictevents` warns on unregistered names. Frontend: add `wails()` from `@wailsio/runtime/plugins/vite` to `vite.config.ts` plugins, then `Events.On(TypedCreator, handler)` from `@wailsio/runtime`.
+- Typed events: `application.RegisterEvent[T]("name")` in `init()`; emit with `app.Event.Emit("name", value)` or `window.EmitEvent`; `-tags strictevents` warns on unregistered names (`guides/events-reference.md`; see `references/native-features.md` for the full event API). Frontend: add `wails()` from `@wailsio/runtime/plugins/vite` to `vite.config.ts` plugins, then `Events.On(TypedCreator, handler)` from `@wailsio/runtime`.
 - Frontend call: `import { Greet } from "../bindings/<module>/greetservice"` then `await Greet(name)`.
 
 ## Adding React tooling the template omits
