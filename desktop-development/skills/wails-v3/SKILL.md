@@ -47,4 +47,4 @@ tag, then this skill. Before writing any API call, read the matching page or sou
 
 ## Not covered
 
-React, Vite, Tailwind, and Go idioms the model already knows; iOS and Android; Electron.
+React, Vite, Tailwind, and Go idioms the model already knows; iOS and Android.
