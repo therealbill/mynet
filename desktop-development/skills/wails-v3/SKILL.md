@@ -7,8 +7,8 @@ description: >
   "task package"), signing and notarization, DMG packaging, the updater, server mode, or
   questions like "does Wails v3 support X", "why won't my notification show", "how do I sign
   and notarize my Wails app", or "wails3 dev isn't picking up my changes". Also applies when a
-  Wails project's pinned beta tag must be checked or bumped. Do not use for Electron apps,
-  general React/Vite/Tailwind work with no Wails API involved, or iOS/Android builds.
+  Wails project's pinned beta tag must be checked or bumped. Do not use for general
+  React/Vite/Tailwind work with no Wails API involved, or iOS/Android builds.
 ---
 
 # Wails v3
