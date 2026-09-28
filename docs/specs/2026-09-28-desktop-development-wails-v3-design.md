@@ -15,7 +15,7 @@ Inputs: the current plugin, the working Wails v3 mock-up at `~/Projects/Praetor/
 | Plugin shape | One agent plus one reference skill |
 | Electron | Dropped entirely; no migration trigger, no legacy agent |
 | Platforms | macOS first with full defaults; Windows and Linux at Taskfile level only; no mobile |
-| Frontend default | React + Vite + TypeScript + Tailwind via the `react-ts` template; others on request |
+| Frontend default | React + Vite + TypeScript + Tailwind via the `react` template; others on request |
 | Beta drift | Pin one tag in the skill and in projects; read v3.wails.io before writing any API call; live docs win over the skill |
 | Verification | agent-modernizer audit and routing with no Should-fix, live `wails3 init` scaffold check, TypeSafe analysis loop on the skill, Diátaxis validator, plugin validator |
 | Plugin name and directory | Unchanged (`desktop-development`) |
@@ -96,7 +96,7 @@ Under 120 words, selection criteria with handoffs:
 
 1. Pin the Wails tag from the `wails-v3` skill in `go.mod` and confirm the `wails3` CLI matches and Go is 1.25 or newer.
 2. Read the skill references for the features in play, then the matching v3.wails.io page for any API about to be written.
-3. Scaffold with `wails3 init -t react-ts`; never hand-roll the tree.
+3. Scaffold with `wails3 init -t react`; never hand-roll the tree.
 4. Put services in `app/`, domain types in `internal/domain`, one adapter file per native feature with its `server` stub.
 5. Run `task dev` once and `task build` before reporting; run `wails3 generate bindings` after any service signature change.
 
@@ -133,7 +133,7 @@ Short. Three parts:
 
 Each file opens with `Verified against: <tag>, <date>` and lists the doc pages it was written from.
 
-**`project-layout.md`**: the tree `wails3 init -t react-ts` produces; what `main.go`, `build/config.yml`, `build/Taskfile.yml`, and the per-platform Taskfiles own; the `task` targets (`dev`, `build`, `package`, `run`, plus a `bindings` target to add); the `//go:embed all:frontend/dist` asset pattern; the `server` build tag stub pattern with a two-file example; where `cmd/` entry points go; what `dev_mode` in `build/config.yml` watches and why `*_test.go` is ignored.
+**`project-layout.md`**: the tree `wails3 init -t react` produces; what `main.go`, `build/config.yml`, `build/Taskfile.yml`, and the per-platform Taskfiles own; the `task` targets (`dev`, `build`, `package`, `run`, plus a `bindings` target to add); the `//go:embed all:frontend/dist` asset pattern; the `server` build tag stub pattern with a two-file example; where `cmd/` entry points go; what `dev_mode` in `build/config.yml` watches and why `*_test.go` is ignored.
 
 **`native-features.md`**: one section per feature with the Go entry point, the option or event names that matter, and the constraint. Windows (`WebviewWindowOptions`, hidden-inset title bar, frameless, multi-window with per-window hash routes); menus (roles, why the app menu is hand-built to carry Preferences); system tray (template icon, attached window, dynamic menu rebuild with debounce); notifications (actions, authorization, signed-bundle requirement); global and in-app shortcuts; dock badge; events (application, window, custom typed with `RegisterEvent`); streams; dialogs; single instance; custom URL scheme via `protocols` in `build/config.yml`.
 
@@ -166,7 +166,7 @@ All five pages rewritten by the Diátaxis agents from the finished agent and ski
 
 In order, all before the branch is offered for merge:
 
-1. **Scaffold check.** `wails3 init -t react-ts` in the scratchpad at the installed CLI's tag, `task build` once. Every path, target, config key, and file name in the skill is checked against that output. A claim that does not hold is corrected or removed. The tag that was built becomes the verified tag.
+1. **Scaffold check.** `wails3 init -t react` in the scratchpad at the installed CLI's tag, `task build` once. Every path, target, config key, and file name in the skill is checked against that output. A claim that does not hold is corrected or removed. The tag that was built becomes the verified tag.
 2. **Agent audit.** `ai-development/skills/agent-modernizer/scripts/audit-agents.py` on the new agent: no Must-fix, no Should-fix. `--route desktop-development/agents` and `tests/route-check.py` both pass.
 3. **TypeSafe loop on the skill.** A Jev question set over `SKILL.md` and each reference, run before and after edits with findings confirmed by reading: does each section state a decision or constraint rather than a topic list; is every claim marked verified traceable to a named doc page or the scaffold output; does the skill description read as selection criteria; does any reference teach general React, Go, or shell knowledge. The question set lives in the plan, not in the plugin.
 4. **Docs.** Diátaxis cross-link validator over `desktop-development/docs`.
