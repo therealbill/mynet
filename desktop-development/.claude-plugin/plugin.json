@@ -1,12 +1,13 @@
 {
   "name": "desktop-development",
-  "version": "1.0.0",
-  "description": "Desktop application development agents for Electron, Go, and native platforms",
+  "version": "2.0.0",
+  "description": "Wails v3 desktop application development in Go with a React frontend, macOS-first signing and packaging",
   "keywords": [
     "desktop",
-    "electron",
     "go",
     "macos",
-    "native"
+    "native",
+    "wails",
+    "webview"
   ]
 }
