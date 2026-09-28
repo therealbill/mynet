@@ -39,7 +39,7 @@ PROBES = [
     ("Add shell completions for zsh and fish to our Go CLI", "cli-developer"),
     ("Create a Next.js marketing site with SSG", "frontend-developer"),
     ("Our React table re-renders on every keystroke", "react-specialist"),
-    ("Design the service boundaries and API for our Go backend", "go-architect"),
+    ("Profile this Go service and cut its allocations in the hot path", "go-architect"),
     ("Build a macOS app with Electron and a Go backend", "none"),
     ("How should the Electron renderer talk to our Go process over IPC?", "none"),
     ("Package our Electron app with electron-builder and notarize it", "none"),
