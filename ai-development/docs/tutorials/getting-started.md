@@ -21,7 +21,7 @@ Audit an existing agent definition using the agent-modernizer skill, then apply 
 
 ## Step 1: Choose an Agent to Audit
 
-Pick any agent definition from another plugin. For this tutorial, assume you have an agent file at `devops/agents/ci-engineer.md` with some common issues: missing `color` field, no `<example>` blocks in the description, and a verbose system prompt full of topic lists.
+Pick any agent definition from another plugin. For this tutorial, assume you have an agent file at `devops/agents/ci-engineer.md` with some common issues: a missing `color` field, example blocks sitting inside the `description` instead of the body (costing routing tokens on every turn), a summary-style description with no triggering phrases, and a verbose system prompt full of topic lists.
 
 Open the file or have its path ready:
 
@@ -49,23 +49,26 @@ The skill activates automatically when it detects these trigger phrases. You do 
 
 ## Step 3: Observe the Audit Process
 
-The agent-modernizer reads the agent file and evaluates it against the plugin agent specification. It checks every frontmatter field and assesses the system prompt for anti-patterns. You will see it work through:
+From `ai-development/skills/agent-modernizer/`, the skill runs the audit script against your file:
 
-1. **Frontmatter validation** -- Checks for required fields: `name`, `description`, `model`, `color`, `tools`
-2. **Description assessment** -- Verifies `<example>` blocks exist with proper structure (Context, user, assistant, commentary)
-3. **System prompt analysis** -- Scans for anti-patterns like topic lists without guidance, teaching the model its own knowledge, fictional progress tracking, and phantom agent references
+```bash
+python3 scripts/audit-agents.py path/to/devops/agents/ci-engineer.md
+```
+
+Pointed at a directory instead of a single file, the same script audits every agent in it and adds a summary table; `--route plugin/agents/` additionally checks whether each agent's own examples route to it rather than to a sibling.
+
+If `TYPESAFE_API_KEY` is set, the semantic judgments -- whether the prompt is a topic list, whether it defines an output format, and so on -- come from TypeSafe Jev and carry a probability. Without the key, the script still runs every deterministic check (fields, lengths, example placement), and Claude answers the semantic judgments by reading the file directly.
 
 ## Step 4: Review the Findings Table
 
-The audit produces a structured findings table with severity levels:
+The script prints a findings table sorted by severity. A findings table from a live run looks like this:
 
 | # | Field/Area | Issue | Severity |
 |---|-----------|-------|----------|
-| 1 | `color` | Missing -- required field | Must fix |
-| 2 | `description` | No `<example>` blocks -- agent won't trigger reliably | Must fix |
-| 3 | System prompt | 34 bullet points listing concepts without decisions | Should fix |
-| 4 | System prompt | References `security-auditor` agent that does not exist | Should fix |
-| 5 | `tools` | Includes `WebSearch` but agent never needs web search | Consider |
+| 1 | `description` | 225 words; every agent description is loaded for routing on every turn, keep it under 120 | Should fix |
+| 2 | `examples` | 3 example block(s) inside `description`; move them to the body | Should fix |
+| 3 | `body` | No defined output format (p=0.03) | Should fix |
+| 4 | `description` | No 'do not use for' handoff to sibling agents (score 2.0/3) | Consider |
 
 Severity levels mean:
 
@@ -73,7 +76,11 @@ Severity levels mean:
 - **Should fix** -- The agent works but is suboptimal
 - **Consider** -- A polish improvement, not urgent
 
-## Step 5: Request a Rewrite
+## Step 5: Confirm a Finding by Reading
+
+Before acting on the table, check one finding against the source. Open `devops/agents/ci-engineer.md` and look at the `description` field: the `<example>` blocks are sitting inside it, above the closing `---`, which is what row 2 flagged. This matters most for findings that carry a probability rather than a hard count -- a Jev judgment is a signal, not a verdict, and dropping a finding the text doesn't support is a normal part of the audit.
+
+## Step 6: Request a Rewrite
 
 When multiple issues are found, ask for a full rewrite rather than fixing items individually:
 
@@ -83,27 +90,31 @@ Rewrite this agent based on the audit findings
 
 The agent-modernizer applies its rewriting principles: trust the model's knowledge, provide decisions instead of topic lists, add guard rails instead of checklists, and write a concise role statement.
 
-## Step 6: Review the Rewritten Agent
+## Step 7: Review the Rewritten Agent
 
 Compare the before and after. The rewritten agent should have:
 
-- **Complete frontmatter** -- All required fields present (`name`, `description` with 2-4 `<example>` blocks, `model`, `color`, `tools`)
-- **Concise system prompt** -- Under 3,000 characters, ideally 500-2,000. States the role in one sentence, provides decisions and boundaries, includes a numbered process
+- **Complete frontmatter** -- All required fields present (`name`, `description`, `model`, `color`, `tools`)
+- **Examples in the body** -- 2-5 `<example>` blocks after the frontmatter, each with `Context:`, `user:`, `assistant:`, and `<commentary>`
+- **A tight, triggering description** -- Under 120 words, stating concrete requests plus a "do not use for" handoff to overlapping siblings
+- **Concise system prompt** -- 500-3,000 characters excluding examples. States the role in one sentence, provides decisions and boundaries, includes a numbered process
 - **No anti-patterns** -- No topic lists without guidance, no phantom references, no fictional metrics
 
-## Step 7: Verify the Result
+## Step 8: Verify the Result
 
-Confirm the rewritten agent meets the specification:
+Confirm the rewrite before replacing the original:
 
-- [ ] All required frontmatter fields are present
-- [ ] Description includes `<example>` blocks with Context, user, assistant, and commentary
-- [ ] `tools` array follows the principle of least privilege
-- [ ] System prompt provides decisions, not concept inventories
-- [ ] Domain-specific knowledge is preserved (only padding was removed)
+- [ ] Re-run the script against the rewrite; it exits 0
+- [ ] Run `python3 scripts/audit-agents.py --compare original.md rewritten.md`
+- [ ] Examples live in the body, not the description
+- [ ] `description` is under 120 words and includes a handoff to sibling agents
+- [ ] Body is under 3,000 characters
+
+`--compare` needs `TYPESAFE_API_KEY` and checks whether the rewrite dropped non-inferable knowledge, changed the role, or added claims the original never made. A FAIL on any of those blocks replacing the original until addressed.
 
 ## Summary
 
-The agent-modernizer skill audits agent definitions against a structured checklist and produces a findings table with actionable severity levels. When multiple issues exist, it can rewrite the entire agent to current standards while preserving domain-specific knowledge that the model cannot infer on its own.
+The agent-modernizer skill runs a deterministic-plus-semantic audit script against agent definitions and produces a findings table with actionable severity levels. When multiple issues exist, it can rewrite the entire agent to current standards, and `--compare` checks the rewrite against the original before you replace it.
 
 ## Next Steps
 

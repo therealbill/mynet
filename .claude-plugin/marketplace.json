@@ -107,7 +107,7 @@
       "name": "ai-development",
       "source": "./ai-development",
       "description": "AI/ML engineering agents and agent development tools including modernization auditing",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "keywords": [
         "ai",
         "ml",

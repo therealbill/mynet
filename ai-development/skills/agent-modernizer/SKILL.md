@@ -2,123 +2,147 @@
 name: agent-modernizer
 description: >
   This skill should be used when the user asks to "modernize an agent", "audit agent definitions",
-  "update agent format", "check agent quality", "rewrite agent prompts", or wants to bring agent
-  files up to current Claude Code plugin standards. Also applies when reviewing agents for verbose
-  content, missing frontmatter, or weak triggering descriptions.
+  "update agent format", "check agent quality", "rewrite agent prompts", "check agent routing", or
+  wants to bring agent files up to current Claude Code plugin standards. Also applies when reviewing
+  agents for verbose content, missing frontmatter, weak triggering descriptions, or example blocks
+  that inflate routing context.
 ---
 
 # Agent Modernizer
 
-Audit and rewrite Claude Code plugin agent definitions to meet current standards. Transform verbose,
-generic agent prompts into concise, opinionated definitions that trust the model's knowledge and
-focus on decisions, boundaries, and priorities.
+Audit and rewrite Claude Code plugin agent definitions. Code owns every check code can make: field
+presence, name format, model alias, color, example structure and placement, lengths, and bullet counts.
+The remaining judgments (topic lists, phantom references, guidance density, triggering strength) are
+typed questions with explicit criteria in `references/question-catalog.json`. TypeSafe Jev answers
+them when `TYPESAFE_API_KEY` is set; you answer them otherwise. Severity and action come from the rule
+table below, not from impression.
 
 ## When to Use
 
-- Auditing existing agent `.md` files against the plugin agent spec
-- Rewriting agents that have verbose bullet-point lists, missing frontmatter, or weak descriptions
-- Creating new agents that follow current best practices from the start
-- Reviewing a batch of agents in a plugin for consistency
+- Auditing one agent `.md` file or a whole `agents/` directory
+- Checking that each agent's own examples route to it and not to a sibling
+- Rewriting agents with verbose prompts, missing frontmatter, or summary-style descriptions
+- Regression-checking a rewrite against the original before replacing it
+
+## Conventions Enforced
+
+- `name`, `description`, `model` (alias, never a raw ID), and `color` are required; `tools` is recommended
+- `<example>` blocks live in the **body**, after the frontmatter and before the role statement. Every
+  description is loaded for routing on every turn; examples there cost hundreds of tokens per agent
+- The description stays under 120 words and states triggers, plus a "do not use for" handoff when
+  sibling agents overlap
+- Two to five examples, each with `Context:`, `user:`, `assistant:`, and `<commentary>`
+- Body target 500-3,000 characters excluding examples; 5,000 is the rewrite-or-split line
 
 ## Process
 
-### 1. Audit
+### 1. Run the audit script
 
-Read the agent file and evaluate against the spec. Check every frontmatter field and assess the
-system prompt quality. For the complete checklist, consult `references/audit-criteria.md`.
+```bash
+python3 scripts/audit-agents.py path/to/agent.md          # one agent
+python3 scripts/audit-agents.py plugin/agents/            # batch, with summary table
+python3 scripts/audit-agents.py --route plugin/agents/    # example self-routing check
+python3 scripts/audit-agents.py --no-jev path/to/agent.md # deterministic checks only
+```
 
-Produce a findings table:
+Paths are relative to this skill's directory. The script needs only Python 3; it calls Jev when the
+key is set and says so when it is not. Use its numbers for characters, words, bullets, and example
+counts. Do not estimate them by eye.
 
-| # | Field/Area | Issue | Severity |
-|---|-----------|-------|----------|
-| 1 | `color` | Missing — required field | Must fix |
-| 2 | `description` | No `<example>` blocks | Must fix |
-| ... | ... | ... | ... |
+### 2. Confirm semantic findings by reading
 
-Severity levels:
+Jev output is a signal, not a verdict. For every semantic finding, whether it shows a Noul `p=` or a
+Score such as `1.4/3`, and for every `Possible:` line, open the file and cite the lines that decide it. Drop findings the text does
+not support. A Noul near 0.5 means the question was hard to call, not that the problem is moderate.
 
-- **Must fix** — Agent won't load or won't trigger correctly without this
-- **Recommended** — Agent will work but is suboptimal
-- **Minor** — Stylistic or organizational improvement
+Without a key, answer `references/question-catalog.json` yourself: one question at a time, against the
+same state the script would send (name, description, examples, body, known agent names), recording
+yes, no, or uncertain with the deciding lines. Do not skip questions or merge them.
 
-### 2. Assess System Prompt
+### 3. Report
 
-Scan the body for common anti-patterns. For the full list, consult the "System Prompt Anti-Patterns"
-section in `references/audit-criteria.md`. The key patterns to flag:
+Per agent, a findings table sorted by severity, then the action:
 
-- **Topic lists without guidance** — two-word bullets that name concepts without providing decisions
-- **Teaching the model its own knowledge** — listing stdlib functions, well-known patterns, or API methods that the chosen model already knows
-- **Fictional content** — fake JSON progress trackers, fabricated metrics, delivery notification scripts
-- **Phantom references** — mentions of agents, systems, or protocols that don't exist
-- **Redundancy** — same topic covered multiple times, "don't" sections that invert the "do" section
+| # | Area | Issue | Severity |
+|---|------|-------|----------|
+| 1 | `description` | 225 words; keep under 120 | Should fix |
+| 2 | `examples` | 3 blocks inside `description`; move to body | Should fix |
+| 3 | `body` | No defined output format (p=0.03) | Should fix |
 
-Count total bullet points and flag if over ~20 — a sign the prompt is listing topics instead of providing guidance.
+For a directory, add the script's summary table and the routing results. A routing failure on a
+proactive example is informational; on a plain request it means the description or a sibling's
+description needs a handoff sentence.
 
-### 3. Rewrite
+### 4. Rewrite
 
-When rewriting, apply these principles:
+**Trust the model.** State priorities and boundaries, not concept inventories. Opus does not need to
+be told what `gofmt` is.
 
-**Trust the model.** Opus doesn't need to be told what `gofmt` is or that `errors.Is` exists. State
-priorities and boundaries, not concept inventories.
+**Decisions over topics.** Replace "Branching strategies: Git Flow, GitHub Flow, trunk-based" with
+"Default to trunk-based with short-lived feature branches unless the project ships supported releases."
 
-**Decisions over topics.** Instead of "Branching strategies: Git Flow, GitHub Flow, trunk-based,"
-write "Default to trunk-based with short-lived feature branches unless the project genuinely needs
-release branches."
+**Guard rails over checklists.** A "Do Not" section naming the three to five mistakes that matter beats
+a twenty-item list of things to do, and must not just invert the positive instructions.
 
-**Guard rails over checklists.** A "Do Not" section that prevents the 3-5 most common mistakes is
-more valuable than a 20-item checklist of things to do.
+**One-sentence role, numbered actions, defined output.** Each process step names an action. An
+`**Output:**` line says what the agent hands back and in what shape.
 
-**Concise role statement.** One sentence establishing who the agent is. No "years of experience"
-padding.
+**Keep what the model cannot infer.** Project conventions, platform gotchas, version-specific
+workarounds, and numeric limits survive the rewrite, reworded if needed.
 
-**Concrete process.** Numbered steps for what happens when the agent is invoked. Each step should
-describe an action, not a topic.
+### 5. Validate
 
-**Structured output.** Define how results should be reported — severity levels, file references,
-format.
+```bash
+python3 scripts/audit-agents.py rewritten.md
+python3 scripts/audit-agents.py --compare original.md rewritten.md   # needs the key
+python3 scripts/audit-agents.py --route plugin/agents/
+```
 
-### 4. Validate
+`--compare` asks whether the rewrite drops non-inferable knowledge, changes the role, or adds claims
+the original never made. A FAIL on any of these blocks replacing the original until addressed.
 
-After rewriting, verify:
+## Severity and Action Rules
 
-- All required frontmatter fields present (`name`, `description`, `model`, `color`)
-- Description includes 2-4 `<example>` blocks with proper structure
-- `tools` array follows least-privilege principle
-- System prompt is under 3,000 characters (ideally 500-2,000)
-- No anti-patterns remain
-- Agent-specific domain knowledge is preserved (don't strip things the model genuinely can't infer)
+| Severity | Deterministic triggers | Semantic triggers |
+|----------|------------------------|-------------------|
+| Must fix | Missing required field, bad name format, raw model ID, invalid color, literal `\n` in description, no examples anywhere, example missing a field | none |
+| Should fix | Examples in description, description over 120 words, body over 3,000 chars, over 20 bullets | Anti-pattern Noul at or above 0.7, missing role, boundaries, process, or output at or below 0.3, triggering score below 1.5, guidance density below 1.5 |
+| Consider | No `tools` array, shared color in plugin, body under 500 chars, first person | Any Noul between 0.4 and 0.7 (confirm by reading), triggering score below 2.5 |
 
-### 5. Batch Audit
+"Anti-pattern" in the action rules means one of the seven catalog questions `topic_lists`,
+`teaches_known`, `fictional_content`, `phantom_refs`, `overspecified_output`, `duplicate_coverage`,
+and `mirrored_do_not`. A missing role, boundaries, process, or output is a completeness gap that
+produces a finding but does not by itself drive Rewrite or Trim.
 
-When auditing multiple agents in a directory, produce a summary table:
-
-| Agent | Lines | Missing Fields | Anti-patterns | Action Needed |
-|-------|-------|---------------|---------------|---------------|
-| `code-reviewer` | 31 | `color`, examples | Generic checklist | Rewrite |
-| `architect-reviewer` | 43 | `model`, `color`, `tools` | None significant | Fix frontmatter |
-
-Prioritize rewrites by severity. Fix frontmatter-only issues first, then tackle full rewrites.
+Action: **Fix frontmatter** when any Must fix exists; **Split** when the body exceeds 5,000 chars and
+covers distinct domains; **Rewrite** for two or more confirmed anti-patterns, density below 1.5, over
+20 bullets, or a body over 5,000 chars; **Trim** for one anti-pattern or a body over 3,000 chars;
+**Move examples to body** whenever they sit in the description; otherwise **Keep**. Thresholds were
+set by running the catalog over this marketplace's 64 agents; treat them as starting points when the
+target repository differs.
 
 ## Key Decisions for Rewrites
 
-**Model selection:**
+**Model selection:** `opus` for judgment-heavy work (architecture review, test diagnosis, design);
+`sonnet` for formulaic or playbook-driven work (checklists, accessibility audits, test generation, a
+fixed prototyping cycle) even when the domain is broad; `haiku` for format and lint checks; `inherit`
+when the parent's model is always right.
 
-- `opus` — Complex judgment: architecture review, test diagnosis, code simplification, TUI design
-- `sonnet` — Formulaic review: code review checklists, accessibility audits, Playwright tests
-- `haiku` — Simple validation: format checks, linting
-- `inherit` — When the parent's model is always appropriate
+**Merge** two agents that share more than 70% of their prompt or need the same context; add a section
+for the secondary concern. **Split** an agent whose body exceeds 5,000 characters across genuinely
+distinct domains.
 
-**When to merge agents:** If two agents share >70% of their system prompt or would need the same
-context to operate, merge them. Add a section for the secondary concern rather than maintaining a
-separate agent with overlapping triggers.
+## Do Not
 
-**When to split agents:** If an agent's system prompt exceeds 5,000 characters and covers genuinely
-distinct domains (e.g., TUI development + database design), split into focused agents.
+- Flag body-placed examples as "missing from description"; that placement is the standard here
+- Report a Jev probability as a finding without reading the lines behind it
+- Rewrite on the strength of the script alone; the script ranks work, the rewrite is yours
+- Strip a fact because it looks like padding before checking it is inferable from general knowledge
+- Add timeline or effort estimates to findings
 
-## Additional Resources
+## Reference Files
 
-### Reference Files
-
-For detailed audit criteria, anti-pattern examples, and rewriting methodology:
-
-- **`references/audit-criteria.md`** — Complete frontmatter checklist, system prompt anti-patterns with before/after examples, quality criteria, color guidelines, and rewriting methodology
+- `references/audit-criteria.md` — frontmatter checklist, anti-patterns with before/after examples,
+  quality criteria, color guidelines, rewriting methodology, manual answering guide
+- `references/question-catalog.json` — the exact judgments, criteria, and thresholds the script sends
+- `scripts/audit-agents.py` — deterministic checks, Jev judgments, routing check, rewrite comparison

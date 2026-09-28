@@ -1,12 +1,14 @@
 {
   "name": "ai-development",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "AI/ML engineering agents and agent development tools including modernization auditing",
   "keywords": [
-    "ai",
-    "ml",
-    "machine-learning",
     "agent",
-    "modernization"
+    "ai",
+    "audit",
+    "machine-learning",
+    "ml",
+    "modernization",
+    "typesafe"
   ]
 }

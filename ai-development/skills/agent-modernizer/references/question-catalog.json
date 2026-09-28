@@ -1,0 +1,241 @@
+{
+  "_about": "Semantic judgments used by the agent-modernizer audit. The script scripts/audit-agents.py sends these to TypeSafe Jev when TYPESAFE_API_KEY is set; without a key, answer each question yourself against the same state, one at a time, citing the lines that decide it. Question keys are for code and are not sent to the model. State shape: {agent: {name, model, description, examples[], body}, known_agents: [names]}.",
+  "model": "jev-latest",
+  "thresholds": {
+    "noul_flag": 0.7,
+    "noul_review": 0.4,
+    "routing_confidence": 0.7
+  },
+  "questions": {
+    "topic_lists": {
+      "type": "noul",
+      "instructions": "Does `agent.body` contain bullet lists whose items only name a topic, technology, or responsibility without stating a decision, default, preference, or boundary for it?",
+      "criteria": {
+        "true": {
+          "what": "One or more lists of short items that name concepts (for example 'Git Flow implementation', 'Connection pooling', 'Error handling') and give no guidance on when to choose or prefer them.",
+          "examples": [
+            "- Branching strategies\n- Merge conflict resolution\n- Release tagging"
+          ]
+        },
+        "false": {
+          "what": "Lists, if any, state what to do, prefer, default to, or avoid.",
+          "examples": [
+            "- Default to trunk-based development; add release branches only when a project ships multiple supported versions."
+          ]
+        }
+      }
+    },
+    "teaches_known": {
+      "type": "noul",
+      "instructions": "Does `agent.body` spend lines listing standard-library functions, well-known APIs, or widely documented practices as facts to know, rather than stating a project-specific rule about them?",
+      "criteria": {
+        "true": {
+          "what": "Inventories such as 'use errors.Is over string comparison', 'prefer io.Reader interfaces', or 'React hooks: useState, useEffect, useMemo' with no rule the model could not infer from general knowledge."
+        },
+        "false": {
+          "what": "Any mention of a library or API comes with a decision, boundary, or project-specific gotcha (for example 'use termenv only on macOS Terminal.app because iTerm mishandles background queries')."
+        }
+      }
+    },
+    "fictional_content": {
+      "type": "noul",
+      "instructions": "Does `agent.body` contain fabricated metrics, fake progress-tracking objects, success-rate claims, or delivery notification scripts that do not come from real data?",
+      "criteria": {
+        "true": {
+          "examples": [
+            "{\"merge_conflicts_reduced\": \"67%\", \"team_satisfaction\": \"4.5/5\"}",
+            "Achieved 4.8/5 developer satisfaction rating."
+          ]
+        },
+        "false": {
+          "what": "No invented numbers or fake status objects; any thresholds stated are rules for the agent to apply, not claimed results."
+        }
+      }
+    },
+    "phantom_refs": {
+      "type": "noul",
+      "instructions": "Does `agent.body` direct the agent to collaborate with, delegate to, hand off to, or consult a specifically named agent, team role, or protocol that is not listed in `known_agents`?",
+      "criteria": {
+        "true": {
+          "what": "Named collaborators such as 'work with security-auditor', 'support release-manager', or an inter-agent message protocol, where that name is absent from `known_agents`."
+        },
+        "false": {
+          "what": "Every named agent appears in `known_agents`, or the body names no other agents at all. Generic phrases like 'coordinate with the user' do not count."
+        }
+      }
+    },
+    "overspecified_output": {
+      "type": "noul",
+      "instructions": "Does `agent.body` prescribe a JSON schema, message envelope, or communication protocol for exchanging data with other agents or systems that the body gives no evidence is actually implemented?",
+      "criteria": {
+        "true": {
+          "examples": [
+            "{\"requesting_agent\": \"cli-developer\", \"request_type\": \"get_cli_context\", \"payload\": {...}}"
+          ]
+        },
+        "false": {
+          "what": "Output guidance describes a human-readable report format (severity levels, tables, file references) or names a real file the agent writes."
+        }
+      }
+    },
+    "duplicate_coverage": {
+      "type": "noul",
+      "instructions": "Does `agent.body` state the same specific rule or piece of guidance twice, in two different places, in equivalent words?",
+      "criteria": {
+        "true": {
+          "what": "A concrete instruction is repeated: the same default, the same prohibition, or the same topic list appears under two headings, or two sections carry the same number and overlapping items.",
+          "examples": [
+            "'Prefer trunk-based branching' stated under both **Defaults** and **Workflow**",
+            "A 'Branching strategies' list under both 'Workflow patterns' and 'Branching best practices'"
+          ]
+        },
+        "false": {
+          "what": "Sections cover different aspects (defaults, numbered process steps, prohibitions, output) even when they mention the same technology. A process step that applies a stated default, or a prohibition that names a distinct mistake, is not a repeat."
+        }
+      }
+    },
+    "mirrored_do_not": {
+      "type": "noul",
+      "instructions": "Does `agent.body` contain a 'Do Not' or prohibition list in which most items are the direct negation of an instruction stated elsewhere in the body, adding no new situation or mistake?",
+      "criteria": {
+        "true": {
+          "what": "Prohibition items that only flip an earlier positive instruction.",
+          "examples": [
+            "Defaults: 'Use structured logging'   Do Not: 'Do not use unstructured logging'",
+            "Process: 'Write tests first'   Do Not: 'Do not write code before tests'"
+          ]
+        },
+        "false": {
+          "what": "Prohibition items name specific mistakes, edge cases, or stop conditions that the positive instructions do not already cover (for example 'Do not wrap components in React.memo without measuring first'), or there is no prohibition list."
+        }
+      }
+    },
+    "distinct_domains": {
+      "type": "noul",
+      "instructions": "Does `agent.body` give substantial guidance for two or more unrelated domains that a user would not normally ask for together (for example terminal UI design and database schema design)?",
+      "criteria": {
+        "true": {
+          "what": "At least two sections each carry their own process, defaults, or boundaries for domains with different users and different triggering requests."
+        },
+        "false": {
+          "what": "All guidance serves one coherent role, even if it touches several technologies in service of that role."
+        }
+      }
+    },
+    "has_role_statement": {
+      "type": "noul",
+      "instructions": "Does `agent.body` open with a one- or two-sentence statement of who the agent is and what it is responsible for, without 'years of experience' padding?",
+      "criteria": {
+        "true": {
+          "examples": [
+            "You are a senior CLI developer who builds command-line tools that start fast and compose well with other programs."
+          ]
+        },
+        "false": {
+          "what": "The body opens with a heading, a list, or a paragraph of credentials ('with 15 years of experience across...') instead of a role and responsibility."
+        }
+      }
+    },
+    "has_boundaries": {
+      "type": "noul",
+      "instructions": "Does `agent.body` state explicit boundaries: things the agent must not do, files or areas it must leave alone, or conditions under which it should stop and report?",
+      "criteria": {
+        "true": {
+          "what": "A 'Do Not' section, or sentences of the form 'never ...', 'leave ... alone', 'stop and ask when ...'."
+        },
+        "false": {
+          "what": "Only positive instructions; no stated limits on scope or behavior."
+        }
+      }
+    },
+    "has_process": {
+      "type": "noul",
+      "instructions": "Does `agent.body` contain a numbered sequence of steps where each step names an action the agent performs when invoked?",
+      "criteria": {
+        "true": {
+          "examples": [
+            "1. Read the failing test and its target code\n2. Reproduce the failure\n3. Fix the root cause\n4. Re-run the suite"
+          ]
+        },
+        "false": {
+          "what": "No numbered steps, or the numbered items name topics ('1. Security', '2. Performance') rather than actions."
+        }
+      }
+    },
+    "has_output_format": {
+      "type": "noul",
+      "instructions": "Does `agent.body` define how results are reported to the user, such as severity levels, a table layout, file and line references, or a named deliverable?",
+      "criteria": {
+        "true": {
+          "examples": [
+            "**Output:** A findings table with severity (Must fix, Should fix, Consider), file path, and line number per finding."
+          ]
+        },
+        "false": {
+          "what": "The body never says what the agent hands back or in what shape."
+        }
+      }
+    },
+    "description_triggering": {
+      "type": "score",
+      "instructions": "Judging only `agent.description`, how well does it tell a router when to select this agent instead of another?",
+      "criteria": [
+        "Summarizes what the agent is or does, with no user requests, situations, or phrasings that indicate when to pick it.",
+        "Names a domain or broad activity (for example 'frontend work' or 'AI features') but no concrete requests, symptoms, or phrasings a user would type.",
+        "Names concrete user requests, situations, or phrasings that should trigger this agent.",
+        "Names concrete triggers and also states what it should not be used for or which sibling agent handles adjacent requests."
+      ]
+    },
+    "guidance_density": {
+      "type": "score",
+      "instructions": "Judging `agent.body`, how much of its content is decisions, defaults, priorities, and boundaries rather than inventories of topics to know?",
+      "criteria": [
+        "Mostly inventories of topics, technologies, or responsibilities; few or no stated preferences, defaults, or boundaries.",
+        "Mixes inventories with some decisions; most sections still list what to know rather than what to choose.",
+        "Mostly decisions, defaults, priorities, and boundaries; a few sections remain inventories.",
+        "Decisions, defaults, boundaries, a process, and an output format throughout, with no topic inventories."
+      ]
+    }
+  },
+  "rewrite_check": {
+    "_about": "Used by audit-agents.py --compare ORIGINAL REWRITTEN. State shape: {original: full text, rewritten: full text}.",
+    "questions": {
+      "drops_domain_knowledge": {
+        "type": "noul",
+        "instructions": "Does `rewritten` omit a project-specific convention, platform gotcha, hard-won workaround, or concrete rule that is present in `original` and that a model could not infer from general knowledge?",
+        "criteria": {
+          "true": {
+            "what": "A specific fact such as a named workaround, a version-specific behavior, a repository convention, or a numeric limit appears in `original` and has no counterpart in `rewritten`."
+          },
+          "false": {
+            "what": "Every non-inferable fact in `original` survives in `rewritten`, possibly reworded; only generic knowledge, padding, or fictional content was removed."
+          }
+        }
+      },
+      "changes_role": {
+        "type": "noul",
+        "instructions": "Does `rewritten` describe an agent with a different responsibility or scope than `original`, rather than the same agent stated more concisely?",
+        "criteria": {
+          "true": {
+            "what": "The rewritten agent handles different requests, a different language or platform, or drops or adds a whole area of responsibility."
+          },
+          "false": {
+            "what": "Same responsibility and scope; only wording, structure, and length changed."
+          }
+        }
+      },
+      "adds_unsupported_claims": {
+        "type": "noul",
+        "instructions": "Does `rewritten` introduce rules, defaults, or facts that are absent from `original` and are not standard, widely documented practice?",
+        "criteria": {
+          "true": {
+            "what": "New numeric limits, tool names, version claims, or project conventions that `original` never stated."
+          },
+          "false": {
+            "what": "Any new sentences restate general best practice or restructure content already in `original`."
+          }
+        }
+      }
+    }
+  }
+}
